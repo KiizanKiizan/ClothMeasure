@@ -9,23 +9,23 @@
 /* Begin PBXBuildFile section */
 		179AF58ADEB158E798ABC378 /* Pods_ClothScanController.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 69DC1F964087C9594024137D /* Pods_ClothScanController.framework */; };
 		FB1605062096058A006CBDDE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB1605052096058A006CBDDE /* AppDelegate.swift */; };
-		FB1605082096058A006CBDDE /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB1605072096058A006CBDDE /* ViewController.swift */; };
-		FB16050B2096058A006CBDDE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FB1605092096058A006CBDDE /* Main.storyboard */; };
 		FB16050D2096058A006CBDDE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FB16050C2096058A006CBDDE /* Assets.xcassets */; };
 		FB1605102096058A006CBDDE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FB16050E2096058A006CBDDE /* LaunchScreen.storyboard */; };
-		FBD4FE4F2097432C00ADC05D /* SocketHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBD4FE4E2097432C00ADC05D /* SocketHandler.swift */; };
-		FBD4FE512097471800ADC05D /* ScanViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBD4FE502097471800ADC05D /* ScanViewController.swift */; };
-		FBD4FE532097472600ADC05D /* ScanViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FBD4FE522097472600ADC05D /* ScanViewController.storyboard */; };
-		FBD4FE5920974A0900ADC05D /* BarcodeReaderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBD4FE5820974A0800ADC05D /* BarcodeReaderViewController.swift */; };
-		FBD4FE5B2097553B00ADC05D /* ScanTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBD4FE5A2097553B00ADC05D /* ScanTableViewCell.swift */; };
-		FBD4FE5D209755ED00ADC05D /* ScanButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBD4FE5C209755ED00ADC05D /* ScanButtonView.swift */; };
-		FBD4FE5F209755FC00ADC05D /* ScanButtonView.xib in Resources */ = {isa = PBXBuildFile; fileRef = FBD4FE5E209755FC00ADC05D /* ScanButtonView.xib */; };
-		FBD4FE6120975DC400ADC05D /* ScanImageData.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBD4FE6020975DC400ADC05D /* ScanImageData.swift */; };
-		FBD4FE632097608400ADC05D /* SendCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBD4FE622097608400ADC05D /* SendCommand.swift */; };
-		FBD4FE652097631600ADC05D /* SocketError.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBD4FE642097631600ADC05D /* SocketError.swift */; };
-		FBEA257D2098A301000AC2FE /* Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBEA257C2098A301000AC2FE /* Request.swift */; };
-		FBEA257F2098A427000AC2FE /* ImageScanRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBEA257E2098A427000AC2FE /* ImageScanRequest.swift */; };
-		FBEA25852098B627000AC2FE /* DataKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBEA25842098B627000AC2FE /* DataKey.swift */; };
+		FB9943412099A0D300996E80 /* SocketError.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB99432A2099A0D300996E80 /* SocketError.swift */; };
+		FB9943422099A0D300996E80 /* SocketHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB99432B2099A0D300996E80 /* SocketHandler.swift */; };
+		FB9943432099A0D300996E80 /* SendCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB99432C2099A0D300996E80 /* SendCommand.swift */; };
+		FB9943442099A0D300996E80 /* Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB99432E2099A0D300996E80 /* Request.swift */; };
+		FB9943452099A0D300996E80 /* ScanImageData.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB99432F2099A0D300996E80 /* ScanImageData.swift */; };
+		FB9943462099A0D300996E80 /* ImageScanRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB9943302099A0D300996E80 /* ImageScanRequest.swift */; };
+		FB9943472099A0D300996E80 /* DataKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB9943312099A0D300996E80 /* DataKey.swift */; };
+		FB9943482099A0D300996E80 /* ScanButtonView.xib in Resources */ = {isa = PBXBuildFile; fileRef = FB9943342099A0D300996E80 /* ScanButtonView.xib */; };
+		FB9943492099A0D300996E80 /* ScanButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB9943352099A0D300996E80 /* ScanButtonView.swift */; };
+		FB99434A2099A0D300996E80 /* ScanTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB9943372099A0D300996E80 /* ScanTableViewCell.swift */; };
+		FB99434B2099A0D300996E80 /* BarcodeReaderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB9943392099A0D300996E80 /* BarcodeReaderViewController.swift */; };
+		FB99434C2099A0D300996E80 /* ScanViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FB99433C2099A0D300996E80 /* ScanViewController.storyboard */; };
+		FB99434D2099A0D300996E80 /* ScanViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB99433D2099A0D300996E80 /* ScanViewController.swift */; };
+		FB99434E2099A0D300996E80 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB99433F2099A0D300996E80 /* ViewController.swift */; };
+		FB99434F2099A0D300996E80 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FB9943402099A0D300996E80 /* Main.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,24 +34,24 @@
 		D0C686350CF2CEDBFCE4B0DA /* Pods-ClothScanController.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ClothScanController.release.xcconfig"; path = "Pods/Target Support Files/Pods-ClothScanController/Pods-ClothScanController.release.xcconfig"; sourceTree = "<group>"; };
 		FB1605022096058A006CBDDE /* ClothScanController.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ClothScanController.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FB1605052096058A006CBDDE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		FB1605072096058A006CBDDE /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		FB16050A2096058A006CBDDE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		FB16050C2096058A006CBDDE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FB16050F2096058A006CBDDE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		FB1605112096058A006CBDDE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		FBD4FE4E2097432C00ADC05D /* SocketHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocketHandler.swift; sourceTree = "<group>"; };
-		FBD4FE502097471800ADC05D /* ScanViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanViewController.swift; sourceTree = "<group>"; };
-		FBD4FE522097472600ADC05D /* ScanViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ScanViewController.storyboard; sourceTree = "<group>"; };
-		FBD4FE5820974A0800ADC05D /* BarcodeReaderViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BarcodeReaderViewController.swift; sourceTree = "<group>"; };
-		FBD4FE5A2097553B00ADC05D /* ScanTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanTableViewCell.swift; sourceTree = "<group>"; };
-		FBD4FE5C209755ED00ADC05D /* ScanButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanButtonView.swift; sourceTree = "<group>"; };
-		FBD4FE5E209755FC00ADC05D /* ScanButtonView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ScanButtonView.xib; sourceTree = "<group>"; };
-		FBD4FE6020975DC400ADC05D /* ScanImageData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanImageData.swift; sourceTree = "<group>"; };
-		FBD4FE622097608400ADC05D /* SendCommand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendCommand.swift; sourceTree = "<group>"; };
-		FBD4FE642097631600ADC05D /* SocketError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocketError.swift; sourceTree = "<group>"; };
-		FBEA257C2098A301000AC2FE /* Request.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Request.swift; sourceTree = "<group>"; };
-		FBEA257E2098A427000AC2FE /* ImageScanRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageScanRequest.swift; sourceTree = "<group>"; };
-		FBEA25842098B627000AC2FE /* DataKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataKey.swift; sourceTree = "<group>"; };
+		FB99432A2099A0D300996E80 /* SocketError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SocketError.swift; sourceTree = "<group>"; };
+		FB99432B2099A0D300996E80 /* SocketHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SocketHandler.swift; sourceTree = "<group>"; };
+		FB99432C2099A0D300996E80 /* SendCommand.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SendCommand.swift; sourceTree = "<group>"; };
+		FB99432E2099A0D300996E80 /* Request.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Request.swift; sourceTree = "<group>"; };
+		FB99432F2099A0D300996E80 /* ScanImageData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScanImageData.swift; sourceTree = "<group>"; };
+		FB9943302099A0D300996E80 /* ImageScanRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageScanRequest.swift; sourceTree = "<group>"; };
+		FB9943312099A0D300996E80 /* DataKey.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataKey.swift; sourceTree = "<group>"; };
+		FB9943342099A0D300996E80 /* ScanButtonView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ScanButtonView.xib; sourceTree = "<group>"; };
+		FB9943352099A0D300996E80 /* ScanButtonView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScanButtonView.swift; sourceTree = "<group>"; };
+		FB9943372099A0D300996E80 /* ScanTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScanTableViewCell.swift; sourceTree = "<group>"; };
+		FB9943392099A0D300996E80 /* BarcodeReaderViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BarcodeReaderViewController.swift; sourceTree = "<group>"; };
+		FB99433C2099A0D300996E80 /* ScanViewController.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ScanViewController.storyboard; sourceTree = "<group>"; };
+		FB99433D2099A0D300996E80 /* ScanViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScanViewController.swift; sourceTree = "<group>"; };
+		FB99433F2099A0D300996E80 /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		FB9943402099A0D300996E80 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -104,27 +104,107 @@
 		FB1605042096058A006CBDDE /* ClothScanController */ = {
 			isa = PBXGroup;
 			children = (
-				FBD4FE622097608400ADC05D /* SendCommand.swift */,
-				FBEA25842098B627000AC2FE /* DataKey.swift */,
-				FBD4FE642097631600ADC05D /* SocketError.swift */,
-				FBD4FE4E2097432C00ADC05D /* SocketHandler.swift */,
-				FBEA257C2098A301000AC2FE /* Request.swift */,
-				FBEA257E2098A427000AC2FE /* ImageScanRequest.swift */,
 				FB1605052096058A006CBDDE /* AppDelegate.swift */,
-				FB1605072096058A006CBDDE /* ViewController.swift */,
-				FB1605092096058A006CBDDE /* Main.storyboard */,
-				FBD4FE502097471800ADC05D /* ScanViewController.swift */,
-				FBD4FE522097472600ADC05D /* ScanViewController.storyboard */,
-				FBD4FE5A2097553B00ADC05D /* ScanTableViewCell.swift */,
-				FBD4FE6020975DC400ADC05D /* ScanImageData.swift */,
-				FBD4FE5C209755ED00ADC05D /* ScanButtonView.swift */,
-				FBD4FE5E209755FC00ADC05D /* ScanButtonView.xib */,
-				FBD4FE5820974A0800ADC05D /* BarcodeReaderViewController.swift */,
 				FB16050C2096058A006CBDDE /* Assets.xcassets */,
 				FB16050E2096058A006CBDDE /* LaunchScreen.storyboard */,
 				FB1605112096058A006CBDDE /* Info.plist */,
+				FB9943282099A0D300996E80 /* Model */,
+				FB9943382099A0D300996E80 /* ViewController */,
+				FB9943322099A0D300996E80 /* View */,
 			);
 			path = ClothScanController;
+			sourceTree = "<group>";
+		};
+		FB9943282099A0D300996E80 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				FB9943292099A0D300996E80 /* Socket */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		FB9943292099A0D300996E80 /* Socket */ = {
+			isa = PBXGroup;
+			children = (
+				FB99432A2099A0D300996E80 /* SocketError.swift */,
+				FB99432B2099A0D300996E80 /* SocketHandler.swift */,
+				FB99432C2099A0D300996E80 /* SendCommand.swift */,
+				FB99432D2099A0D300996E80 /* Request */,
+				FB9943312099A0D300996E80 /* DataKey.swift */,
+			);
+			path = Socket;
+			sourceTree = "<group>";
+		};
+		FB99432D2099A0D300996E80 /* Request */ = {
+			isa = PBXGroup;
+			children = (
+				FB99432E2099A0D300996E80 /* Request.swift */,
+				FB99432F2099A0D300996E80 /* ScanImageData.swift */,
+				FB9943302099A0D300996E80 /* ImageScanRequest.swift */,
+			);
+			path = Request;
+			sourceTree = "<group>";
+		};
+		FB9943322099A0D300996E80 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				FB9943332099A0D300996E80 /* ScanButtonView */,
+				FB9943362099A0D300996E80 /* ScanTableView */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		FB9943332099A0D300996E80 /* ScanButtonView */ = {
+			isa = PBXGroup;
+			children = (
+				FB9943342099A0D300996E80 /* ScanButtonView.xib */,
+				FB9943352099A0D300996E80 /* ScanButtonView.swift */,
+			);
+			path = ScanButtonView;
+			sourceTree = "<group>";
+		};
+		FB9943362099A0D300996E80 /* ScanTableView */ = {
+			isa = PBXGroup;
+			children = (
+				FB9943372099A0D300996E80 /* ScanTableViewCell.swift */,
+			);
+			path = ScanTableView;
+			sourceTree = "<group>";
+		};
+		FB9943382099A0D300996E80 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				FB9943392099A0D300996E80 /* BarcodeReaderViewController.swift */,
+				FB99433A2099A0D300996E80 /* BarcodeReaderViewController */,
+				FB99433B2099A0D300996E80 /* ScanViewController */,
+				FB99433E2099A0D300996E80 /* Main */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		FB99433A2099A0D300996E80 /* BarcodeReaderViewController */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = BarcodeReaderViewController;
+			sourceTree = "<group>";
+		};
+		FB99433B2099A0D300996E80 /* ScanViewController */ = {
+			isa = PBXGroup;
+			children = (
+				FB99433C2099A0D300996E80 /* ScanViewController.storyboard */,
+				FB99433D2099A0D300996E80 /* ScanViewController.swift */,
+			);
+			path = ScanViewController;
+			sourceTree = "<group>";
+		};
+		FB99433E2099A0D300996E80 /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				FB99433F2099A0D300996E80 /* ViewController.swift */,
+				FB9943402099A0D300996E80 /* Main.storyboard */,
+			);
+			path = Main;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -190,11 +270,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FBD4FE532097472600ADC05D /* ScanViewController.storyboard in Resources */,
-				FBD4FE5F209755FC00ADC05D /* ScanButtonView.xib in Resources */,
+				FB99434C2099A0D300996E80 /* ScanViewController.storyboard in Resources */,
+				FB99434F2099A0D300996E80 /* Main.storyboard in Resources */,
 				FB1605102096058A006CBDDE /* LaunchScreen.storyboard in Resources */,
+				FB9943482099A0D300996E80 /* ScanButtonView.xib in Resources */,
 				FB16050D2096058A006CBDDE /* Assets.xcassets in Resources */,
-				FB16050B2096058A006CBDDE /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -259,33 +339,25 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FBD4FE6120975DC400ADC05D /* ScanImageData.swift in Sources */,
-				FBD4FE652097631600ADC05D /* SocketError.swift in Sources */,
-				FBEA257F2098A427000AC2FE /* ImageScanRequest.swift in Sources */,
-				FBD4FE5920974A0900ADC05D /* BarcodeReaderViewController.swift in Sources */,
-				FBD4FE4F2097432C00ADC05D /* SocketHandler.swift in Sources */,
-				FBEA257D2098A301000AC2FE /* Request.swift in Sources */,
-				FB1605082096058A006CBDDE /* ViewController.swift in Sources */,
-				FBD4FE632097608400ADC05D /* SendCommand.swift in Sources */,
-				FBD4FE5D209755ED00ADC05D /* ScanButtonView.swift in Sources */,
-				FBEA25852098B627000AC2FE /* DataKey.swift in Sources */,
+				FB9943492099A0D300996E80 /* ScanButtonView.swift in Sources */,
+				FB9943422099A0D300996E80 /* SocketHandler.swift in Sources */,
+				FB99434A2099A0D300996E80 /* ScanTableViewCell.swift in Sources */,
+				FB9943432099A0D300996E80 /* SendCommand.swift in Sources */,
+				FB9943452099A0D300996E80 /* ScanImageData.swift in Sources */,
+				FB9943472099A0D300996E80 /* DataKey.swift in Sources */,
+				FB99434B2099A0D300996E80 /* BarcodeReaderViewController.swift in Sources */,
+				FB9943442099A0D300996E80 /* Request.swift in Sources */,
+				FB99434E2099A0D300996E80 /* ViewController.swift in Sources */,
 				FB1605062096058A006CBDDE /* AppDelegate.swift in Sources */,
-				FBD4FE5B2097553B00ADC05D /* ScanTableViewCell.swift in Sources */,
-				FBD4FE512097471800ADC05D /* ScanViewController.swift in Sources */,
+				FB9943462099A0D300996E80 /* ImageScanRequest.swift in Sources */,
+				FB9943412099A0D300996E80 /* SocketError.swift in Sources */,
+				FB99434D2099A0D300996E80 /* ScanViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		FB1605092096058A006CBDDE /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				FB16050A2096058A006CBDDE /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		FB16050E2096058A006CBDDE /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -411,11 +483,11 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = N3Z3SM9BU4;
+				DEVELOPMENT_TEAM = L3KVSF9U8Y;
 				INFOPLIST_FILE = ClothScanController/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "jp.co.kiizan-kiizan.ClothScanController";
+				PRODUCT_BUNDLE_IDENTIFIER = jp.co.kiizankiizan.ClothScanController;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_INSTALL_OBJC_HEADER = NO;
 				SWIFT_OBJC_BRIDGING_HEADER = "";
@@ -433,11 +505,11 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = N3Z3SM9BU4;
+				DEVELOPMENT_TEAM = L3KVSF9U8Y;
 				INFOPLIST_FILE = ClothScanController/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "jp.co.kiizan-kiizan.ClothScanController";
+				PRODUCT_BUNDLE_IDENTIFIER = jp.co.kiizankiizan.ClothScanController;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_INSTALL_OBJC_HEADER = NO;
 				SWIFT_OBJC_BRIDGING_HEADER = "";
