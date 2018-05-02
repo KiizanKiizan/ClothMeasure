@@ -1,0 +1,456 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 48;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		D47BA78FC01236A6842FA6C4 /* Pods_ClothScanner.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C0B48F4BBAD97F671D0A80E2 /* Pods_ClothScanner.framework */; };
+		FB1604E82096053A006CBDDE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB1604E72096053A006CBDDE /* AppDelegate.swift */; };
+		FB1604EA2096053A006CBDDE /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB1604E92096053A006CBDDE /* ViewController.swift */; };
+		FB1604ED2096053A006CBDDE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FB1604EB2096053A006CBDDE /* Main.storyboard */; };
+		FB1604EF2096053A006CBDDE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FB1604EE2096053A006CBDDE /* Assets.xcassets */; };
+		FB1604F22096053A006CBDDE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FB1604F02096053A006CBDDE /* LaunchScreen.storyboard */; };
+		FB16051820961077006CBDDE /* SocketHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB16051720961077006CBDDE /* SocketHandler.swift */; };
+		FBD4FE492097401200ADC05D /* IPAddress.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBD4FE482097401200ADC05D /* IPAddress.swift */; };
+		FBD4FE552097488300ADC05D /* ScannerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBD4FE542097488300ADC05D /* ScannerViewController.swift */; };
+		FBD4FE572097489000ADC05D /* ScannerViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FBD4FE562097489000ADC05D /* ScannerViewController.storyboard */; };
+		FBD4FE672097672000ADC05D /* RecieveCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBD4FE662097672000ADC05D /* RecieveCommand.swift */; };
+		FBD4FE6B2097693A00ADC05D /* SocketError.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBD4FE6A2097693A00ADC05D /* SocketError.swift */; };
+		FBEA25812098ACD0000AC2FE /* Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBEA25802098ACD0000AC2FE /* Request.swift */; };
+		FBEA25832098ACE8000AC2FE /* SendImageRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBEA25822098ACE8000AC2FE /* SendImageRequest.swift */; };
+		FBEA25872098B674000AC2FE /* DataKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBEA25862098B674000AC2FE /* DataKey.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		34C0A31CA8596B98E6F7CB16 /* Pods-ClothScanner.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ClothScanner.release.xcconfig"; path = "Pods/Target Support Files/Pods-ClothScanner/Pods-ClothScanner.release.xcconfig"; sourceTree = "<group>"; };
+		590530B5D8E5902442E89570 /* Pods-ClothScanner.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ClothScanner.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ClothScanner/Pods-ClothScanner.debug.xcconfig"; sourceTree = "<group>"; };
+		C0B48F4BBAD97F671D0A80E2 /* Pods_ClothScanner.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ClothScanner.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		FB1604E420960539006CBDDE /* ClothScanner.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ClothScanner.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		FB1604E72096053A006CBDDE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		FB1604E92096053A006CBDDE /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		FB1604EC2096053A006CBDDE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		FB1604EE2096053A006CBDDE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		FB1604F12096053A006CBDDE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		FB1604F32096053A006CBDDE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FB16051720961077006CBDDE /* SocketHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocketHandler.swift; sourceTree = "<group>"; };
+		FBD4FE482097401200ADC05D /* IPAddress.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IPAddress.swift; sourceTree = "<group>"; };
+		FBD4FE4A2097402000ADC05D /* ClothScanner-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ClothScanner-Bridging-Header.h"; sourceTree = "<group>"; };
+		FBD4FE542097488300ADC05D /* ScannerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScannerViewController.swift; sourceTree = "<group>"; };
+		FBD4FE562097489000ADC05D /* ScannerViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ScannerViewController.storyboard; sourceTree = "<group>"; };
+		FBD4FE662097672000ADC05D /* RecieveCommand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecieveCommand.swift; sourceTree = "<group>"; };
+		FBD4FE6A2097693A00ADC05D /* SocketError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocketError.swift; sourceTree = "<group>"; };
+		FBEA25802098ACD0000AC2FE /* Request.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Request.swift; sourceTree = "<group>"; };
+		FBEA25822098ACE8000AC2FE /* SendImageRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendImageRequest.swift; sourceTree = "<group>"; };
+		FBEA25862098B674000AC2FE /* DataKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataKey.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		FB1604E120960539006CBDDE /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D47BA78FC01236A6842FA6C4 /* Pods_ClothScanner.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		00F024430D69FFA364A2657D /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				C0B48F4BBAD97F671D0A80E2 /* Pods_ClothScanner.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		4DDA2E1110310124D74C6669 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				590530B5D8E5902442E89570 /* Pods-ClothScanner.debug.xcconfig */,
+				34C0A31CA8596B98E6F7CB16 /* Pods-ClothScanner.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		FB1604DB20960539006CBDDE = {
+			isa = PBXGroup;
+			children = (
+				FB1604E62096053A006CBDDE /* ClothScanner */,
+				FB1604E520960539006CBDDE /* Products */,
+				4DDA2E1110310124D74C6669 /* Pods */,
+				00F024430D69FFA364A2657D /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		FB1604E520960539006CBDDE /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				FB1604E420960539006CBDDE /* ClothScanner.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		FB1604E62096053A006CBDDE /* ClothScanner */ = {
+			isa = PBXGroup;
+			children = (
+				FBD4FE662097672000ADC05D /* RecieveCommand.swift */,
+				FBEA25862098B674000AC2FE /* DataKey.swift */,
+				FBD4FE6A2097693A00ADC05D /* SocketError.swift */,
+				FBEA25802098ACD0000AC2FE /* Request.swift */,
+				FBEA25822098ACE8000AC2FE /* SendImageRequest.swift */,
+				FBD4FE4A2097402000ADC05D /* ClothScanner-Bridging-Header.h */,
+				FBD4FE482097401200ADC05D /* IPAddress.swift */,
+				FB1604E72096053A006CBDDE /* AppDelegate.swift */,
+				FB1604E92096053A006CBDDE /* ViewController.swift */,
+				FB16051720961077006CBDDE /* SocketHandler.swift */,
+				FB1604EB2096053A006CBDDE /* Main.storyboard */,
+				FBD4FE542097488300ADC05D /* ScannerViewController.swift */,
+				FBD4FE562097489000ADC05D /* ScannerViewController.storyboard */,
+				FB1604EE2096053A006CBDDE /* Assets.xcassets */,
+				FB1604F02096053A006CBDDE /* LaunchScreen.storyboard */,
+				FB1604F32096053A006CBDDE /* Info.plist */,
+			);
+			path = ClothScanner;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		FB1604E320960539006CBDDE /* ClothScanner */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FB1604F62096053A006CBDDE /* Build configuration list for PBXNativeTarget "ClothScanner" */;
+			buildPhases = (
+				22A095EE66A1274C895D86CA /* [CP] Check Pods Manifest.lock */,
+				FB1604E020960539006CBDDE /* Sources */,
+				FB1604E120960539006CBDDE /* Frameworks */,
+				FB1604E220960539006CBDDE /* Resources */,
+				CE0065D635BB6AC750D1855E /* [CP] Embed Pods Frameworks */,
+				791F948FBF8F9916ADA0D4A9 /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = ClothScanner;
+			productName = ClothScanner;
+			productReference = FB1604E420960539006CBDDE /* ClothScanner.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		FB1604DC20960539006CBDDE /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0920;
+				LastUpgradeCheck = 0920;
+				ORGANIZATIONNAME = "kiizan-kiizan";
+				TargetAttributes = {
+					FB1604E320960539006CBDDE = {
+						CreatedOnToolsVersion = 9.2;
+						LastSwiftMigration = 0920;
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = FB1604DF20960539006CBDDE /* Build configuration list for PBXProject "ClothScanner" */;
+			compatibilityVersion = "Xcode 8.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = FB1604DB20960539006CBDDE;
+			productRefGroup = FB1604E520960539006CBDDE /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				FB1604E320960539006CBDDE /* ClothScanner */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		FB1604E220960539006CBDDE /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FBD4FE572097489000ADC05D /* ScannerViewController.storyboard in Resources */,
+				FB1604F22096053A006CBDDE /* LaunchScreen.storyboard in Resources */,
+				FB1604EF2096053A006CBDDE /* Assets.xcassets in Resources */,
+				FB1604ED2096053A006CBDDE /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		22A095EE66A1274C895D86CA /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-ClothScanner-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		791F948FBF8F9916ADA0D4A9 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ClothScanner/Pods-ClothScanner-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		CE0065D635BB6AC750D1855E /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-ClothScanner/Pods-ClothScanner-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/CocoaAsyncSocket/CocoaAsyncSocket.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CocoaAsyncSocket.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ClothScanner/Pods-ClothScanner-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		FB1604E020960539006CBDDE /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FB1604EA2096053A006CBDDE /* ViewController.swift in Sources */,
+				FBD4FE492097401200ADC05D /* IPAddress.swift in Sources */,
+				FBEA25832098ACE8000AC2FE /* SendImageRequest.swift in Sources */,
+				FBEA25872098B674000AC2FE /* DataKey.swift in Sources */,
+				FB16051820961077006CBDDE /* SocketHandler.swift in Sources */,
+				FBD4FE672097672000ADC05D /* RecieveCommand.swift in Sources */,
+				FBD4FE552097488300ADC05D /* ScannerViewController.swift in Sources */,
+				FB1604E82096053A006CBDDE /* AppDelegate.swift in Sources */,
+				FBEA25812098ACD0000AC2FE /* Request.swift in Sources */,
+				FBD4FE6B2097693A00ADC05D /* SocketError.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		FB1604EB2096053A006CBDDE /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				FB1604EC2096053A006CBDDE /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		FB1604F02096053A006CBDDE /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				FB1604F12096053A006CBDDE /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		FB1604F42096053A006CBDDE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		FB1604F52096053A006CBDDE /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		FB1604F72096053A006CBDDE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 590530B5D8E5902442E89570 /* Pods-ClothScanner.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = L3KVSF9U8Y;
+				INFOPLIST_FILE = ClothScanner/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "jp.co.kiizan-kiizan.ClothScanner";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "ClothScanner/ClothScanner-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		FB1604F82096053A006CBDDE /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 34C0A31CA8596B98E6F7CB16 /* Pods-ClothScanner.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = L3KVSF9U8Y;
+				INFOPLIST_FILE = ClothScanner/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "jp.co.kiizan-kiizan.ClothScanner";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "ClothScanner/ClothScanner-Bridging-Header.h";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		FB1604DF20960539006CBDDE /* Build configuration list for PBXProject "ClothScanner" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FB1604F42096053A006CBDDE /* Debug */,
+				FB1604F52096053A006CBDDE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		FB1604F62096053A006CBDDE /* Build configuration list for PBXNativeTarget "ClothScanner" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FB1604F72096053A006CBDDE /* Debug */,
+				FB1604F82096053A006CBDDE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = FB1604DC20960539006CBDDE /* Project object */;
+}
