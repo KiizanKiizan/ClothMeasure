@@ -9,19 +9,19 @@
 /* Begin PBXBuildFile section */
 		D47BA78FC01236A6842FA6C4 /* Pods_ClothScanner.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C0B48F4BBAD97F671D0A80E2 /* Pods_ClothScanner.framework */; };
 		FB1604E82096053A006CBDDE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB1604E72096053A006CBDDE /* AppDelegate.swift */; };
-		FB1604EA2096053A006CBDDE /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB1604E92096053A006CBDDE /* ViewController.swift */; };
-		FB1604ED2096053A006CBDDE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FB1604EB2096053A006CBDDE /* Main.storyboard */; };
 		FB1604EF2096053A006CBDDE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FB1604EE2096053A006CBDDE /* Assets.xcassets */; };
 		FB1604F22096053A006CBDDE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FB1604F02096053A006CBDDE /* LaunchScreen.storyboard */; };
-		FB16051820961077006CBDDE /* SocketHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB16051720961077006CBDDE /* SocketHandler.swift */; };
-		FBD4FE492097401200ADC05D /* IPAddress.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBD4FE482097401200ADC05D /* IPAddress.swift */; };
-		FBD4FE552097488300ADC05D /* ScannerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBD4FE542097488300ADC05D /* ScannerViewController.swift */; };
-		FBD4FE572097489000ADC05D /* ScannerViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FBD4FE562097489000ADC05D /* ScannerViewController.storyboard */; };
-		FBD4FE672097672000ADC05D /* RecieveCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBD4FE662097672000ADC05D /* RecieveCommand.swift */; };
-		FBD4FE6B2097693A00ADC05D /* SocketError.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBD4FE6A2097693A00ADC05D /* SocketError.swift */; };
-		FBEA25812098ACD0000AC2FE /* Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBEA25802098ACD0000AC2FE /* Request.swift */; };
-		FBEA25832098ACE8000AC2FE /* SendImageRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBEA25822098ACE8000AC2FE /* SendImageRequest.swift */; };
-		FBEA25872098B674000AC2FE /* DataKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBEA25862098B674000AC2FE /* DataKey.swift */; };
+		FBFE294120999C1E00957E8D /* IPAddress.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBFE293120999C1E00957E8D /* IPAddress.swift */; };
+		FBFE294220999C1E00957E8D /* SocketError.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBFE293320999C1E00957E8D /* SocketError.swift */; };
+		FBFE294320999C1E00957E8D /* SocketHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBFE293420999C1E00957E8D /* SocketHandler.swift */; };
+		FBFE294420999C1E00957E8D /* Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBFE293620999C1E00957E8D /* Request.swift */; };
+		FBFE294520999C1E00957E8D /* SendImageRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBFE293720999C1E00957E8D /* SendImageRequest.swift */; };
+		FBFE294620999C1E00957E8D /* RecieveCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBFE293820999C1E00957E8D /* RecieveCommand.swift */; };
+		FBFE294720999C1E00957E8D /* DataKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBFE293920999C1E00957E8D /* DataKey.swift */; };
+		FBFE294820999C1E00957E8D /* ScannerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBFE293C20999C1E00957E8D /* ScannerViewController.swift */; };
+		FBFE294920999C1E00957E8D /* ScannerViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FBFE293D20999C1E00957E8D /* ScannerViewController.storyboard */; };
+		FBFE294A20999C1E00957E8D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBFE293F20999C1E00957E8D /* ViewController.swift */; };
+		FBFE294B20999C1E00957E8D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FBFE294020999C1E00957E8D /* Main.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,21 +30,21 @@
 		C0B48F4BBAD97F671D0A80E2 /* Pods_ClothScanner.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ClothScanner.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FB1604E420960539006CBDDE /* ClothScanner.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ClothScanner.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FB1604E72096053A006CBDDE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		FB1604E92096053A006CBDDE /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		FB1604EC2096053A006CBDDE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		FB1604EE2096053A006CBDDE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FB1604F12096053A006CBDDE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		FB1604F32096053A006CBDDE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		FB16051720961077006CBDDE /* SocketHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocketHandler.swift; sourceTree = "<group>"; };
-		FBD4FE482097401200ADC05D /* IPAddress.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IPAddress.swift; sourceTree = "<group>"; };
 		FBD4FE4A2097402000ADC05D /* ClothScanner-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ClothScanner-Bridging-Header.h"; sourceTree = "<group>"; };
-		FBD4FE542097488300ADC05D /* ScannerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScannerViewController.swift; sourceTree = "<group>"; };
-		FBD4FE562097489000ADC05D /* ScannerViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ScannerViewController.storyboard; sourceTree = "<group>"; };
-		FBD4FE662097672000ADC05D /* RecieveCommand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecieveCommand.swift; sourceTree = "<group>"; };
-		FBD4FE6A2097693A00ADC05D /* SocketError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocketError.swift; sourceTree = "<group>"; };
-		FBEA25802098ACD0000AC2FE /* Request.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Request.swift; sourceTree = "<group>"; };
-		FBEA25822098ACE8000AC2FE /* SendImageRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendImageRequest.swift; sourceTree = "<group>"; };
-		FBEA25862098B674000AC2FE /* DataKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataKey.swift; sourceTree = "<group>"; };
+		FBFE293120999C1E00957E8D /* IPAddress.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IPAddress.swift; sourceTree = "<group>"; };
+		FBFE293320999C1E00957E8D /* SocketError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SocketError.swift; sourceTree = "<group>"; };
+		FBFE293420999C1E00957E8D /* SocketHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SocketHandler.swift; sourceTree = "<group>"; };
+		FBFE293620999C1E00957E8D /* Request.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Request.swift; sourceTree = "<group>"; };
+		FBFE293720999C1E00957E8D /* SendImageRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SendImageRequest.swift; sourceTree = "<group>"; };
+		FBFE293820999C1E00957E8D /* RecieveCommand.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecieveCommand.swift; sourceTree = "<group>"; };
+		FBFE293920999C1E00957E8D /* DataKey.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataKey.swift; sourceTree = "<group>"; };
+		FBFE293C20999C1E00957E8D /* ScannerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScannerViewController.swift; sourceTree = "<group>"; };
+		FBFE293D20999C1E00957E8D /* ScannerViewController.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ScannerViewController.storyboard; sourceTree = "<group>"; };
+		FBFE293F20999C1E00957E8D /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		FBFE294020999C1E00957E8D /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,24 +97,72 @@
 		FB1604E62096053A006CBDDE /* ClothScanner */ = {
 			isa = PBXGroup;
 			children = (
-				FBD4FE662097672000ADC05D /* RecieveCommand.swift */,
-				FBEA25862098B674000AC2FE /* DataKey.swift */,
-				FBD4FE6A2097693A00ADC05D /* SocketError.swift */,
-				FBEA25802098ACD0000AC2FE /* Request.swift */,
-				FBEA25822098ACE8000AC2FE /* SendImageRequest.swift */,
 				FBD4FE4A2097402000ADC05D /* ClothScanner-Bridging-Header.h */,
-				FBD4FE482097401200ADC05D /* IPAddress.swift */,
 				FB1604E72096053A006CBDDE /* AppDelegate.swift */,
-				FB1604E92096053A006CBDDE /* ViewController.swift */,
-				FB16051720961077006CBDDE /* SocketHandler.swift */,
-				FB1604EB2096053A006CBDDE /* Main.storyboard */,
-				FBD4FE542097488300ADC05D /* ScannerViewController.swift */,
-				FBD4FE562097489000ADC05D /* ScannerViewController.storyboard */,
 				FB1604EE2096053A006CBDDE /* Assets.xcassets */,
 				FB1604F02096053A006CBDDE /* LaunchScreen.storyboard */,
 				FB1604F32096053A006CBDDE /* Info.plist */,
+				FBFE293020999C1E00957E8D /* Model */,
+				FBFE293A20999C1E00957E8D /* ViewController */,
 			);
 			path = ClothScanner;
+			sourceTree = "<group>";
+		};
+		FBFE293020999C1E00957E8D /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				FBFE293120999C1E00957E8D /* IPAddress.swift */,
+				FBFE293220999C1E00957E8D /* Socket */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		FBFE293220999C1E00957E8D /* Socket */ = {
+			isa = PBXGroup;
+			children = (
+				FBFE293320999C1E00957E8D /* SocketError.swift */,
+				FBFE293420999C1E00957E8D /* SocketHandler.swift */,
+				FBFE293820999C1E00957E8D /* RecieveCommand.swift */,
+				FBFE293920999C1E00957E8D /* DataKey.swift */,
+				FBFE293520999C1E00957E8D /* Request */,
+			);
+			path = Socket;
+			sourceTree = "<group>";
+		};
+		FBFE293520999C1E00957E8D /* Request */ = {
+			isa = PBXGroup;
+			children = (
+				FBFE293620999C1E00957E8D /* Request.swift */,
+				FBFE293720999C1E00957E8D /* SendImageRequest.swift */,
+			);
+			path = Request;
+			sourceTree = "<group>";
+		};
+		FBFE293A20999C1E00957E8D /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				FBFE293E20999C1E00957E8D /* Main */,
+				FBFE293B20999C1E00957E8D /* ScannerViewController */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		FBFE293B20999C1E00957E8D /* ScannerViewController */ = {
+			isa = PBXGroup;
+			children = (
+				FBFE293C20999C1E00957E8D /* ScannerViewController.swift */,
+				FBFE293D20999C1E00957E8D /* ScannerViewController.storyboard */,
+			);
+			path = ScannerViewController;
+			sourceTree = "<group>";
+		};
+		FBFE293E20999C1E00957E8D /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				FBFE293F20999C1E00957E8D /* ViewController.swift */,
+				FBFE294020999C1E00957E8D /* Main.storyboard */,
+			);
+			path = Main;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -180,10 +228,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FBD4FE572097489000ADC05D /* ScannerViewController.storyboard in Resources */,
 				FB1604F22096053A006CBDDE /* LaunchScreen.storyboard in Resources */,
 				FB1604EF2096053A006CBDDE /* Assets.xcassets in Resources */,
-				FB1604ED2096053A006CBDDE /* Main.storyboard in Resources */,
+				FBFE294920999C1E00957E8D /* ScannerViewController.storyboard in Resources */,
+				FBFE294B20999C1E00957E8D /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -248,30 +296,22 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FB1604EA2096053A006CBDDE /* ViewController.swift in Sources */,
-				FBD4FE492097401200ADC05D /* IPAddress.swift in Sources */,
-				FBEA25832098ACE8000AC2FE /* SendImageRequest.swift in Sources */,
-				FBEA25872098B674000AC2FE /* DataKey.swift in Sources */,
-				FB16051820961077006CBDDE /* SocketHandler.swift in Sources */,
-				FBD4FE672097672000ADC05D /* RecieveCommand.swift in Sources */,
-				FBD4FE552097488300ADC05D /* ScannerViewController.swift in Sources */,
+				FBFE294A20999C1E00957E8D /* ViewController.swift in Sources */,
+				FBFE294220999C1E00957E8D /* SocketError.swift in Sources */,
+				FBFE294320999C1E00957E8D /* SocketHandler.swift in Sources */,
+				FBFE294620999C1E00957E8D /* RecieveCommand.swift in Sources */,
+				FBFE294720999C1E00957E8D /* DataKey.swift in Sources */,
+				FBFE294820999C1E00957E8D /* ScannerViewController.swift in Sources */,
+				FBFE294420999C1E00957E8D /* Request.swift in Sources */,
+				FBFE294520999C1E00957E8D /* SendImageRequest.swift in Sources */,
 				FB1604E82096053A006CBDDE /* AppDelegate.swift in Sources */,
-				FBEA25812098ACD0000AC2FE /* Request.swift in Sources */,
-				FBD4FE6B2097693A00ADC05D /* SocketError.swift in Sources */,
+				FBFE294120999C1E00957E8D /* IPAddress.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		FB1604EB2096053A006CBDDE /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				FB1604EC2096053A006CBDDE /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		FB1604F02096053A006CBDDE /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -397,11 +437,11 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = N3Z3SM9BU4;
+				DEVELOPMENT_TEAM = L3KVSF9U8Y;
 				INFOPLIST_FILE = ClothScanner/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "jp.co.kiizan-kiizan.ClothScanner";
+				PRODUCT_BUNDLE_IDENTIFIER = jp.co.kiizankiizan.ClothScanner;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "ClothScanner/ClothScanner-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -417,11 +457,11 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = N3Z3SM9BU4;
+				DEVELOPMENT_TEAM = L3KVSF9U8Y;
 				INFOPLIST_FILE = ClothScanner/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "jp.co.kiizan-kiizan.ClothScanner";
+				PRODUCT_BUNDLE_IDENTIFIER = jp.co.kiizankiizan.ClothScanner;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "ClothScanner/ClothScanner-Bridging-Header.h";
 				SWIFT_VERSION = 4.0;
