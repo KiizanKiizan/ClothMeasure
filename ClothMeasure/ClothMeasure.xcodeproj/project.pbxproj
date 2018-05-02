@@ -8,9 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		C0D881E1F2BC703D294A1A4A /* Pods_ClothMeasure.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B8DB95C0882CD2398DC9F757 /* Pods_ClothMeasure.framework */; };
+		FB0061DF209A003D008B73CB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FB0061DD209A003D008B73CB /* Main.storyboard */; };
+		FB0061E0209A003D008B73CB /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB0061DE209A003D008B73CB /* ViewController.swift */; };
 		FBB5BD7C20921417001313E0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBB5BD7B20921417001313E0 /* AppDelegate.swift */; };
-		FBB5BD7E20921417001313E0 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBB5BD7D20921417001313E0 /* ViewController.swift */; };
-		FBB5BD8120921417001313E0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FBB5BD7F20921417001313E0 /* Main.storyboard */; };
 		FBB5BD8320921417001313E0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FBB5BD8220921417001313E0 /* Assets.xcassets */; };
 		FBB5BD8620921417001313E0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FBB5BD8420921417001313E0 /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
@@ -19,10 +19,10 @@
 		27F7060B9E12DF8271C7D40A /* Pods-ClothMeasure.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ClothMeasure.release.xcconfig"; path = "Pods/Target Support Files/Pods-ClothMeasure/Pods-ClothMeasure.release.xcconfig"; sourceTree = "<group>"; };
 		953FE9907491EADDC0CFED74 /* Pods-ClothMeasure.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ClothMeasure.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ClothMeasure/Pods-ClothMeasure.debug.xcconfig"; sourceTree = "<group>"; };
 		B8DB95C0882CD2398DC9F757 /* Pods_ClothMeasure.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ClothMeasure.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		FB0061DD209A003D008B73CB /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		FB0061DE209A003D008B73CB /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		FBB5BD7820921417001313E0 /* ClothMeasure.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ClothMeasure.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FBB5BD7B20921417001313E0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		FBB5BD7D20921417001313E0 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		FBB5BD8020921417001313E0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		FBB5BD8220921417001313E0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FBB5BD8520921417001313E0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		FBB5BD8720921417001313E0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -47,6 +47,15 @@
 				27F7060B9E12DF8271C7D40A /* Pods-ClothMeasure.release.xcconfig */,
 			);
 			name = Pods;
+			sourceTree = "<group>";
+		};
+		FB0061DC209A0020008B73CB /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				FB0061DD209A003D008B73CB /* Main.storyboard */,
+				FB0061DE209A003D008B73CB /* ViewController.swift */,
+			);
+			path = ViewController;
 			sourceTree = "<group>";
 		};
 		FB34D88598F304A92622BE5B /* Frameworks */ = {
@@ -79,11 +88,10 @@
 			isa = PBXGroup;
 			children = (
 				FBB5BD7B20921417001313E0 /* AppDelegate.swift */,
-				FBB5BD7D20921417001313E0 /* ViewController.swift */,
-				FBB5BD7F20921417001313E0 /* Main.storyboard */,
 				FBB5BD8220921417001313E0 /* Assets.xcassets */,
 				FBB5BD8420921417001313E0 /* LaunchScreen.storyboard */,
 				FBB5BD8720921417001313E0 /* Info.plist */,
+				FB0061DC209A0020008B73CB /* ViewController */,
 			);
 			path = ClothMeasure;
 			sourceTree = "<group>";
@@ -150,9 +158,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FB0061DF209A003D008B73CB /* Main.storyboard in Resources */,
 				FBB5BD8620921417001313E0 /* LaunchScreen.storyboard in Resources */,
 				FBB5BD8320921417001313E0 /* Assets.xcassets in Resources */,
-				FBB5BD8120921417001313E0 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -217,7 +225,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FBB5BD7E20921417001313E0 /* ViewController.swift in Sources */,
+				FB0061E0209A003D008B73CB /* ViewController.swift in Sources */,
 				FBB5BD7C20921417001313E0 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -225,14 +233,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		FBB5BD7F20921417001313E0 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				FBB5BD8020921417001313E0 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		FBB5BD8420921417001313E0 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
