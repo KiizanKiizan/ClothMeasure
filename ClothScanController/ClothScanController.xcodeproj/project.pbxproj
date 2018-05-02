@@ -26,6 +26,7 @@
 		FB99434D2099A0D300996E80 /* ScanViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB99433D2099A0D300996E80 /* ScanViewController.swift */; };
 		FB99434E2099A0D300996E80 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB99433F2099A0D300996E80 /* ViewController.swift */; };
 		FB99434F2099A0D300996E80 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FB9943402099A0D300996E80 /* Main.storyboard */; };
+		FB9943512099A22600996E80 /* IPAddress.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB9943502099A22600996E80 /* IPAddress.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -52,6 +53,8 @@
 		FB99433D2099A0D300996E80 /* ScanViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScanViewController.swift; sourceTree = "<group>"; };
 		FB99433F2099A0D300996E80 /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		FB9943402099A0D300996E80 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		FB9943502099A22600996E80 /* IPAddress.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IPAddress.swift; sourceTree = "<group>"; };
+		FB9943522099A23900996E80 /* ClothScanController-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ClothScanController-Bridging-Header.h"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,6 +108,7 @@
 			isa = PBXGroup;
 			children = (
 				FB1605052096058A006CBDDE /* AppDelegate.swift */,
+				FB9943522099A23900996E80 /* ClothScanController-Bridging-Header.h */,
 				FB16050C2096058A006CBDDE /* Assets.xcassets */,
 				FB16050E2096058A006CBDDE /* LaunchScreen.storyboard */,
 				FB1605112096058A006CBDDE /* Info.plist */,
@@ -118,6 +122,7 @@
 		FB9943282099A0D300996E80 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				FB9943502099A22600996E80 /* IPAddress.swift */,
 				FB9943292099A0D300996E80 /* Socket */,
 			);
 			path = Model;
@@ -126,10 +131,10 @@
 		FB9943292099A0D300996E80 /* Socket */ = {
 			isa = PBXGroup;
 			children = (
+				FB99432D2099A0D300996E80 /* Request */,
 				FB99432A2099A0D300996E80 /* SocketError.swift */,
 				FB99432B2099A0D300996E80 /* SocketHandler.swift */,
 				FB99432C2099A0D300996E80 /* SendCommand.swift */,
-				FB99432D2099A0D300996E80 /* Request */,
 				FB9943312099A0D300996E80 /* DataKey.swift */,
 			);
 			path = Socket;
@@ -348,6 +353,7 @@
 				FB99434B2099A0D300996E80 /* BarcodeReaderViewController.swift in Sources */,
 				FB9943442099A0D300996E80 /* Request.swift in Sources */,
 				FB99434E2099A0D300996E80 /* ViewController.swift in Sources */,
+				FB9943512099A22600996E80 /* IPAddress.swift in Sources */,
 				FB1605062096058A006CBDDE /* AppDelegate.swift in Sources */,
 				FB9943462099A0D300996E80 /* ImageScanRequest.swift in Sources */,
 				FB9943412099A0D300996E80 /* SocketError.swift in Sources */,
@@ -490,7 +496,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = jp.co.kiizankiizan.ClothScanController;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_INSTALL_OBJC_HEADER = NO;
-				SWIFT_OBJC_BRIDGING_HEADER = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "ClothScanController/ClothScanController-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_PRECOMPILE_BRIDGING_HEADER = NO;
 				SWIFT_VERSION = 4.0;
@@ -512,7 +518,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = jp.co.kiizankiizan.ClothScanController;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_INSTALL_OBJC_HEADER = NO;
-				SWIFT_OBJC_BRIDGING_HEADER = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "ClothScanController/ClothScanController-Bridging-Header.h";
 				SWIFT_PRECOMPILE_BRIDGING_HEADER = NO;
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

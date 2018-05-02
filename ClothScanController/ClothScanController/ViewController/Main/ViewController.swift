@@ -10,33 +10,17 @@ import UIKit
 
 class ViewController: UIViewController, UITextFieldDelegate, SocketHandlerDelegate {
 
-    @IBOutlet weak var ipAddressTextField: UITextField!
+    @IBOutlet weak var ipAddressLabel: UILabel!
     
     let socketHandler = SocketHandler()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        ipAddressTextField.delegate = self
+        ipAddressLabel.text = IPAddress.getWiFiAddress()
+        
         socketHandler.delegate = self
-        ipAddressTextField.text = socketHandler.previousHost
-    }
-    
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        view.endEditing(true)
-        return true
-    }
-    
-    func textFieldDidEndEditing(_ textField: UITextField) {
-        guard let ip = textField.text else {
-            return
-        }
-        
-        if ip.isEmpty {
-            return
-        }
-        
-        socketHandler.connect(ipAddress: ip)
+        socketHandler.start()
     }
     
     func socketHandlerDidConnect(_ handler: SocketHandler) {

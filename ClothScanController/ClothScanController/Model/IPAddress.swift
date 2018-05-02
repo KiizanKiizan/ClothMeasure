@@ -2,7 +2,7 @@
 //  IPAddress.swift
 //  ClothScanController
 //
-//  Created by 岩井 宏晃 on 2018/04/30.
+//  Created by 岩井宏晃 on 2018/05/02.
 //  Copyright © 2018年 kiizan-kiizan. All rights reserved.
 //
 
@@ -23,7 +23,7 @@ class IPAddress {
             
             // Check for IPv4 or IPv6 interface:
             let addrFamily = interface.ifa_addr.pointee.sa_family
-            if addrFamily == UInt8(AF_INET) || addrFamily == UInt8(AF_INET6) {
+            if addrFamily == UInt8(AF_INET) {
                 
                 // Check interface name:
                 let name = String(cString: interface.ifa_name)

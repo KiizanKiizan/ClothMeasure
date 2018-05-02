@@ -14,11 +14,10 @@ protocol SocketHandlerDelegate: class {
 }
 
 class SocketHandler: NSObject, GCDAsyncSocketDelegate, RequestDelegate {
-    private static let previousHostKey = "previousHostKey"
-    
-    private let toSocket = GCDAsyncSocket()
+    private(set) var isStarted = false
+    private let listenSocket = GCDAsyncSocket()
+    private var connectedSocket: GCDAsyncSocket?
     weak var delegate: SocketHandlerDelegate?
-    private(set) var previousHost = ""
     var busy: Bool {
         get {
             return request != nil
@@ -29,14 +28,17 @@ class SocketHandler: NSObject, GCDAsyncSocketDelegate, RequestDelegate {
     
     override init() {
         super.init()
-        toSocket.delegate = self
-        toSocket.delegateQueue = DispatchQueue.main
-        previousHost = UserDefaults.standard.string(forKey: SocketHandler.previousHostKey) ?? ""
+        listenSocket.delegate = self
+        listenSocket.delegateQueue = DispatchQueue.main
     }
     
-    func connect(ipAddress: String) {
+    func start() {
+        if isStarted {
+            return
+        }
         do {
-            try toSocket.connect(toHost: ipAddress, onPort: 8080)
+            try listenSocket.accept(onPort: 8080)
+            isStarted = true
         } catch let err {
             print("\(err)")
         }
@@ -59,7 +61,7 @@ class SocketHandler: NSObject, GCDAsyncSocketDelegate, RequestDelegate {
     
     private func exec(request: Request, completion: @escaping (SocketError?) -> Void) {
         self.completion = completion
-        if toSocket.isConnected {
+        if connectedSocket != nil && connectedSocket!.isConnected {
             self.request = request
             request.delegate = self
             request.action()
@@ -74,10 +76,13 @@ class SocketHandler: NSObject, GCDAsyncSocketDelegate, RequestDelegate {
         request = nil
     }
     
-    func socket(_ sock: GCDAsyncSocket, didConnectToHost host: String, port: UInt16) {
-        print("didConnect")
-        previousHost = host
-        UserDefaults.standard.set(host, forKey: SocketHandler.previousHostKey)
+    func socket(_ sock: GCDAsyncSocket, didAcceptNewSocket newSocket: GCDAsyncSocket) {
+        if connectedSocket != nil {
+            return
+        }
+        
+        print("didAcceptNewSocket")
+        connectedSocket = newSocket
         delegate?.socketHandlerDidConnect(self)
     }
     
@@ -101,12 +106,20 @@ class SocketHandler: NSObject, GCDAsyncSocketDelegate, RequestDelegate {
     }
     
     func request(_ request: Request, write dict: [String : Any], timeout: TimeInterval) {
-        let data = NSKeyedArchiver.archivedData(withRootObject: dict)
-        toSocket.write(data, withTimeout: timeout, tag: data.count)
+        if let socket = connectedSocket {
+            let data = NSKeyedArchiver.archivedData(withRootObject: dict)
+            socket.write(data, withTimeout: timeout, tag: data.count)
+        } else {
+            execCompletion(error: .notConnected)
+        }
     }
     
     func request(_ request: Request, readData length: Int, timeout: TimeInterval) {
-        toSocket.readData(toLength: UInt(length), withTimeout: timeout, tag: 0)
+        if let socket = connectedSocket {
+            socket.readData(toLength: UInt(length), withTimeout: timeout, tag: 0)
+        } else {
+            execCompletion(error: .notConnected)
+        }
     }
     
     func requestDidFinish(_ request: Request) {

@@ -11,7 +11,6 @@
 		FB1604E82096053A006CBDDE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB1604E72096053A006CBDDE /* AppDelegate.swift */; };
 		FB1604EF2096053A006CBDDE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FB1604EE2096053A006CBDDE /* Assets.xcassets */; };
 		FB1604F22096053A006CBDDE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FB1604F02096053A006CBDDE /* LaunchScreen.storyboard */; };
-		FBFE294120999C1E00957E8D /* IPAddress.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBFE293120999C1E00957E8D /* IPAddress.swift */; };
 		FBFE294220999C1E00957E8D /* SocketError.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBFE293320999C1E00957E8D /* SocketError.swift */; };
 		FBFE294320999C1E00957E8D /* SocketHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBFE293420999C1E00957E8D /* SocketHandler.swift */; };
 		FBFE294420999C1E00957E8D /* Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBFE293620999C1E00957E8D /* Request.swift */; };
@@ -33,8 +32,6 @@
 		FB1604EE2096053A006CBDDE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FB1604F12096053A006CBDDE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		FB1604F32096053A006CBDDE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		FBD4FE4A2097402000ADC05D /* ClothScanner-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ClothScanner-Bridging-Header.h"; sourceTree = "<group>"; };
-		FBFE293120999C1E00957E8D /* IPAddress.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IPAddress.swift; sourceTree = "<group>"; };
 		FBFE293320999C1E00957E8D /* SocketError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SocketError.swift; sourceTree = "<group>"; };
 		FBFE293420999C1E00957E8D /* SocketHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SocketHandler.swift; sourceTree = "<group>"; };
 		FBFE293620999C1E00957E8D /* Request.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Request.swift; sourceTree = "<group>"; };
@@ -97,7 +94,6 @@
 		FB1604E62096053A006CBDDE /* ClothScanner */ = {
 			isa = PBXGroup;
 			children = (
-				FBD4FE4A2097402000ADC05D /* ClothScanner-Bridging-Header.h */,
 				FB1604E72096053A006CBDDE /* AppDelegate.swift */,
 				FB1604EE2096053A006CBDDE /* Assets.xcassets */,
 				FB1604F02096053A006CBDDE /* LaunchScreen.storyboard */,
@@ -111,7 +107,6 @@
 		FBFE293020999C1E00957E8D /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				FBFE293120999C1E00957E8D /* IPAddress.swift */,
 				FBFE293220999C1E00957E8D /* Socket */,
 			);
 			path = Model;
@@ -305,7 +300,6 @@
 				FBFE294420999C1E00957E8D /* Request.swift in Sources */,
 				FBFE294520999C1E00957E8D /* SendImageRequest.swift in Sources */,
 				FB1604E82096053A006CBDDE /* AppDelegate.swift in Sources */,
-				FBFE294120999C1E00957E8D /* IPAddress.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -443,7 +437,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = jp.co.kiizankiizan.ClothScanner;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "ClothScanner/ClothScanner-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -463,7 +457,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = jp.co.kiizankiizan.ClothScanner;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "ClothScanner/ClothScanner-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
