@@ -21,13 +21,13 @@
 		FB9943482099A0D300996E80 /* ScanButtonView.xib in Resources */ = {isa = PBXBuildFile; fileRef = FB9943342099A0D300996E80 /* ScanButtonView.xib */; };
 		FB9943492099A0D300996E80 /* ScanButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB9943352099A0D300996E80 /* ScanButtonView.swift */; };
 		FB99434A2099A0D300996E80 /* ScanTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB9943372099A0D300996E80 /* ScanTableViewCell.swift */; };
-		FB99434B2099A0D300996E80 /* BarcodeReaderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB9943392099A0D300996E80 /* BarcodeReaderViewController.swift */; };
 		FB99434C2099A0D300996E80 /* ScanViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FB99433C2099A0D300996E80 /* ScanViewController.storyboard */; };
 		FB99434D2099A0D300996E80 /* ScanViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB99433D2099A0D300996E80 /* ScanViewController.swift */; };
 		FB99434E2099A0D300996E80 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB99433F2099A0D300996E80 /* ViewController.swift */; };
 		FB99434F2099A0D300996E80 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FB9943402099A0D300996E80 /* Main.storyboard */; };
 		FB9943512099A22600996E80 /* IPAddress.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB9943502099A22600996E80 /* IPAddress.swift */; };
 		FB9943572099A84800996E80 /* QRCodeMaker.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB9943562099A84800996E80 /* QRCodeMaker.swift */; };
+		FB9943592099ABBE00996E80 /* BarcodeReaderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB9943582099ABBE00996E80 /* BarcodeReaderViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -49,7 +49,6 @@
 		FB9943342099A0D300996E80 /* ScanButtonView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ScanButtonView.xib; sourceTree = "<group>"; };
 		FB9943352099A0D300996E80 /* ScanButtonView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScanButtonView.swift; sourceTree = "<group>"; };
 		FB9943372099A0D300996E80 /* ScanTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScanTableViewCell.swift; sourceTree = "<group>"; };
-		FB9943392099A0D300996E80 /* BarcodeReaderViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BarcodeReaderViewController.swift; sourceTree = "<group>"; };
 		FB99433C2099A0D300996E80 /* ScanViewController.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ScanViewController.storyboard; sourceTree = "<group>"; };
 		FB99433D2099A0D300996E80 /* ScanViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScanViewController.swift; sourceTree = "<group>"; };
 		FB99433F2099A0D300996E80 /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -57,6 +56,7 @@
 		FB9943502099A22600996E80 /* IPAddress.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IPAddress.swift; sourceTree = "<group>"; };
 		FB9943522099A23900996E80 /* ClothScanController-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ClothScanController-Bridging-Header.h"; sourceTree = "<group>"; };
 		FB9943562099A84800996E80 /* QRCodeMaker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRCodeMaker.swift; sourceTree = "<group>"; };
+		FB9943582099ABBE00996E80 /* BarcodeReaderViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BarcodeReaderViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -182,7 +182,6 @@
 		FB9943382099A0D300996E80 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
-				FB9943392099A0D300996E80 /* BarcodeReaderViewController.swift */,
 				FB99433A2099A0D300996E80 /* BarcodeReaderViewController */,
 				FB99433B2099A0D300996E80 /* ScanViewController */,
 				FB99433E2099A0D300996E80 /* Main */,
@@ -193,6 +192,7 @@
 		FB99433A2099A0D300996E80 /* BarcodeReaderViewController */ = {
 			isa = PBXGroup;
 			children = (
+				FB9943582099ABBE00996E80 /* BarcodeReaderViewController.swift */,
 			);
 			path = BarcodeReaderViewController;
 			sourceTree = "<group>";
@@ -352,8 +352,8 @@
 				FB99434A2099A0D300996E80 /* ScanTableViewCell.swift in Sources */,
 				FB9943432099A0D300996E80 /* SendCommand.swift in Sources */,
 				FB9943452099A0D300996E80 /* ScanImageData.swift in Sources */,
+				FB9943592099ABBE00996E80 /* BarcodeReaderViewController.swift in Sources */,
 				FB9943472099A0D300996E80 /* DataKey.swift in Sources */,
-				FB99434B2099A0D300996E80 /* BarcodeReaderViewController.swift in Sources */,
 				FB9943442099A0D300996E80 /* Request.swift in Sources */,
 				FB99434E2099A0D300996E80 /* ViewController.swift in Sources */,
 				FB9943512099A22600996E80 /* IPAddress.swift in Sources */,

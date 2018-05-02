@@ -17,13 +17,41 @@
                     <view key="view" contentMode="scaleToFill" id="gte-Lx-zg7">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vee-qk-FxW">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <connections>
+                                    <segue destination="yBt-iv-dtF" kind="embed" id="HFc-X2-Xlm"/>
+                                </connections>
+                            </containerView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="vee-qk-FxW" firstAttribute="trailing" secondItem="7Xg-Zm-KMP" secondAttribute="trailing" id="395-m6-fmz"/>
+                            <constraint firstItem="vee-qk-FxW" firstAttribute="leading" secondItem="7Xg-Zm-KMP" secondAttribute="leading" id="Pf2-TE-ljS"/>
+                            <constraint firstItem="vee-qk-FxW" firstAttribute="top" secondItem="gte-Lx-zg7" secondAttribute="top" id="YKg-tY-yVM"/>
+                            <constraint firstItem="vee-qk-FxW" firstAttribute="bottom" secondItem="7Xg-Zm-KMP" secondAttribute="bottom" id="re9-Kf-2Iv"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="7Xg-Zm-KMP"/>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MXJ-e4-YLW" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="162" y="73"/>
+            <point key="canvasLocation" x="160.80000000000001" y="72.413793103448285"/>
+        </scene>
+        <!--Barcode Reader View Controller-->
+        <scene sceneID="PjR-17-6Uy">
+            <objects>
+                <viewController id="yBt-iv-dtF" customClass="BarcodeReaderViewController" customModule="ClothScanner" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="HKd-iE-mtR">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ozi-Ot-Tsv" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="871" y="72"/>
         </scene>
     </scenes>
 </document>

@@ -27,6 +27,11 @@ class SocketHandler: NSObject, GCDAsyncSocketDelegate, RequestDelegate {
     }
     private var completion: ((SocketError?) -> Void)?
     private var request: Request?
+    var connected: Bool {
+        get {
+            return toSocket.isConnected
+        }
+    }
     
     override init() {
         super.init()
