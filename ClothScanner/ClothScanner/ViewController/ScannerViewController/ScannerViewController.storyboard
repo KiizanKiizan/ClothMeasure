@@ -39,10 +39,10 @@
             </objects>
             <point key="canvasLocation" x="160.80000000000001" y="72.413793103448285"/>
         </scene>
-        <!--Barcode Reader View Controller-->
+        <!--Capture View Controller-->
         <scene sceneID="PjR-17-6Uy">
             <objects>
-                <viewController id="yBt-iv-dtF" customClass="BarcodeReaderViewController" customModule="ClothScanner" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="yBt-iv-dtF" customClass="CaptureViewController" customModule="ClothScanner" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="HKd-iE-mtR">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

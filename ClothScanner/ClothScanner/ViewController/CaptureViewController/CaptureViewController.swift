@@ -1,5 +1,5 @@
 //
-//  BarcodeReaderViewController.swift
+//  CaptureViewController.swift
 //  BarcodeReader
 //
 //  Created by 岩井 宏晃 on 2018/04/24.
@@ -9,18 +9,19 @@
 import UIKit
 import AVFoundation
 
-protocol BarcodeReaderViewControllerDelegate: class {
-    func barcodeReaderViewController(_ vc: BarcodeReaderViewController, DidReadBarcode text: String, frame: CGRect)
+protocol CaptureViewControllerDelegate: class {
+    func captureViewController(_ vc: CaptureViewController, DidReadBarcode text: String, frame: CGRect)
 }
 
-class BarcodeReaderViewController: UIViewController {
+class CaptureViewController: UIViewController {
 
     var readBarcode = true
     private let captureSession = AVCaptureSession()
     fileprivate var isSetup = false
     fileprivate weak var capturePreviewLayer: AVCaptureVideoPreviewLayer!
+    fileprivate let imageOutput = AVCaptureStillImageOutput()
     
-    weak var delegate: BarcodeReaderViewControllerDelegate?
+    weak var delegate: CaptureViewControllerDelegate?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -40,6 +41,25 @@ class BarcodeReaderViewController: UIViewController {
         captureSession.stopRunning()
     }
     
+    func capture(completion: @escaping (UIImage?) -> Void) {
+        guard let connection = imageOutput.connection(with: .video) else {
+            completion(nil)
+            return
+        }
+        
+        imageOutput.captureStillImageAsynchronously(from: connection) { (buffer, error) in
+            if error != nil || buffer == nil {
+                completion(nil)
+            } else {
+                if let jpgData = AVCaptureStillImageOutput.jpegStillImageNSDataRepresentation(buffer!) {
+                    completion(UIImage(data: jpgData))
+                } else {
+                    completion(nil)
+                }
+            }
+        }
+    }
+    
     private func setup() {
         if isSetup {
             return
@@ -56,6 +76,7 @@ class BarcodeReaderViewController: UIViewController {
             
             captureSession.addInput(captureInput)
             captureSession.addOutput(captureOutput)
+            captureSession.addOutput(imageOutput)
             
             captureOutput.metadataObjectTypes = captureOutput.availableMetadataObjectTypes
             
@@ -70,7 +91,7 @@ class BarcodeReaderViewController: UIViewController {
     }
 }
 
-extension BarcodeReaderViewController: AVCaptureMetadataOutputObjectsDelegate {
+extension CaptureViewController: AVCaptureMetadataOutputObjectsDelegate {
     func metadataOutput(_ output: AVCaptureMetadataOutput, didOutput metadataObjects: [AVMetadataObject], from connection: AVCaptureConnection) {
         if !readBarcode {
             return
@@ -80,7 +101,7 @@ extension BarcodeReaderViewController: AVCaptureMetadataOutputObjectsDelegate {
             let number = barcodeObject.stringValue ?? ""
             if !number.isEmpty {
                 DispatchQueue.main.async {
-                    self.delegate?.barcodeReaderViewController(self, DidReadBarcode: number, frame: self.capturePreviewLayer.layerRectConverted(fromMetadataOutputRect: barcodeObject.bounds))
+                    self.delegate?.captureViewController(self, DidReadBarcode: number, frame: self.capturePreviewLayer.layerRectConverted(fromMetadataOutputRect: barcodeObject.bounds))
                 }
             }
         }

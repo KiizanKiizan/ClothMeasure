@@ -8,10 +8,10 @@
 
 import UIKit
 
-class ScannerViewController: UIViewController, SocketHandlerDelegate, BarcodeReaderViewControllerDelegate {
+class ScannerViewController: UIViewController, SocketHandlerDelegate, CaptureViewControllerDelegate {
 
     private let socketHandler = SocketHandler()
-    private var barcodeReaderVc: BarcodeReaderViewController!
+    private var captureVc: CaptureViewController!
     private let calibrationInterval: TimeInterval = 5.0
     private var startReadDate: Date?
     private var qrcodeFrame = CGRect.zero
@@ -21,23 +21,23 @@ class ScannerViewController: UIViewController, SocketHandlerDelegate, BarcodeRea
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if let vc = segue.destination as? BarcodeReaderViewController {
+        if let vc = segue.destination as? CaptureViewController {
             vc.delegate = self
-            barcodeReaderVc = vc
+            captureVc = vc
         }
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
-        barcodeReaderVc.start()
+        captureVc.start()
         socketHandler.delegate = self
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         
-        barcodeReaderVc.stop()
+        captureVc.stop()
         socketHandler.delegate = nil
     }
     
@@ -45,13 +45,16 @@ class ScannerViewController: UIViewController, SocketHandlerDelegate, BarcodeRea
     }
     
     func socketHandlerRecievedScanRequest(_ handler: SocketHandler) {
-        let image = UIImage(named: "dummy")!
-        socketHandler.sendImage(image: image) { (error) in
-            print("send")
+        captureVc.capture { (image) in
+            if let _image = image {
+                self.socketHandler.sendImage(image: _image) { (error) in
+                    print("send")
+                }
+            }
         }
     }
     
-    func barcodeReaderViewController(_ vc: BarcodeReaderViewController, DidReadBarcode text: String, frame: CGRect) {
+    func captureViewController(_ vc: CaptureViewController, DidReadBarcode text: String, frame: CGRect) {
         if !socketHandler.connected {
             if startReadDate == nil {
                 startReadDate = Date()
