@@ -9,15 +9,16 @@
 import UIKit
 
 class ViewController: UIViewController, UITextFieldDelegate, SocketHandlerDelegate {
-
-    @IBOutlet weak var ipAddressLabel: UILabel!
+    @IBOutlet weak var QRImageView: UIImageView!
     
     let socketHandler = SocketHandler()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        ipAddressLabel.text = IPAddress.getWiFiAddress()
+        if let ipAddress = IPAddress.getWiFiAddress() {
+            QRImageView.image = QRCodeMaker.creatQRCode(text: ipAddress)
+        }
         
         socketHandler.delegate = self
         socketHandler.start()
