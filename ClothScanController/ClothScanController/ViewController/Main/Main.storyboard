@@ -47,6 +47,7 @@
                     </view>
                     <connections>
                         <outlet property="QRImageView" destination="3Fp-WL-oIh" id="8hY-WY-u1T"/>
+                        <outlet property="titleLabel" destination="DJL-C1-Uhx" id="WTN-af-WS9"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

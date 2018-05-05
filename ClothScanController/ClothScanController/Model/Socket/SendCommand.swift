@@ -12,4 +12,5 @@ enum SendCommand: Int {
     // 0スタートだとなぜかDataに変換した時のサイズがおかしくなる。要調査。
     case scan = 2
     case fetchImage
+    case sendImage
 }

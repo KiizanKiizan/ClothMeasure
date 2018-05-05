@@ -12,7 +12,7 @@ class ScannerViewController: UIViewController, SocketHandlerDelegate, CaptureVie
 
     private let socketHandler = SocketHandler()
     private var captureVc: CaptureViewController!
-    private let calibrationInterval: TimeInterval = 5.0
+    private let calibrationInterval: TimeInterval = 1.0
     private var startReadDate: Date?
     private var qrcodeFrame = CGRect.zero
     

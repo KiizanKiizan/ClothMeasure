@@ -14,14 +14,16 @@ class ScanViewController: UIViewController, BarcodeReaderViewControllerDelegate,
     @IBOutlet weak var barcodeReaderContainerView: UIView!
     @IBOutlet weak var tableView: UITableView!
     
-    private var socketHandler: SocketHandler!
+    private var scanImage: ScanImage!
+    private var sendImage: SendImage!
     private var barcodeReaderVc: BarcodeReaderViewController!
     private var imageDatas = [ScanImageData]()
     
-    class func createViewController(socketHandler: SocketHandler) -> UINavigationController {
+    class func createViewController(scanSocketHandler: SocketHandler, sendSocketHandler: SocketHandler) -> UINavigationController {
         let navi = UIStoryboard(name: "ScanViewController", bundle: nil).instantiateInitialViewController() as! UINavigationController
         let vc = navi.topViewController as! ScanViewController
-        vc.socketHandler = socketHandler
+        vc.scanImage = ScanImage(socketHandler: scanSocketHandler)
+        vc.sendImage = SendImage(socketHandler: sendSocketHandler)
         
         return navi
     }
@@ -43,6 +45,33 @@ class ScanViewController: UIViewController, BarcodeReaderViewControllerDelegate,
         }
     }
     
+    private func scanImage(cell: ScanTableViewCell, front: Bool) {
+        if !scanImage.busy && !sendImage.busy {
+            if front {
+                cell.startFrontImageButtonIndicator()
+            } else {
+                cell.startBackImageButtonIndicator()
+            }
+            scanImage.scan(completion: { (image, data, error) in
+                if let imageData = data {
+                    self.sendImage.sendImage(imageData: imageData, completion: { (error) in
+                        if front {
+                            cell.setFrontImage(image: image)
+                        } else {
+                            cell.setBackImage(image: image)
+                        }
+                    })
+                } else {
+                    if front {
+                        cell.setFrontImage(image: image)
+                    } else {
+                        cell.setBackImage(image: image)
+                    }
+                }
+            })
+        }
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return imageDatas.count
     }
@@ -58,21 +87,11 @@ class ScanViewController: UIViewController, BarcodeReaderViewControllerDelegate,
     }
     
     func scanTableViewCellDidPushFrontImageButton(_ cell: ScanTableViewCell) {
-        if !socketHandler.busy {
-            cell.startFrontImageButtonIndicator()
-            socketHandler.scan(completion: { (image, error) in
-                cell.setFrontImage(image: image)
-            })
-        }
+        scanImage(cell: cell, front: true)
     }
     
     func scanTableViewCellDidPushBackImageButton(_ cell: ScanTableViewCell) {
-        if !socketHandler.busy {
-            cell.startBackImageButtonIndicator()
-            socketHandler.scan(completion: { (image, error) in
-                cell.setBackImage(image: image)
-            })
-        }
+        scanImage(cell: cell, front: false)
     }
     
     func barcodeReaderViewController(_ vc: BarcodeReaderViewController, DidReadBarcode number: String) {

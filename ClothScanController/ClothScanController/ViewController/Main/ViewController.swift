@@ -10,8 +10,10 @@ import UIKit
 
 class ViewController: UIViewController, UITextFieldDelegate, SocketHandlerDelegate {
     @IBOutlet weak var QRImageView: UIImageView!
+    @IBOutlet weak var titleLabel: UILabel!
     
-    let socketHandler = SocketHandler()
+    let scanSocketHandler = SocketHandler(portNumber: 8080)
+    let sendSocketHandler = SocketHandler(portNumber: 8008)
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,12 +22,19 @@ class ViewController: UIViewController, UITextFieldDelegate, SocketHandlerDelega
             QRImageView.image = QRCodeMaker.creatQRCode(text: ipAddress)
         }
         
-        socketHandler.delegate = self
-        socketHandler.start()
+        scanSocketHandler.delegate = self
+        sendSocketHandler.delegate = self
+        scanSocketHandler.start()
     }
     
     func socketHandlerDidConnect(_ handler: SocketHandler) {
-        let vc = ScanViewController.createViewController(socketHandler: handler)
-        present(vc, animated: true, completion: nil)
+        if scanSocketHandler === handler {
+            titleLabel.text = "測定アプリと接続"
+            sendSocketHandler.start()
+        }
+        if sendSocketHandler === handler {
+            let vc = ScanViewController.createViewController(scanSocketHandler: scanSocketHandler, sendSocketHandler: sendSocketHandler)
+            present(vc, animated: true, completion: nil)
+        }
     }
 }

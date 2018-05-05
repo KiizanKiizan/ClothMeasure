@@ -1,8 +1,8 @@
 //
 //  SocketHandler.swift
-//  ClothScanController
+//  ClothScanner
 //
-//  Created by 岩井 宏晃 on 2018/04/30.
+//  Created by 岩井 宏晃 on 2018/04/29.
 //  Copyright © 2018年 kiizan-kiizan. All rights reserved.
 //
 
@@ -11,14 +11,15 @@ import CocoaAsyncSocket
 
 protocol SocketHandlerDelegate: class {
     func socketHandlerDidConnect(_ handler: SocketHandler)
+    func socketHandlerRecieveImage(_ handler: SocketHandler)
 }
 
 class SocketHandler: NSObject, GCDAsyncSocketDelegate, RequestDelegate {
-    private let portNumber: UInt16
-    private(set) var isStarted = false
-    private let listenSocket = GCDAsyncSocket()
-    private var connectedSocket: GCDAsyncSocket?
+    private static let previousHostKey = "previousHostKey"
+    
+    private let toSocket = GCDAsyncSocket()
     weak var delegate: SocketHandlerDelegate?
+    private(set) var previousHost = ""
     var busy: Bool {
         get {
             return request != nil
@@ -26,29 +27,33 @@ class SocketHandler: NSObject, GCDAsyncSocketDelegate, RequestDelegate {
     }
     private var completion: ((SocketError?) -> Void)?
     private var request: Request?
-    
-    init(portNumber: UInt16) {
-        self.portNumber = portNumber
-        super.init()
-        listenSocket.delegate = self
-        listenSocket.delegateQueue = DispatchQueue.main
+    var connected: Bool {
+        get {
+            return toSocket.isConnected
+        }
     }
     
-    func start() {
-        if isStarted {
-            return
-        }
+    override init() {
+        super.init()
+        toSocket.delegate = self
+        toSocket.delegateQueue = DispatchQueue.main
+    }
+    
+    func connect(ipAddress: String) {
         do {
-            try listenSocket.accept(onPort: portNumber)
-            isStarted = true
+            try toSocket.connect(toHost: ipAddress, onPort: 8008)
         } catch let err {
             print("\(err)")
         }
     }
     
-    func exec(request: Request, completion: @escaping (SocketError?) -> Void) {
+    func ready() {
+        toSocket.readData(toLength: UInt(Request.commandLength), withTimeout: -1, tag: 0)
+    }
+    
+    func exec(request: Request, completion: ((SocketError?) -> Void)?) {
         self.completion = completion
-        if connectedSocket != nil && connectedSocket!.isConnected {
+        if toSocket.isConnected {
             self.request = request
             request.delegate = self
             request.action()
@@ -61,16 +66,37 @@ class SocketHandler: NSObject, GCDAsyncSocketDelegate, RequestDelegate {
         completion?(error)
         completion = nil
         request = nil
+        ready()
     }
     
-    func socket(_ sock: GCDAsyncSocket, didAcceptNewSocket newSocket: GCDAsyncSocket) {
-        if connectedSocket != nil {
-            return
-        }
-        
-        print("didAcceptNewSocket")
-        connectedSocket = newSocket
+    func socket(_ sock: GCDAsyncSocket, didConnectToHost host: String, port: UInt16) {
+        print("didConnect")
+        previousHost = host
+        UserDefaults.standard.set(host, forKey: SocketHandler.previousHostKey)
+        ready()
         delegate?.socketHandlerDidConnect(self)
+    }
+    
+    func socket(_ sock: GCDAsyncSocket, didWriteDataWithTag tag: Int) {
+        if request == nil {
+            execCompletion(error: .notCreatedRequest)
+        } else {
+            request?.didWrite()
+        }
+    }
+    
+    func socket(_ sock: GCDAsyncSocket, didRead data: Data, withTag tag: Int) {
+        if let dict = NSKeyedUnarchiver.unarchiveObject(with: data) as? [String : String],
+            let commandString = dict[Request.intToString(integer: DataKey.command.rawValue)],
+            let command = Int(commandString),
+            let recieveCommand = RecieveCommand(rawValue: command) {
+            switch recieveCommand {
+            case .sendImage:
+                delegate?.socketHandlerRecieveImage(self)
+            }
+        } else {
+            request?.didRead(data: data)
+        }
     }
     
     func socket(_ sock: GCDAsyncSocket, shouldTimeoutWriteWithTag tag: Int, elapsed: TimeInterval, bytesDone length: UInt) -> TimeInterval {
@@ -83,33 +109,18 @@ class SocketHandler: NSObject, GCDAsyncSocketDelegate, RequestDelegate {
         return 0.0
     }
     
-    func socket(_ sock: GCDAsyncSocket, didWriteDataWithTag tag: Int) {
-        request?.didWrite()
-    }
-    
-    func socket(_ sock: GCDAsyncSocket, didRead data: Data, withTag tag: Int) {
-        if let dict = NSKeyedUnarchiver.unarchiveObject(with: data) as? [String : String],
-            let commandString = dict[Request.intToString(integer: DataKey.command.rawValue)],
-            let command = Int(commandString),
-            let recieveCommand = RecieveCommand(rawValue: command) {
-            request?.recievedCommand(command: recieveCommand)
-        } else {
-            request?.didRead(data: data)
-        }
-    }
-    
     func request(_ request: Request, write dict: [String : Any], timeout: TimeInterval) {
-        if let socket = connectedSocket {
+        if toSocket.isConnected {
             let data = NSKeyedArchiver.archivedData(withRootObject: dict)
-            socket.write(data, withTimeout: timeout, tag: data.count)
+            toSocket.write(data, withTimeout: timeout, tag: data.count)
         } else {
             execCompletion(error: .notConnected)
         }
     }
     
     func request(_ request: Request, readData length: Int, timeout: TimeInterval) {
-        if let socket = connectedSocket {
-            socket.readData(toLength: UInt(length), withTimeout: timeout, tag: 0)
+        if toSocket.isConnected {
+            toSocket.readData(toLength: UInt(length), withTimeout: timeout, tag: 0)
         } else {
             execCompletion(error: .notConnected)
         }

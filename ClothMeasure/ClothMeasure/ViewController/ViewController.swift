@@ -17,9 +17,10 @@ enum MeasureType {
     case armRight
 }
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, SocketHandlerDelegate, BarcodeReaderViewControllerDelegate {
 
     @IBOutlet weak var imageView: UIImageView!
+    @IBOutlet weak var connectIndicator: UIActivityIndicatorView!
     
     @IBOutlet weak var neckLabel: UILabel!
     @IBOutlet weak var shoulderLabel: UILabel!
@@ -39,10 +40,14 @@ class ViewController: UIViewController {
     @IBOutlet weak var waistLeftView: UIView!
     @IBOutlet weak var waistRightView: UIView!
     
-    let shapeLayer = CAShapeLayer()
+    private let shapeLayer = CAShapeLayer()
+    private let socketHandler = SocketHandler()
+    private var fetchImage: FetchImage!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        fetchImage = FetchImage(socketHandler: socketHandler)
         
         shapeLayer.strokeColor = UIColor.red.cgColor
         shapeLayer.lineWidth = 2.0
@@ -69,6 +74,35 @@ class ViewController: UIViewController {
             $0?.addGestureRecognizer(UIPanGestureRecognizer(target: self, action: #selector(panLabel)))
             self.measure(view: $0!)
         }
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        socketHandler.delegate = self
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        
+        socketHandler.delegate = nil
+    }
+    
+    func socketHandlerDidConnect(_ handler: SocketHandler) {
+        connectIndicator.stopAnimating()
+    }
+    
+    func socketHandlerRecieveImage(_ handler: SocketHandler) {
+        fetchImage.fetch { (image, error) in
+            self.imageView.image = image
+        }
+    }
+    
+    func barcodeReaderViewController(_ vc: BarcodeReaderViewController, DidReadBarcode number: String) {
+        vc.dismiss(animated: true, completion: {
+            self.socketHandler.connect(ipAddress: number)
+            self.connectIndicator.startAnimating()
+        })
     }
 
     @objc func panLabel(sender: UIPanGestureRecognizer) {
@@ -139,6 +173,14 @@ class ViewController: UIViewController {
         let dx = Float(p1.x - p2.x)
         let dy = Float(p1.y - p2.y)
         return String(format: "%.2f cm", sqrtf(dx*dx + dy*dy) / 4.0)
+    }
+    
+    @IBAction func pushConnectButton(_ sender: Any) {
+        let barcodeReaderVc = BarcodeReaderViewController()
+        barcodeReaderVc.delegate = self
+        present(barcodeReaderVc, animated: true, completion: {
+            barcodeReaderVc.start()
+        })
     }
 }
 

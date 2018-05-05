@@ -11,6 +11,9 @@
 		FB1605062096058A006CBDDE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB1605052096058A006CBDDE /* AppDelegate.swift */; };
 		FB16050D2096058A006CBDDE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FB16050C2096058A006CBDDE /* Assets.xcassets */; };
 		FB1605102096058A006CBDDE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FB16050E2096058A006CBDDE /* LaunchScreen.storyboard */; };
+		FB64866A209B55DF0011F156 /* RecieveCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB648669209B55DF0011F156 /* RecieveCommand.swift */; };
+		FB64866E209B57870011F156 /* SendImageRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB64866D209B57870011F156 /* SendImageRequest.swift */; };
+		FB648670209B59E30011F156 /* SendImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB64866F209B59E30011F156 /* SendImage.swift */; };
 		FB9943412099A0D300996E80 /* SocketError.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB99432A2099A0D300996E80 /* SocketError.swift */; };
 		FB9943422099A0D300996E80 /* SocketHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB99432B2099A0D300996E80 /* SocketHandler.swift */; };
 		FB9943432099A0D300996E80 /* SendCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB99432C2099A0D300996E80 /* SendCommand.swift */; };
@@ -28,6 +31,7 @@
 		FB9943512099A22600996E80 /* IPAddress.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB9943502099A22600996E80 /* IPAddress.swift */; };
 		FB9943572099A84800996E80 /* QRCodeMaker.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB9943562099A84800996E80 /* QRCodeMaker.swift */; };
 		FB9943592099ABBE00996E80 /* BarcodeReaderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB9943582099ABBE00996E80 /* BarcodeReaderViewController.swift */; };
+		FBFF54F7209A15F400475F12 /* ScanImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBFF54F6209A15F400475F12 /* ScanImage.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -39,6 +43,9 @@
 		FB16050C2096058A006CBDDE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FB16050F2096058A006CBDDE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		FB1605112096058A006CBDDE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FB648669209B55DF0011F156 /* RecieveCommand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecieveCommand.swift; sourceTree = "<group>"; };
+		FB64866D209B57870011F156 /* SendImageRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendImageRequest.swift; sourceTree = "<group>"; };
+		FB64866F209B59E30011F156 /* SendImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendImage.swift; sourceTree = "<group>"; };
 		FB99432A2099A0D300996E80 /* SocketError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SocketError.swift; sourceTree = "<group>"; };
 		FB99432B2099A0D300996E80 /* SocketHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SocketHandler.swift; sourceTree = "<group>"; };
 		FB99432C2099A0D300996E80 /* SendCommand.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SendCommand.swift; sourceTree = "<group>"; };
@@ -57,6 +64,7 @@
 		FB9943522099A23900996E80 /* ClothScanController-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ClothScanController-Bridging-Header.h"; sourceTree = "<group>"; };
 		FB9943562099A84800996E80 /* QRCodeMaker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRCodeMaker.swift; sourceTree = "<group>"; };
 		FB9943582099ABBE00996E80 /* BarcodeReaderViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BarcodeReaderViewController.swift; sourceTree = "<group>"; };
+		FBFF54F6209A15F400475F12 /* ScanImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanImage.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -138,7 +146,10 @@
 				FB99432A2099A0D300996E80 /* SocketError.swift */,
 				FB99432B2099A0D300996E80 /* SocketHandler.swift */,
 				FB99432C2099A0D300996E80 /* SendCommand.swift */,
+				FB648669209B55DF0011F156 /* RecieveCommand.swift */,
 				FB9943312099A0D300996E80 /* DataKey.swift */,
+				FBFF54F6209A15F400475F12 /* ScanImage.swift */,
+				FB64866F209B59E30011F156 /* SendImage.swift */,
 			);
 			path = Socket;
 			sourceTree = "<group>";
@@ -149,6 +160,7 @@
 				FB99432E2099A0D300996E80 /* Request.swift */,
 				FB99432F2099A0D300996E80 /* ScanImageData.swift */,
 				FB9943302099A0D300996E80 /* ImageScanRequest.swift */,
+				FB64866D209B57870011F156 /* SendImageRequest.swift */,
 			);
 			path = Request;
 			sourceTree = "<group>";
@@ -349,15 +361,19 @@
 			files = (
 				FB9943492099A0D300996E80 /* ScanButtonView.swift in Sources */,
 				FB9943422099A0D300996E80 /* SocketHandler.swift in Sources */,
+				FB64866A209B55DF0011F156 /* RecieveCommand.swift in Sources */,
+				FBFF54F7209A15F400475F12 /* ScanImage.swift in Sources */,
 				FB99434A2099A0D300996E80 /* ScanTableViewCell.swift in Sources */,
 				FB9943432099A0D300996E80 /* SendCommand.swift in Sources */,
 				FB9943452099A0D300996E80 /* ScanImageData.swift in Sources */,
 				FB9943592099ABBE00996E80 /* BarcodeReaderViewController.swift in Sources */,
 				FB9943472099A0D300996E80 /* DataKey.swift in Sources */,
+				FB64866E209B57870011F156 /* SendImageRequest.swift in Sources */,
 				FB9943442099A0D300996E80 /* Request.swift in Sources */,
 				FB99434E2099A0D300996E80 /* ViewController.swift in Sources */,
 				FB9943512099A22600996E80 /* IPAddress.swift in Sources */,
 				FB1605062096058A006CBDDE /* AppDelegate.swift in Sources */,
+				FB648670209B59E30011F156 /* SendImage.swift in Sources */,
 				FB9943462099A0D300996E80 /* ImageScanRequest.swift in Sources */,
 				FB9943412099A0D300996E80 /* SocketError.swift in Sources */,
 				FB9943572099A84800996E80 /* QRCodeMaker.swift in Sources */,

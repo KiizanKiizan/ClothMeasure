@@ -1,6 +1,6 @@
 //
-//  ImageScanRequest.swift
-//  ClothScanController
+//  FetchImageRequest.swift
+//  ClothScanner
 //
 //  Created by 岩井 宏晃 on 2018/05/01.
 //  Copyright © 2018年 kiizan-kiizan. All rights reserved.
@@ -9,20 +9,19 @@
 import Foundation
 import UIKit
 
-enum ImageScanRequestState: Int {
+enum FetchImageRequestState: Int {
     case sendCommand
     case waitImageSize
     case waitImage
 }
 
-class ImageScanRequest: Request {
-    private var state = ImageScanRequestState.sendCommand
+class FetchImageRequest: Request {
+    private var state = FetchImageRequestState.sendCommand
     private var imageSize: Int?
     private(set) var image: UIImage?
-    private(set) var imageData: Data?
     
     override func action() {
-        delegate?.request(self, write: createCommand(command: .scan), timeout: 30.0)
+        delegate?.request(self, write: createCommand(command: .fetchImageSize), timeout: 30.0)
     }
     
     override func didWrite() {
@@ -41,9 +40,6 @@ class ImageScanRequest: Request {
         nextState()
     }
     
-    override func recievedCommand(command: RecieveCommand) {
-    }
-    
     override func didRead(data: Data) {
         switch state {
         case .sendCommand:
@@ -59,9 +55,8 @@ class ImageScanRequest: Request {
             }
         case .waitImage:
             if let dict = NSKeyedUnarchiver.unarchiveObject(with: data) as? [String : Data],
-                let _imageData = dict[Request.intToString(integer: DataKey.image.rawValue)] {
-                imageData = _imageData
-                image = UIImage(data: _imageData)
+                let imageData = dict[Request.intToString(integer: DataKey.image.rawValue)] {
+                image = UIImage(data: imageData)
                 delegate?.requestDidFinish(self)
             } else {
                 delegate?.request(self, didError: .unknownData)
@@ -69,8 +64,11 @@ class ImageScanRequest: Request {
         }
     }
     
+    override func recievedCommand(command: RecieveCommand) {
+    }
+    
     private func nextState() {
-        guard let next = ImageScanRequestState(rawValue: state.rawValue + 1) else {
+        guard let next = FetchImageRequestState(rawValue: state.rawValue + 1) else {
             return
         }
         state = next
