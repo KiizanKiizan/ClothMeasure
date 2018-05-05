@@ -16,6 +16,9 @@
 		FBB5BD7C20921417001313E0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBB5BD7B20921417001313E0 /* AppDelegate.swift */; };
 		FBB5BD8320921417001313E0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FBB5BD8220921417001313E0 /* Assets.xcassets */; };
 		FBB5BD8620921417001313E0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FBB5BD8420921417001313E0 /* LaunchScreen.storyboard */; };
+		FBB78C0D209DEB23004CC499 /* ScanImageRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBB78C0C209DEB23004CC499 /* ScanImageRequest.swift */; };
+		FBB78C10209DEC05004CC499 /* CalibrationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBB78C0F209DEC05004CC499 /* CalibrationViewController.swift */; };
+		FBB78C12209DEC0E004CC499 /* CalibrationViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FBB78C11209DEC0E004CC499 /* CalibrationViewController.storyboard */; };
 		FBFF5512209A185C00475F12 /* DataKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBFF550B209A185C00475F12 /* DataKey.swift */; };
 		FBFF5513209A185C00475F12 /* RecieveCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBFF550C209A185C00475F12 /* RecieveCommand.swift */; };
 		FBFF5514209A185C00475F12 /* Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBFF550E209A185C00475F12 /* Request.swift */; };
@@ -39,6 +42,9 @@
 		FBB5BD8220921417001313E0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FBB5BD8520921417001313E0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		FBB5BD8720921417001313E0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FBB78C0C209DEB23004CC499 /* ScanImageRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanImageRequest.swift; sourceTree = "<group>"; };
+		FBB78C0F209DEC05004CC499 /* CalibrationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalibrationViewController.swift; sourceTree = "<group>"; };
+		FBB78C11209DEC0E004CC499 /* CalibrationViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = CalibrationViewController.storyboard; sourceTree = "<group>"; };
 		FBFF550B209A185C00475F12 /* DataKey.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataKey.swift; sourceTree = "<group>"; };
 		FBFF550C209A185C00475F12 /* RecieveCommand.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecieveCommand.swift; sourceTree = "<group>"; };
 		FBFF550E209A185C00475F12 /* Request.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Request.swift; sourceTree = "<group>"; };
@@ -72,6 +78,7 @@
 		FB0061DC209A0020008B73CB /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
+				FBB78C0E209DEBED004CC499 /* CalibrationViewController */,
 				FB4073CC209DDC5E00CC9FDB /* BarcodeReaderViewController */,
 				FB0061DD209A003D008B73CB /* Main.storyboard */,
 				FB0061DE209A003D008B73CB /* ViewController.swift */,
@@ -126,6 +133,15 @@
 			path = ClothMeasure;
 			sourceTree = "<group>";
 		};
+		FBB78C0E209DEBED004CC499 /* CalibrationViewController */ = {
+			isa = PBXGroup;
+			children = (
+				FBB78C0F209DEC05004CC499 /* CalibrationViewController.swift */,
+				FBB78C11209DEC0E004CC499 /* CalibrationViewController.storyboard */,
+			);
+			path = CalibrationViewController;
+			sourceTree = "<group>";
+		};
 		FBFF5509209A185C00475F12 /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -154,6 +170,7 @@
 			children = (
 				FBFF550E209A185C00475F12 /* Request.swift */,
 				FBFF550F209A185C00475F12 /* FetchImageRequest.swift */,
+				FBB78C0C209DEB23004CC499 /* ScanImageRequest.swift */,
 			);
 			path = Request;
 			sourceTree = "<group>";
@@ -222,6 +239,7 @@
 			files = (
 				FB0061DF209A003D008B73CB /* Main.storyboard in Resources */,
 				FBB5BD8620921417001313E0 /* LaunchScreen.storyboard in Resources */,
+				FBB78C12209DEC0E004CC499 /* CalibrationViewController.storyboard in Resources */,
 				FBB5BD8320921417001313E0 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -291,8 +309,10 @@
 				FBFF5513209A185C00475F12 /* RecieveCommand.swift in Sources */,
 				FB4073CE209DDC5E00CC9FDB /* BarcodeReaderViewController.swift in Sources */,
 				FBFF5514209A185C00475F12 /* Request.swift in Sources */,
+				FBB78C0D209DEB23004CC499 /* ScanImageRequest.swift in Sources */,
 				FB64866C209B56C10011F156 /* SendCommand.swift in Sources */,
 				FBFF5515209A185C00475F12 /* FetchImageRequest.swift in Sources */,
+				FBB78C10209DEC05004CC499 /* CalibrationViewController.swift in Sources */,
 				FBFF5519209A196B00475F12 /* ImageData.swift in Sources */,
 				FBFF5516209A185C00475F12 /* SocketError.swift in Sources */,
 				FB648672209B60FC0011F156 /* FetchImage.swift in Sources */,

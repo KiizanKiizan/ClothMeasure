@@ -182,6 +182,11 @@ class ViewController: UIViewController, SocketHandlerDelegate, BarcodeReaderView
             barcodeReaderVc.start()
         })
     }
+    
+    @IBAction func pushCalibrationButton(_ sender: Any) {
+        let vc = CalibrationViewController.createViewController(scanSocketHandler: socketHandler)
+        present(vc, animated: true, completion: nil)
+    }
 }
 
 

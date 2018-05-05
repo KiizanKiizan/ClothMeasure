@@ -11,4 +11,5 @@ import Foundation
 enum SendCommand: Int {
     case fetchImageSize = 2
     case fetchImage
+    case scanImage
 }

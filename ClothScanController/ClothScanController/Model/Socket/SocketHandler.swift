@@ -11,6 +11,7 @@ import CocoaAsyncSocket
 
 protocol SocketHandlerDelegate: class {
     func socketHandlerDidConnect(_ handler: SocketHandler)
+    func socketHandlerDidRecievedScanImageCommand(_ handler: SocketHandler)
 }
 
 class SocketHandler: NSObject, GCDAsyncSocketDelegate, RequestDelegate {
@@ -26,9 +27,12 @@ class SocketHandler: NSObject, GCDAsyncSocketDelegate, RequestDelegate {
     }
     private var completion: ((SocketError?) -> Void)?
     private var request: Request?
+    private let twoWay: Bool
+    private var waitCommand = false
     
-    init(portNumber: UInt16) {
+    init(portNumber: UInt16, twoWay: Bool) {
         self.portNumber = portNumber
+        self.twoWay = twoWay
         super.init()
         listenSocket.delegate = self
         listenSocket.delegateQueue = DispatchQueue.main
@@ -43,6 +47,13 @@ class SocketHandler: NSObject, GCDAsyncSocketDelegate, RequestDelegate {
             isStarted = true
         } catch let err {
             print("\(err)")
+        }
+    }
+    
+    func ready() {
+        if twoWay && !waitCommand {
+            connectedSocket?.readData(toLength: UInt(Request.commandLength), withTimeout: -1, tag: 0)
+            waitCommand = true
         }
     }
     
@@ -61,6 +72,7 @@ class SocketHandler: NSObject, GCDAsyncSocketDelegate, RequestDelegate {
         completion?(error)
         completion = nil
         request = nil
+        ready()
     }
     
     func socket(_ sock: GCDAsyncSocket, didAcceptNewSocket newSocket: GCDAsyncSocket) {
@@ -70,6 +82,7 @@ class SocketHandler: NSObject, GCDAsyncSocketDelegate, RequestDelegate {
         
         print("didAcceptNewSocket")
         connectedSocket = newSocket
+        ready()
         delegate?.socketHandlerDidConnect(self)
     }
     
@@ -92,7 +105,13 @@ class SocketHandler: NSObject, GCDAsyncSocketDelegate, RequestDelegate {
             let commandString = dict[Request.intToString(integer: DataKey.command.rawValue)],
             let command = Int(commandString),
             let recieveCommand = RecieveCommand(rawValue: command) {
-            request?.recievedCommand(command: recieveCommand)
+            waitCommand = false
+            switch recieveCommand {
+            case .scanImage:
+                delegate?.socketHandlerDidRecievedScanImageCommand(self)
+            default:
+                request?.recievedCommand(command: recieveCommand)
+            }
         } else {
             request?.didRead(data: data)
         }
@@ -101,7 +120,7 @@ class SocketHandler: NSObject, GCDAsyncSocketDelegate, RequestDelegate {
     func request(_ request: Request, write dict: [String : Any], timeout: TimeInterval) {
         if let socket = connectedSocket {
             let data = NSKeyedArchiver.archivedData(withRootObject: dict)
-            socket.write(data, withTimeout: timeout, tag: data.count)
+            socket.write(data, withTimeout: timeout, tag: 0)
         } else {
             execCompletion(error: .notConnected)
         }

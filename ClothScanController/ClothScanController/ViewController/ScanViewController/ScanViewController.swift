@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ScanViewController: UIViewController, BarcodeReaderViewControllerDelegate, UITableViewDelegate, UITableViewDataSource, ScanTableViewCellDelegate {
+class ScanViewController: UIViewController, BarcodeReaderViewControllerDelegate, UITableViewDelegate, UITableViewDataSource, ScanTableViewCellDelegate, SocketHandlerDelegate {
     @IBOutlet weak var barcodeReaderHeightConstraint: NSLayoutConstraint!
     @IBOutlet weak var barcodeReaderTopConstraint: NSLayoutConstraint!
     @IBOutlet weak var barcodeReaderContainerView: UIView!
@@ -18,12 +18,14 @@ class ScanViewController: UIViewController, BarcodeReaderViewControllerDelegate,
     private var sendImage: SendImage!
     private var barcodeReaderVc: BarcodeReaderViewController!
     private var imageDatas = [ScanImageData]()
+    private var sendSocketHandler: SocketHandler!
     
     class func createViewController(scanSocketHandler: SocketHandler, sendSocketHandler: SocketHandler) -> UINavigationController {
         let navi = UIStoryboard(name: "ScanViewController", bundle: nil).instantiateInitialViewController() as! UINavigationController
         let vc = navi.topViewController as! ScanViewController
         vc.scanImage = ScanImage(socketHandler: scanSocketHandler)
         vc.sendImage = SendImage(socketHandler: sendSocketHandler)
+        vc.sendSocketHandler = sendSocketHandler
         
         return navi
     }
@@ -36,6 +38,18 @@ class ScanViewController: UIViewController, BarcodeReaderViewControllerDelegate,
         
         tableView.dataSource = self
         tableView.delegate = self
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        sendSocketHandler.delegate = self
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        
+        sendSocketHandler.delegate = nil
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -100,6 +114,20 @@ class ScanViewController: UIViewController, BarcodeReaderViewControllerDelegate,
         }
         imageDatas.append(ScanImageData(barcodeNumber: number))
         tableView.reloadData()
+    }
+    
+    func socketHandlerDidConnect(_ handler: SocketHandler) {
+    }
+    
+    func socketHandlerDidRecievedScanImageCommand(_ handler: SocketHandler) {
+        if !scanImage.busy {
+            scanImage.scan(completion: { (image, data, error) in
+                if let imageData = data {
+                    self.sendImage.sendImage(imageData: imageData, completion: { (error) in
+                    })
+                }
+            })
+        }
     }
     
     @IBAction func pushBarcodeReaderButton(_ sender: UIBarButtonItem) {

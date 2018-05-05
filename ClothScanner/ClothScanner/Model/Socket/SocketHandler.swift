@@ -32,6 +32,7 @@ class SocketHandler: NSObject, GCDAsyncSocketDelegate, RequestDelegate {
             return toSocket.isConnected
         }
     }
+    private var waitCommand = false
     
     override init() {
         super.init()
@@ -48,7 +49,10 @@ class SocketHandler: NSObject, GCDAsyncSocketDelegate, RequestDelegate {
     }
     
     func ready() {
-        toSocket.readData(toLength: UInt(Request.commandLength), withTimeout: -1, tag: 0)
+        if !waitCommand {
+            toSocket.readData(toLength: UInt(Request.commandLength), withTimeout: -1, tag: 0)
+            waitCommand = true
+        }
     }
     
     func sendImage(image: UIImage, completion: @escaping (SocketError?) -> Void) {
@@ -101,6 +105,7 @@ class SocketHandler: NSObject, GCDAsyncSocketDelegate, RequestDelegate {
             let commandString = dict[Request.intToString(integer: DataKey.command.rawValue)],
             let command = Int(commandString),
             let recieveCommand = RecieveCommand(rawValue: command) {
+            waitCommand = false
             switch recieveCommand {
             case .scan:
                 delegate?.socketHandlerRecievedScanRequest(self)
@@ -129,7 +134,8 @@ class SocketHandler: NSObject, GCDAsyncSocketDelegate, RequestDelegate {
     func request(_ request: Request, write dict: [String : Any], timeout: TimeInterval) {
         if toSocket.isConnected {
             let data = NSKeyedArchiver.archivedData(withRootObject: dict)
-            toSocket.write(data, withTimeout: timeout, tag: data.count)
+            print("send data size: \(data.count)")
+            toSocket.write(data, withTimeout: timeout, tag: 0)
         } else {
             execCompletion(error: .notConnected)
         }

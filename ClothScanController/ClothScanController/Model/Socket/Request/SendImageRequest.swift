@@ -44,6 +44,8 @@ class SendImageRequest: Request {
             delegate?.request(self, write: [Request.intToString(integer: DataKey.imageSize.rawValue) : Request.intToString(integer: imageDataSize())], timeout: 30.0)
         case .fetchImage:
             delegate?.request(self, write: sendImageData(), timeout: 30.0)
+        case .scanImage:
+            break
         }
     }
     

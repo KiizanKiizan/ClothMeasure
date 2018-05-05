@@ -9,11 +9,12 @@
 import UIKit
 
 class ViewController: UIViewController, UITextFieldDelegate, SocketHandlerDelegate {
+    
     @IBOutlet weak var QRImageView: UIImageView!
     @IBOutlet weak var titleLabel: UILabel!
     
-    let scanSocketHandler = SocketHandler(portNumber: 8080)
-    let sendSocketHandler = SocketHandler(portNumber: 8008)
+    let scanSocketHandler = SocketHandler(portNumber: 8080, twoWay: false)
+    let sendSocketHandler = SocketHandler(portNumber: 8008, twoWay: true)
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,9 +23,21 @@ class ViewController: UIViewController, UITextFieldDelegate, SocketHandlerDelega
             QRImageView.image = QRCodeMaker.creatQRCode(text: ipAddress)
         }
         
+        scanSocketHandler.start()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
         scanSocketHandler.delegate = self
         sendSocketHandler.delegate = self
-        scanSocketHandler.start()
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        
+        scanSocketHandler.delegate = nil
+        sendSocketHandler.delegate = nil
     }
     
     func socketHandlerDidConnect(_ handler: SocketHandler) {
@@ -36,5 +49,8 @@ class ViewController: UIViewController, UITextFieldDelegate, SocketHandlerDelega
             let vc = ScanViewController.createViewController(scanSocketHandler: scanSocketHandler, sendSocketHandler: sendSocketHandler)
             present(vc, animated: true, completion: nil)
         }
+    }
+    
+    func socketHandlerDidRecievedScanImageCommand(_ handler: SocketHandler) {
     }
 }

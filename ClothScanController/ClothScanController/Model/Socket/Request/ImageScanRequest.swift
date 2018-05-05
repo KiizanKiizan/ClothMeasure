@@ -31,6 +31,7 @@ class ImageScanRequest: Request {
             delegate?.request(self, readData: Request.commandLength, timeout: 30.0)
         case .waitImageSize:
             if let size = imageSize {
+                print("read image size: \(size)")
                 delegate?.request(self, readData: size, timeout: 30.0)
             } else {
                 delegate?.request(self, didError: .notFetchedImageSize)
