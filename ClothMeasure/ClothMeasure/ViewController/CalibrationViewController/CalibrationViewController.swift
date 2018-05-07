@@ -9,7 +9,7 @@
 import UIKit
 
 class CalibrationViewController: UIViewController, SocketHandlerDelegate {
-    @IBOutlet weak var imageView: UIImageView!
+    
     @IBOutlet weak var doneButton: UIButton!
     
     private var scanSocketHandler: SocketHandler!
@@ -46,7 +46,7 @@ class CalibrationViewController: UIViewController, SocketHandlerDelegate {
     func socketHandlerRecieveImage(_ handler: SocketHandler) {
         fetchImage.fetch { (image, error) in
             if error == nil {
-                self.imageView.image = image
+               
                 self.doneButton.isEnabled = true
             }
         }

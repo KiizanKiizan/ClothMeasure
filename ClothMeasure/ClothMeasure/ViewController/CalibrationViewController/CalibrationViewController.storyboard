@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -18,13 +19,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="JDV-TE-jzu">
-                                <rect key="frame" x="0.0" y="-128" width="576" height="1024"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="576" id="LTx-fN-IvB"/>
-                                    <constraint firstAttribute="height" constant="1024" id="Xdf-hr-JDj"/>
-                                </constraints>
-                            </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PKp-Ic-l4y">
                                 <rect key="frame" x="576" y="0.0" width="448" height="768"/>
                                 <subviews>
@@ -45,32 +39,49 @@
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
+                                    <constraint firstAttribute="width" constant="448" id="5hi-dG-lIw"/>
                                     <constraint firstItem="bb6-f9-7Rn" firstAttribute="centerX" secondItem="6y6-vY-r5v" secondAttribute="centerX" id="JMY-gk-EDE"/>
                                     <constraint firstItem="bb6-f9-7Rn" firstAttribute="top" secondItem="6y6-vY-r5v" secondAttribute="bottom" constant="8" id="LSg-1r-NyE"/>
                                     <constraint firstItem="6y6-vY-r5v" firstAttribute="centerY" secondItem="PKp-Ic-l4y" secondAttribute="centerY" id="aoG-Qj-sjI"/>
                                     <constraint firstItem="6y6-vY-r5v" firstAttribute="centerX" secondItem="PKp-Ic-l4y" secondAttribute="centerX" id="bqU-1B-jen"/>
                                 </constraints>
                             </view>
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mUb-R8-sui">
+                                <rect key="frame" x="0.0" y="-128" width="576" height="1024"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="mUb-R8-sui" secondAttribute="height" multiplier="9:16" id="8iW-lC-gRy"/>
+                                </constraints>
+                                <connections>
+                                    <segue destination="bOV-pp-fFc" kind="embed" id="DS4-Bt-N0D"/>
+                                </connections>
+                            </containerView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="PKp-Ic-l4y" firstAttribute="leading" secondItem="JDV-TE-jzu" secondAttribute="trailing" id="9zT-Dr-mdV"/>
                             <constraint firstItem="PKp-Ic-l4y" firstAttribute="trailing" secondItem="zAG-a2-Wxf" secondAttribute="trailing" id="KME-dA-IOd"/>
                             <constraint firstItem="PKp-Ic-l4y" firstAttribute="top" secondItem="BfX-TY-Wsq" secondAttribute="top" id="L2d-79-xEa"/>
                             <constraint firstItem="PKp-Ic-l4y" firstAttribute="bottom" secondItem="zAG-a2-Wxf" secondAttribute="bottom" id="RBH-tQ-DJ7"/>
-                            <constraint firstItem="JDV-TE-jzu" firstAttribute="centerY" secondItem="BfX-TY-Wsq" secondAttribute="centerY" id="TGx-EH-gCb"/>
-                            <constraint firstItem="JDV-TE-jzu" firstAttribute="leading" secondItem="zAG-a2-Wxf" secondAttribute="leading" id="s17-21-Vza"/>
+                            <constraint firstItem="mUb-R8-sui" firstAttribute="leading" secondItem="zAG-a2-Wxf" secondAttribute="leading" id="Rlq-fd-Trp"/>
+                            <constraint firstItem="mUb-R8-sui" firstAttribute="centerY" secondItem="BfX-TY-Wsq" secondAttribute="centerY" id="a60-MU-Bzj"/>
+                            <constraint firstItem="PKp-Ic-l4y" firstAttribute="leading" secondItem="mUb-R8-sui" secondAttribute="trailing" id="kll-uD-uG0"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="zAG-a2-Wxf"/>
                     </view>
                     <connections>
                         <outlet property="doneButton" destination="bb6-f9-7Rn" id="LD0-RP-iTd"/>
-                        <outlet property="imageView" destination="JDV-TE-jzu" id="ac0-EB-UB7"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Nis-vO-Q7A" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="241.99218749999997" y="210.9375"/>
+        </scene>
+        <!--MeasureViewController-->
+        <scene sceneID="WMG-mI-6Jo">
+            <objects>
+                <viewControllerPlaceholder storyboardName="MeasureViewController" id="bOV-pp-fFc" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="AT0-T3-9Ji" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="91" y="838"/>
         </scene>
     </scenes>
 </document>

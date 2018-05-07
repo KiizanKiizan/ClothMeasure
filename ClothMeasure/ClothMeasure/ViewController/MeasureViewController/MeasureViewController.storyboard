@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="iIU-JC-D2G">
+    <device id="ipad9_7" orientation="landscape">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Measure View Controller-->
+        <scene sceneID="J1C-Zq-uMW">
+            <objects>
+                <viewController id="iIU-JC-D2G" customClass="MeasureViewController" customModule="ClothMeasure" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="mah-8k-eCD">
+                        <rect key="frame" x="0.0" y="0.0" width="576" height="1024"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Bvx-iz-fpM">
+                                <rect key="frame" x="0.0" y="0.0" width="576" height="1024"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4MT-Nn-aiA">
+                                        <rect key="frame" x="0.0" y="0.0" width="576" height="1024"/>
+                                        <subviews>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Kgd-6a-sVD">
+                                                <rect key="frame" x="0.0" y="0.0" width="576" height="1024"/>
+                                            </imageView>
+                                        </subviews>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstAttribute="bottom" secondItem="Kgd-6a-sVD" secondAttribute="bottom" id="HgP-5O-wL7"/>
+                                            <constraint firstItem="Kgd-6a-sVD" firstAttribute="top" secondItem="4MT-Nn-aiA" secondAttribute="top" id="Mju-u0-SxZ"/>
+                                            <constraint firstItem="Kgd-6a-sVD" firstAttribute="leading" secondItem="4MT-Nn-aiA" secondAttribute="leading" id="fJy-hq-2Ph"/>
+                                            <constraint firstAttribute="trailing" secondItem="Kgd-6a-sVD" secondAttribute="trailing" id="nkj-D7-dhp"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="4MT-Nn-aiA" firstAttribute="top" secondItem="Bvx-iz-fpM" secondAttribute="top" id="EFG-JI-PwT"/>
+                                    <constraint firstAttribute="trailing" secondItem="4MT-Nn-aiA" secondAttribute="trailing" id="NSD-1l-ZbL"/>
+                                    <constraint firstItem="4MT-Nn-aiA" firstAttribute="height" secondItem="Bvx-iz-fpM" secondAttribute="height" id="Z5l-Zl-LO9"/>
+                                    <constraint firstItem="4MT-Nn-aiA" firstAttribute="width" secondItem="Bvx-iz-fpM" secondAttribute="width" id="b0B-1q-nH2"/>
+                                    <constraint firstItem="4MT-Nn-aiA" firstAttribute="leading" secondItem="Bvx-iz-fpM" secondAttribute="leading" id="gJ4-GF-QDg"/>
+                                    <constraint firstAttribute="bottom" secondItem="4MT-Nn-aiA" secondAttribute="bottom" id="vV4-5Q-HOa"/>
+                                </constraints>
+                            </scrollView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Bvx-iz-fpM" firstAttribute="trailing" secondItem="koc-hk-kkQ" secondAttribute="trailing" id="Utr-pa-ixu"/>
+                            <constraint firstItem="Bvx-iz-fpM" firstAttribute="top" secondItem="mah-8k-eCD" secondAttribute="top" id="dqs-Mp-VLw"/>
+                            <constraint firstItem="Bvx-iz-fpM" firstAttribute="leading" secondItem="koc-hk-kkQ" secondAttribute="leading" id="ePZ-Ba-jQe"/>
+                            <constraint firstItem="Bvx-iz-fpM" firstAttribute="bottom" secondItem="koc-hk-kkQ" secondAttribute="bottom" id="fnw-ej-hhk"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="koc-hk-kkQ"/>
+                    </view>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <size key="freeformSize" width="576" height="1024"/>
+                    <connections>
+                        <outlet property="contentsView" destination="4MT-Nn-aiA" id="PA1-lE-n5o"/>
+                        <outlet property="imageView" destination="Kgd-6a-sVD" id="Kwq-a2-hvl"/>
+                        <outlet property="scrollView" destination="Bvx-iz-fpM" id="QFo-3m-THI"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="BFe-bz-iyb" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="216.796875" y="195.3125"/>
+        </scene>
+    </scenes>
+</document>

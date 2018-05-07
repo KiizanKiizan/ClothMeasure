@@ -19,6 +19,12 @@
 		FBB78C0D209DEB23004CC499 /* ScanImageRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBB78C0C209DEB23004CC499 /* ScanImageRequest.swift */; };
 		FBB78C10209DEC05004CC499 /* CalibrationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBB78C0F209DEC05004CC499 /* CalibrationViewController.swift */; };
 		FBB78C12209DEC0E004CC499 /* CalibrationViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FBB78C11209DEC0E004CC499 /* CalibrationViewController.storyboard */; };
+		FBB78C15209E0305004CC499 /* MeasureViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBB78C14209E0305004CC499 /* MeasureViewController.swift */; };
+		FBB78C17209E030D004CC499 /* MeasureViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FBB78C16209E030D004CC499 /* MeasureViewController.storyboard */; };
+		FBB78C1F20A094F3004CC499 /* MeasurePoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBB78C1E20A094F3004CC499 /* MeasurePoint.swift */; };
+		FBB78C2120A0951C004CC499 /* MeasurePointType.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBB78C2020A0951C004CC499 /* MeasurePointType.swift */; };
+		FBB78C2320A098B4004CC499 /* MeasurePointViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBB78C2220A098B4004CC499 /* MeasurePointViewController.swift */; };
+		FBB78C2520A098C0004CC499 /* MeasurePointViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FBB78C2420A098C0004CC499 /* MeasurePointViewController.storyboard */; };
 		FBFF5512209A185C00475F12 /* DataKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBFF550B209A185C00475F12 /* DataKey.swift */; };
 		FBFF5513209A185C00475F12 /* RecieveCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBFF550C209A185C00475F12 /* RecieveCommand.swift */; };
 		FBFF5514209A185C00475F12 /* Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBFF550E209A185C00475F12 /* Request.swift */; };
@@ -45,6 +51,12 @@
 		FBB78C0C209DEB23004CC499 /* ScanImageRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanImageRequest.swift; sourceTree = "<group>"; };
 		FBB78C0F209DEC05004CC499 /* CalibrationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalibrationViewController.swift; sourceTree = "<group>"; };
 		FBB78C11209DEC0E004CC499 /* CalibrationViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = CalibrationViewController.storyboard; sourceTree = "<group>"; };
+		FBB78C14209E0305004CC499 /* MeasureViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeasureViewController.swift; sourceTree = "<group>"; };
+		FBB78C16209E030D004CC499 /* MeasureViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MeasureViewController.storyboard; sourceTree = "<group>"; };
+		FBB78C1E20A094F3004CC499 /* MeasurePoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeasurePoint.swift; sourceTree = "<group>"; };
+		FBB78C2020A0951C004CC499 /* MeasurePointType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeasurePointType.swift; sourceTree = "<group>"; };
+		FBB78C2220A098B4004CC499 /* MeasurePointViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeasurePointViewController.swift; sourceTree = "<group>"; };
+		FBB78C2420A098C0004CC499 /* MeasurePointViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MeasurePointViewController.storyboard; sourceTree = "<group>"; };
 		FBFF550B209A185C00475F12 /* DataKey.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataKey.swift; sourceTree = "<group>"; };
 		FBFF550C209A185C00475F12 /* RecieveCommand.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecieveCommand.swift; sourceTree = "<group>"; };
 		FBFF550E209A185C00475F12 /* Request.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Request.swift; sourceTree = "<group>"; };
@@ -78,6 +90,7 @@
 		FB0061DC209A0020008B73CB /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
+				FBB78C13209E02E7004CC499 /* MeasureViewController */,
 				FBB78C0E209DEBED004CC499 /* CalibrationViewController */,
 				FB4073CC209DDC5E00CC9FDB /* BarcodeReaderViewController */,
 				FB0061DD209A003D008B73CB /* Main.storyboard */,
@@ -142,9 +155,30 @@
 			path = CalibrationViewController;
 			sourceTree = "<group>";
 		};
+		FBB78C13209E02E7004CC499 /* MeasureViewController */ = {
+			isa = PBXGroup;
+			children = (
+				FBB78C14209E0305004CC499 /* MeasureViewController.swift */,
+				FBB78C16209E030D004CC499 /* MeasureViewController.storyboard */,
+				FBB78C2220A098B4004CC499 /* MeasurePointViewController.swift */,
+				FBB78C2420A098C0004CC499 /* MeasurePointViewController.storyboard */,
+			);
+			path = MeasureViewController;
+			sourceTree = "<group>";
+		};
+		FBB78C1D20A09495004CC499 /* Measure */ = {
+			isa = PBXGroup;
+			children = (
+				FBB78C1E20A094F3004CC499 /* MeasurePoint.swift */,
+				FBB78C2020A0951C004CC499 /* MeasurePointType.swift */,
+			);
+			path = Measure;
+			sourceTree = "<group>";
+		};
 		FBFF5509209A185C00475F12 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				FBB78C1D20A09495004CC499 /* Measure */,
 				FBFF550A209A185C00475F12 /* Socket */,
 			);
 			path = Model;
@@ -238,9 +272,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				FB0061DF209A003D008B73CB /* Main.storyboard in Resources */,
+				FBB78C17209E030D004CC499 /* MeasureViewController.storyboard in Resources */,
 				FBB5BD8620921417001313E0 /* LaunchScreen.storyboard in Resources */,
 				FBB78C12209DEC0E004CC499 /* CalibrationViewController.storyboard in Resources */,
 				FBB5BD8320921417001313E0 /* Assets.xcassets in Resources */,
+				FBB78C2520A098C0004CC499 /* MeasurePointViewController.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -308,6 +344,8 @@
 				FBFF5512209A185C00475F12 /* DataKey.swift in Sources */,
 				FBFF5513209A185C00475F12 /* RecieveCommand.swift in Sources */,
 				FB4073CE209DDC5E00CC9FDB /* BarcodeReaderViewController.swift in Sources */,
+				FBB78C15209E0305004CC499 /* MeasureViewController.swift in Sources */,
+				FBB78C2320A098B4004CC499 /* MeasurePointViewController.swift in Sources */,
 				FBFF5514209A185C00475F12 /* Request.swift in Sources */,
 				FBB78C0D209DEB23004CC499 /* ScanImageRequest.swift in Sources */,
 				FB64866C209B56C10011F156 /* SendCommand.swift in Sources */,
@@ -315,8 +353,10 @@
 				FBB78C10209DEC05004CC499 /* CalibrationViewController.swift in Sources */,
 				FBFF5519209A196B00475F12 /* ImageData.swift in Sources */,
 				FBFF5516209A185C00475F12 /* SocketError.swift in Sources */,
+				FBB78C1F20A094F3004CC499 /* MeasurePoint.swift in Sources */,
 				FB648672209B60FC0011F156 /* FetchImage.swift in Sources */,
 				FBFF5517209A185C00475F12 /* SocketHandler.swift in Sources */,
+				FBB78C2120A0951C004CC499 /* MeasurePointType.swift in Sources */,
 				FB0061E0209A003D008B73CB /* ViewController.swift in Sources */,
 				FBB5BD7C20921417001313E0 /* AppDelegate.swift in Sources */,
 			);
