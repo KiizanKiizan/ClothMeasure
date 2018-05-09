@@ -13,7 +13,16 @@ class MeasureViewController: UIViewController, UIScrollViewDelegate {
     @IBOutlet weak var contentsView: UIView!
     @IBOutlet weak var scrollView: UIScrollView!
     
-    private var didSetup = false
+    var measurePointPairs = [MeasurePointPair]()
+    private(set) var didSetup = false
+    
+    class func createViewController(measurePointPairs: [MeasurePointPair]) -> MeasureViewController {
+        let vc = UIStoryboard(name: "MeasureViewController", bundle: nil).instantiateInitialViewController() as! MeasureViewController
+        
+        vc.measurePointPairs = measurePointPairs
+        
+        return vc
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,21 +32,25 @@ class MeasureViewController: UIViewController, UIScrollViewDelegate {
         scrollView.maximumZoomScale = 5.0
     }
     
-    override func viewDidLayoutSubviews() {
-        super.viewDidLayoutSubviews()
-        
-        if !didSetup {
-            let measurePoint = MeasurePoint(type: .calibration,
-                                            xUnit: view.bounds.width / 2.0, yUnit: view.bounds.height / 2.0, initPosRatio: CGPoint(x: 0.7, y: 0.8))
-            let vc = MeasurePointViewController.createViewController(measurePoint: measurePoint)
-            contentsView.addSubview(vc.view)
-            addChildViewController(vc)
-            vc.didMove(toParentViewController: self)
-            didSetup = true
+    func setup() {
+        if didSetup {
+            return
         }
+        
+        measurePointPairs.forEach {
+            addMeasurePointViewController(vc: $0.startMeasurePointVc)
+            addMeasurePointViewController(vc: $0.endMeasurePointVc)
+        }
+        didSetup = true
     }
     
     func viewForZooming(in scrollView: UIScrollView) -> UIView? {
         return contentsView
+    }
+    
+    private func addMeasurePointViewController(vc: MeasurePointViewController) {
+        contentsView.addSubview(vc.view)
+        addChildViewController(vc)
+        vc.didMove(toParentViewController: self)
     }
 }

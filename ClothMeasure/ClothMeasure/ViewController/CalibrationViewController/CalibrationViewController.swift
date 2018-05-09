@@ -11,7 +11,9 @@ import UIKit
 class CalibrationViewController: UIViewController, SocketHandlerDelegate {
     
     @IBOutlet weak var doneButton: UIButton!
+    @IBOutlet weak var measureViewContainer: UIView!
     
+    private var measureViewController: MeasureViewController!
     private var scanSocketHandler: SocketHandler!
     private var fetchImage: FetchImage!
     
@@ -24,8 +26,29 @@ class CalibrationViewController: UIViewController, SocketHandlerDelegate {
         return vc
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let vc = segue.destination as? MeasureViewController {
+            measureViewController = vc
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+    }
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        
+        if !measureViewController.didSetup {
+            let pair = MeasurePointPair(type: .calibration,
+                                        xUnit: measureViewContainer.bounds.width / 2.0,
+                                        yUnit: measureViewContainer.bounds.height / 2.0,
+                                        initStartPosRatio: CGPoint(x: 0.6, y: 0.8),
+                                        initEndPosRatio: CGPoint(x: 1.4, y: 0.8))
+
+            measureViewController.measurePointPairs = [pair]
+            measureViewController.setup()
+        }
     }
 
     override func viewDidAppear(_ animated: Bool) {

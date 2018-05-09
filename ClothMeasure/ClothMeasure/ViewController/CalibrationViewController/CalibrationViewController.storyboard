@@ -69,6 +69,7 @@
                     </view>
                     <connections>
                         <outlet property="doneButton" destination="bb6-f9-7Rn" id="LD0-RP-iTd"/>
+                        <outlet property="measureViewContainer" destination="mUb-R8-sui" id="c3J-cF-gJY"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Nis-vO-Q7A" userLabel="First Responder" sceneMemberID="firstResponder"/>

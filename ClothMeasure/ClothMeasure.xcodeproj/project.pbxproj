@@ -10,6 +10,7 @@
 		C0D881E1F2BC703D294A1A4A /* Pods_ClothMeasure.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B8DB95C0882CD2398DC9F757 /* Pods_ClothMeasure.framework */; };
 		FB0061DF209A003D008B73CB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FB0061DD209A003D008B73CB /* Main.storyboard */; };
 		FB0061E0209A003D008B73CB /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB0061DE209A003D008B73CB /* ViewController.swift */; };
+		FB2DCB7820A2EDA60065678E /* MeasurePointPair.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB2DCB7720A2EDA60065678E /* MeasurePointPair.swift */; };
 		FB4073CE209DDC5E00CC9FDB /* BarcodeReaderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB4073CD209DDC5E00CC9FDB /* BarcodeReaderViewController.swift */; };
 		FB64866C209B56C10011F156 /* SendCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB64866B209B56C10011F156 /* SendCommand.swift */; };
 		FB648672209B60FC0011F156 /* FetchImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB648671209B60FC0011F156 /* FetchImage.swift */; };
@@ -40,6 +41,7 @@
 		B8DB95C0882CD2398DC9F757 /* Pods_ClothMeasure.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ClothMeasure.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FB0061DD209A003D008B73CB /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		FB0061DE209A003D008B73CB /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		FB2DCB7720A2EDA60065678E /* MeasurePointPair.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeasurePointPair.swift; sourceTree = "<group>"; };
 		FB4073CD209DDC5E00CC9FDB /* BarcodeReaderViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BarcodeReaderViewController.swift; sourceTree = "<group>"; };
 		FB64866B209B56C10011F156 /* SendCommand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendCommand.swift; sourceTree = "<group>"; };
 		FB648671209B60FC0011F156 /* FetchImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchImage.swift; sourceTree = "<group>"; };
@@ -160,6 +162,7 @@
 			children = (
 				FBB78C14209E0305004CC499 /* MeasureViewController.swift */,
 				FBB78C16209E030D004CC499 /* MeasureViewController.storyboard */,
+				FB2DCB7720A2EDA60065678E /* MeasurePointPair.swift */,
 				FBB78C2220A098B4004CC499 /* MeasurePointViewController.swift */,
 				FBB78C2420A098C0004CC499 /* MeasurePointViewController.storyboard */,
 			);
@@ -352,6 +355,7 @@
 				FBFF5515209A185C00475F12 /* FetchImageRequest.swift in Sources */,
 				FBB78C10209DEC05004CC499 /* CalibrationViewController.swift in Sources */,
 				FBFF5519209A196B00475F12 /* ImageData.swift in Sources */,
+				FB2DCB7820A2EDA60065678E /* MeasurePointPair.swift in Sources */,
 				FBFF5516209A185C00475F12 /* SocketError.swift in Sources */,
 				FBB78C1F20A094F3004CC499 /* MeasurePoint.swift in Sources */,
 				FB648672209B60FC0011F156 /* FetchImage.swift in Sources */,

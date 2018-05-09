@@ -11,7 +11,6 @@ import UIKit
 
 class MeasurePoint {
     
-    let type: MeasurePointType
     let xUnit: CGFloat
     let yUnit: CGFloat
     var pos: CGPoint {
@@ -20,11 +19,9 @@ class MeasurePoint {
     }
     private var posRatio: CGPoint
     
-    init(type: MeasurePointType,
-         xUnit: CGFloat,
+    init(xUnit: CGFloat,
          yUnit: CGFloat,
          initPosRatio: CGPoint) {
-        self.type = type
         self.xUnit = xUnit
         self.yUnit = yUnit
         self.posRatio = initPosRatio
