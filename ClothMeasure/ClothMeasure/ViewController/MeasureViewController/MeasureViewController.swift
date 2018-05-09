@@ -30,7 +30,7 @@ class MeasureViewController: UIViewController, UIScrollViewDelegate {
             let measurePoint = MeasurePoint(type: .calibration,
                                             xUnit: view.bounds.width / 2.0, yUnit: view.bounds.height / 2.0, initPosRatio: CGPoint(x: 0.7, y: 0.8))
             let vc = MeasurePointViewController.createViewController(measurePoint: measurePoint)
-            view.addSubview(vc.view)
+            contentsView.addSubview(vc.view)
             addChildViewController(vc)
             vc.didMove(toParentViewController: self)
             didSetup = true

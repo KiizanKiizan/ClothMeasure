@@ -44,7 +44,7 @@ class MeasurePointViewController: UIViewController {
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
 
-        let pos = view.convert(measurePoint.pos, from: point)
+        let pos = view.convert(measurePoint.pos, to: point)
         view.frame = CGRect(x: pos.x,
                             y: pos.y,
                             width: view.bounds.width,
@@ -58,7 +58,7 @@ class MeasurePointViewController: UIViewController {
                             y: view.frame.origin.y + move.y,
                             width: view.bounds.width,
                             height: view.bounds.height)
-        let pos = point.convert(point.frame.origin, to: view)
+        let pos = view.convert(point.frame.origin, to: view.superview)
         measurePoint.pos = pos
         
         delegate?.measurePointViewControllerDidMove(self)
