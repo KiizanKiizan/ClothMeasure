@@ -31,16 +31,16 @@ class ViewController: UIViewController, SocketHandlerDelegate, BarcodeReaderView
         fetchImage = FetchImage(socketHandler: socketHandler)
         
         let measurePointVcs = [
-            MeasurePointViewController.createViewController(initPosRatio: CGPoint(x: 0.8, y: 0.6)),
-            MeasurePointViewController.createViewController(initPosRatio: CGPoint(x: 1.2, y: 0.6)),
-            MeasurePointViewController.createViewController(initPosRatio: CGPoint(x: 0.55, y: 0.75)),
-            MeasurePointViewController.createViewController(initPosRatio: CGPoint(x: 1.45, y: 0.75)),
-            MeasurePointViewController.createViewController(initPosRatio: CGPoint(x: 0.3, y: 0.8)),
-            MeasurePointViewController.createViewController(initPosRatio: CGPoint(x: 1.7, y: 0.8)),
-            MeasurePointViewController.createViewController(initPosRatio: CGPoint(x: 0.7, y: 1.1)),
-            MeasurePointViewController.createViewController(initPosRatio: CGPoint(x: 1.3, y: 1.1)),
-            MeasurePointViewController.createViewController(initPosRatio: CGPoint(x: 0.7, y: 1.4)),
-            MeasurePointViewController.createViewController(initPosRatio: CGPoint(x: 1.3, y: 1.4))
+            MeasurePointViewController.createViewController(initPosRatio: CGPoint(x: 0.8, y: 0.6), cursorPosition: .top),
+            MeasurePointViewController.createViewController(initPosRatio: CGPoint(x: 1.2, y: 0.6), cursorPosition: .top),
+            MeasurePointViewController.createViewController(initPosRatio: CGPoint(x: 0.55, y: 0.75), cursorPosition: .bottom),
+            MeasurePointViewController.createViewController(initPosRatio: CGPoint(x: 1.45, y: 0.75), cursorPosition: .bottom),
+            MeasurePointViewController.createViewController(initPosRatio: CGPoint(x: 0.3, y: 0.8), cursorPosition: .bottom),
+            MeasurePointViewController.createViewController(initPosRatio: CGPoint(x: 1.7, y: 0.8), cursorPosition: .bottom),
+            MeasurePointViewController.createViewController(initPosRatio: CGPoint(x: 0.7, y: 1.1), cursorPosition: .left),
+            MeasurePointViewController.createViewController(initPosRatio: CGPoint(x: 1.3, y: 1.1), cursorPosition: .right),
+            MeasurePointViewController.createViewController(initPosRatio: CGPoint(x: 0.7, y: 1.4), cursorPosition: .left),
+            MeasurePointViewController.createViewController(initPosRatio: CGPoint(x: 1.3, y: 1.4), cursorPosition: .right)
         ]
         measurePointPairs = [
             MeasurePointPair(type: .neck,
