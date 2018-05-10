@@ -9,11 +9,16 @@
 import Foundation
 import UIKit
 
+protocol MeasurePointPairDelegate: class {
+    func measurePointPairDidMovePoint(_ controller: MeasurePointPair)
+}
+
 class MeasurePointPair: MeasurePointViewControllerNotification {
     let type: MeasurePointType
     private(set) var startMeasurePointVc: MeasurePointViewController?
     private(set) var endMeasurePointVc: MeasurePointViewController?
     var shapeLayer: CAShapeLayer?
+    weak var delegate: MeasurePointPairDelegate?
     
     init(type: MeasurePointType,
          startMeasurePointVc: MeasurePointViewController,
@@ -59,10 +64,12 @@ class MeasurePointPair: MeasurePointViewControllerNotification {
     func measurePointViewControllerDidCreateMeasurePoint(_ vc: MeasurePointViewController) {
         if startMeasurePointVc?.measurePoint != nil && endMeasurePointVc?.measurePoint != nil {
             updateLine()
+            delegate?.measurePointPairDidMovePoint(self)
         }
     }
     
     func measurePointViewControllerDidMove(_ vc: MeasurePointViewController) {
         updateLine()
+        delegate?.measurePointPairDidMovePoint(self)
     }
 }

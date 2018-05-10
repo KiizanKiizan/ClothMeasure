@@ -8,18 +8,8 @@
 
 import UIKit
 
-enum MeasureType {
-    case neck
-    case shoulder
-    case chest
-    case waist
-    case armLeft
-    case armRight
-}
+class ViewController: UIViewController, SocketHandlerDelegate, BarcodeReaderViewControllerDelegate, MeasurePointPairDelegate {
 
-class ViewController: UIViewController, SocketHandlerDelegate, BarcodeReaderViewControllerDelegate {
-
-    @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var connectIndicator: UIActivityIndicatorView!
     
     @IBOutlet weak var neckLabel: UILabel!
@@ -29,50 +19,65 @@ class ViewController: UIViewController, SocketHandlerDelegate, BarcodeReaderView
     @IBOutlet weak var leftArmLabel: UILabel!
     @IBOutlet weak var rightArmLabel: UILabel!
     
-    @IBOutlet weak var neckLeftView: UIView!
-    @IBOutlet weak var neckRightView: UIView!
-    @IBOutlet weak var shoulderLeftView: UIView!
-    @IBOutlet weak var shoulderRightView: UIView!
-    @IBOutlet weak var armLeftView: UIView!
-    @IBOutlet weak var armRightView: UIView!
-    @IBOutlet weak var chestLeftView: UIView!
-    @IBOutlet weak var chestRightView: UIView!
-    @IBOutlet weak var waistLeftView: UIView!
-    @IBOutlet weak var waistRightView: UIView!
-    
-    private let shapeLayer = CAShapeLayer()
     private let socketHandler = SocketHandler()
     private var fetchImage: FetchImage!
+    private var measurePointPairs = [MeasurePointPair]()
+    private var measureViewController: MeasureViewController!
+    private var pointPerCentimeter: Float = 1.0
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         fetchImage = FetchImage(socketHandler: socketHandler)
         
-        shapeLayer.strokeColor = UIColor.red.cgColor
-        shapeLayer.lineWidth = 2.0
-        shapeLayer.fillColor = UIColor.clear.cgColor
-        
-        view.layer.addSublayer(shapeLayer)
-        
-        updateLine()
-        
-        let views = [
-            neckLeftView,
-            neckRightView,
-            shoulderLeftView,
-            shoulderRightView,
-            armLeftView,
-            armRightView,
-            chestLeftView,
-            chestRightView,
-            waistLeftView,
-            waistRightView
+        let measurePointVcs = [
+            MeasurePointViewController.createViewController(initPosRatio: CGPoint(x: 0.8, y: 0.6)),
+            MeasurePointViewController.createViewController(initPosRatio: CGPoint(x: 1.2, y: 0.6)),
+            MeasurePointViewController.createViewController(initPosRatio: CGPoint(x: 0.55, y: 0.75)),
+            MeasurePointViewController.createViewController(initPosRatio: CGPoint(x: 1.45, y: 0.75)),
+            MeasurePointViewController.createViewController(initPosRatio: CGPoint(x: 0.3, y: 0.8)),
+            MeasurePointViewController.createViewController(initPosRatio: CGPoint(x: 1.7, y: 0.8)),
+            MeasurePointViewController.createViewController(initPosRatio: CGPoint(x: 0.7, y: 1.1)),
+            MeasurePointViewController.createViewController(initPosRatio: CGPoint(x: 1.3, y: 1.1)),
+            MeasurePointViewController.createViewController(initPosRatio: CGPoint(x: 0.7, y: 1.4)),
+            MeasurePointViewController.createViewController(initPosRatio: CGPoint(x: 1.3, y: 1.4))
         ]
+        measurePointPairs = [
+            MeasurePointPair(type: .neck,
+                             startMeasurePointVc: measurePointVcs[0],
+                             endMeasurePointVc: measurePointVcs[1]),
+            MeasurePointPair(type: .shoulder,
+                             startMeasurePointVc: measurePointVcs[2],
+                             endMeasurePointVc: measurePointVcs[3]),
+            MeasurePointPair(type: .chest,
+                             startMeasurePointVc: measurePointVcs[6],
+                             endMeasurePointVc: measurePointVcs[7]),
+            MeasurePointPair(type: .waist,
+                             startMeasurePointVc: measurePointVcs[8],
+                             endMeasurePointVc: measurePointVcs[9]),
+            MeasurePointPair(type: .leftArm,
+                             startMeasurePointVc: measurePointVcs[2],
+                             endMeasurePointVc: measurePointVcs[4]),
+            MeasurePointPair(type: .rightArm,
+                             startMeasurePointVc: measurePointVcs[3],
+                             endMeasurePointVc: measurePointVcs[5]),
         
-        views.forEach {
-            $0?.addGestureRecognizer(UIPanGestureRecognizer(target: self, action: #selector(panLabel)))
-            self.measure(view: $0!)
+        ]
+        measurePointPairs.forEach { $0.delegate = self }
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let vc = segue.destination as? MeasureViewController {
+            measureViewController = vc
+        }
+    }
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        
+        if !measureViewController.didSetup {
+            measureViewController.measurePointPairs = measurePointPairs
+            measureViewController.setup()
         }
     }
     
@@ -80,6 +85,9 @@ class ViewController: UIViewController, SocketHandlerDelegate, BarcodeReaderView
         super.viewDidAppear(animated)
         
         socketHandler.delegate = self
+        
+        pointPerCentimeter = ApplicationSetting().pointPerCentimeter()
+        measurePointPairs.forEach { updateLabel(controller: $0) }
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -94,7 +102,7 @@ class ViewController: UIViewController, SocketHandlerDelegate, BarcodeReaderView
     
     func socketHandlerRecieveImage(_ handler: SocketHandler) {
         fetchImage.fetch { (image, error) in
-            self.imageView.image = image
+            self.measureViewController.setImage(image)
         }
     }
     
@@ -104,75 +112,34 @@ class ViewController: UIViewController, SocketHandlerDelegate, BarcodeReaderView
             self.connectIndicator.startAnimating()
         })
     }
-
-    @objc func panLabel(sender: UIPanGestureRecognizer) {
-        let move = sender.translation(in: view)
-        
-        sender.view!.center.x += move.x
-        sender.view!.center.y += move.y
-        
-        sender.setTranslation(.zero, in: view)
-        updateLine()
-        measure(view: sender.view!)
+    
+    func measurePointPairDidMovePoint(_ controller: MeasurePointPair) {
+        updateLabel(controller: controller)
     }
     
-    private func updateLine() {
-        let uiPath = UIBezierPath()
-        uiPath.move(to: neckLeftView.center)
-        uiPath.addLine(to: shoulderLeftView.center)
-        uiPath.addLine(to: armLeftView.center)
-        uiPath.move(to: neckRightView.center)
-        uiPath.addLine(to: shoulderRightView.center)
-        uiPath.addLine(to: armRightView.center)
-        uiPath.move(to: chestLeftView.center)
-        uiPath.addLine(to: waistLeftView.center)
-        uiPath.move(to: chestRightView.center)
-        uiPath.addLine(to: waistRightView.center)
-        
-        shapeLayer.path = uiPath.cgPath
-    }
-    
-    private func measure(view: UIView) {
-        if view === neckLeftView || view === neckRightView {
-            updateLabel(type: .neck)
-        } else if view === shoulderLeftView {
-            updateLabel(type: .shoulder)
-            updateLabel(type: .armLeft)
-        } else if view === shoulderRightView {
-            updateLabel(type: .shoulder)
-            updateLabel(type: .armRight)
-        } else if view === armLeftView {
-            updateLabel(type: .armLeft)
-        } else if view === armRightView {
-            updateLabel(type: .armRight)
-        } else if view === chestLeftView || view === chestRightView {
-            updateLabel(type: .chest)
-        } else if view === waistLeftView || view === waistRightView {
-            updateLabel(type: .waist)
-        }
-    }
-    
-    private func updateLabel(type: MeasureType) {
-        switch type {
+    private func updateLabel(controller: MeasurePointPair) {
+        var label: UILabel?
+        switch controller.type {
         case .neck:
-            neckLabel.text = calcDistance(p1: neckLeftView.center, p2: neckRightView.center)
+            label = neckLabel
         case .shoulder:
-            shoulderLabel.text = calcDistance(p1: shoulderLeftView.center, p2: shoulderRightView.center)
+            label = shoulderLabel
         case .chest:
-            chest.text = calcDistance(p1: chestLeftView.center, p2: chestRightView.center)
+            label = chest
         case .waist:
-            waistLabel.text = calcDistance(p1: waistLeftView.center, p2: waistRightView.center)
-        case .armLeft:
-            leftArmLabel.text = calcDistance(p1: armLeftView.center, p2: shoulderLeftView.center)
-        case .armRight:
-            rightArmLabel.text = calcDistance(p1: armRightView.center, p2: shoulderRightView.center)
+            label = waistLabel
+        case .leftArm:
+            label = leftArmLabel
+        case .rightArm:
+            label = rightArmLabel
+        case .calibration:
+            break
         }
+        label?.text = roundDistance(controller.distance())
     }
     
-    private func calcDistance(p1: CGPoint, p2: CGPoint) -> String {
-        let dx = Float(p1.x - p2.x)
-        let dy = Float(p1.y - p2.y)
-        return String(format: "%.2f cm", sqrtf(dx*dx + dy*dy) / 4.0)
+    private func roundDistance(_ distane: Float) -> String {
+        return String(format: "%d cm", Int(roundf(distane / pointPerCentimeter)))
     }
     
     @IBAction func pushConnectButton(_ sender: Any) {

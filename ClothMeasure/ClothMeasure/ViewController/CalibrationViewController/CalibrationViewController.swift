@@ -25,8 +25,8 @@ class CalibrationViewController: UIViewController, SocketHandlerDelegate {
         
         vc.scanSocketHandler = scanSocketHandler
         vc.fetchImage = FetchImage(socketHandler: scanSocketHandler)
-        let startMeasurePointVc = MeasurePointViewController.createViewController(initPosRatio: CGPoint(x: 0.6, y: 1.0))
-        let endMeasurePointVc = MeasurePointViewController.createViewController(initPosRatio: CGPoint(x: 1.4, y: 1.0))
+        let startMeasurePointVc = MeasurePointViewController.createViewController(initPosRatio: CGPoint(x: 0.9, y: 1.0))
+        let endMeasurePointVc = MeasurePointViewController.createViewController(initPosRatio: CGPoint(x: 1.1, y: 1.0))
         vc.measurePointPair = MeasurePointPair(type: .calibration,
                                                startMeasurePointVc: startMeasurePointVc,
                                                endMeasurePointVc: endMeasurePointVc)
@@ -48,8 +48,6 @@ class CalibrationViewController: UIViewController, SocketHandlerDelegate {
         super.viewDidLayoutSubviews()
         
         if !measureViewController.didSetup {
-            
-
             measureViewController.measurePointPairs = [measurePointPair]
             measureViewController.setup()
         }
@@ -82,7 +80,7 @@ class CalibrationViewController: UIViewController, SocketHandlerDelegate {
         scanSocketHandler.exec(request: ScanImageRequest(), completion: nil)
     }
     @IBAction func pushDoneButton(_ sender: Any) {
-        ApplicationSetting().savePointPerCentimeter(measurePointPair.distance())
+        ApplicationSetting().savePointPerCentimeter(measurePointPair.distance() / calibrationDistance)
         dismiss(animated: true, completion: nil)
     }
 }

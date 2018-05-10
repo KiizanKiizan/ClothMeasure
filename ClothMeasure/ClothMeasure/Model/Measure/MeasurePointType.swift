@@ -10,4 +10,10 @@ import Foundation
 
 enum MeasurePointType {
     case calibration
+    case neck
+    case shoulder
+    case chest
+    case waist
+    case leftArm
+    case rightArm
 }
