@@ -40,11 +40,11 @@ class CalibrationViewController: UIViewController, SocketHandlerDelegate {
         super.viewDidLayoutSubviews()
         
         if !measureViewController.didSetup {
+            let startMeasurePointVc = MeasurePointViewController.createViewController(initPosRatio: CGPoint(x: 0.6, y: 1.0))
+            let endMeasurePointVc = MeasurePointViewController.createViewController(initPosRatio: CGPoint(x: 1.4, y: 1.0))
             let pair = MeasurePointPair(type: .calibration,
-                                        xUnit: measureViewContainer.bounds.width / 2.0,
-                                        yUnit: measureViewContainer.bounds.height / 2.0,
-                                        initStartPosRatio: CGPoint(x: 0.6, y: 0.8),
-                                        initEndPosRatio: CGPoint(x: 1.4, y: 0.8))
+                                        startMeasurePointVc: startMeasurePointVc,
+                                        endMeasurePointVc: endMeasurePointVc)
 
             measureViewController.measurePointPairs = [pair]
             measureViewController.setup()

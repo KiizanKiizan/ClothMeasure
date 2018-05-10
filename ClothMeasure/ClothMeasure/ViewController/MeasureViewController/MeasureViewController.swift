@@ -38,8 +38,21 @@ class MeasureViewController: UIViewController, UIScrollViewDelegate {
         }
         
         measurePointPairs.forEach {
-            addMeasurePointViewController(vc: $0.startMeasurePointVc)
-            addMeasurePointViewController(vc: $0.endMeasurePointVc)
+            let shapeLayer = CAShapeLayer()
+            shapeLayer.strokeColor = UIColor.red.withAlphaComponent(0.3).cgColor
+            shapeLayer.lineWidth = 2.0
+            shapeLayer.fillColor = UIColor.clear.cgColor
+            contentsView.layer.addSublayer(shapeLayer)
+            $0.shapeLayer = shapeLayer
+            
+            if $0.startMeasurePointVc != nil {
+                addMeasurePointViewController(vc: $0.startMeasurePointVc!)
+                scrollView.panGestureRecognizer.require(toFail: $0.startMeasurePointVc!.panGesture)
+            }
+            if $0.endMeasurePointVc != nil {
+                addMeasurePointViewController(vc: $0.endMeasurePointVc!)
+                scrollView.panGestureRecognizer.require(toFail: $0.endMeasurePointVc!.panGesture)
+            }
         }
         didSetup = true
     }

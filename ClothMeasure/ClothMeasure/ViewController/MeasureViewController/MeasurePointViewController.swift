@@ -8,7 +8,8 @@
 
 import UIKit
 
-protocol MeasurePointViewControllerDelegate: class {
+protocol MeasurePointViewControllerNotification: class {
+    func measurePointViewControllerDidCreateMeasurePoint(_ vc: MeasurePointViewController)
     func measurePointViewControllerDidMove(_ vc: MeasurePointViewController)
 }
 
@@ -18,13 +19,16 @@ class MeasurePointViewController: UIViewController {
     @IBOutlet weak var point: UIView!
     @IBOutlet weak var pointWidthConstraint: NSLayoutConstraint!
     
-    weak var delegate: MeasurePointViewControllerDelegate?
+    private var observers = [MeasurePointViewControllerNotification]()
     
+    private(set) var initPosRatio: CGPoint!
     private(set) var measurePoint: MeasurePoint!
+    private(set) var panGesture: UIPanGestureRecognizer!
     
-    class func createViewController(measurePoint: MeasurePoint) -> MeasurePointViewController {
+    class func createViewController(initPosRatio: CGPoint) -> MeasurePointViewController {
         let vc = UIStoryboard(name: "MeasurePointViewController", bundle: nil).instantiateInitialViewController() as! MeasurePointViewController
-        vc.measurePoint = measurePoint
+        vc.initPosRatio = initPosRatio
+        vc.panGesture = UIPanGestureRecognizer(target: vc, action: #selector(panCursor))
         return vc
     }
     
@@ -38,17 +42,37 @@ class MeasurePointViewController: UIViewController {
 
         point.layer.cornerRadius = pointWidthConstraint.constant / 2.0
         
-        cursor.addGestureRecognizer(UIPanGestureRecognizer(target: self, action: #selector(panCursor)))
+        cursor.addGestureRecognizer(panGesture)
     }
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
 
-        let pos = view.convert(measurePoint.pos, to: point)
-        view.frame = CGRect(x: pos.x,
-                            y: pos.y,
-                            width: view.bounds.width,
-                            height: view.bounds.height)
+        if measurePoint == nil {
+            let superViewBounds = view.superview!.bounds
+            measurePoint = MeasurePoint(xUnit: superViewBounds.width / 2.0,
+                                        yUnit: superViewBounds.height / 2.0,
+                                        initPosRatio: initPosRatio)
+            let pos = view.convert(measurePoint.pos, to: point)
+            let pointRadius = pointWidthConstraint.constant / 2.0
+            view.frame = CGRect(x: pos.x - pointRadius,
+                                y: pos.y - pointRadius,
+                                width: view.bounds.width,
+                                height: view.bounds.height)
+            observers.forEach{ $0.measurePointViewControllerDidCreateMeasurePoint(self) }
+        }
+    }
+    
+    func addObserver(_ observer: MeasurePointViewControllerNotification) {
+        if !observers.contains(where: {$0 === observer}) {
+            observers.append(observer)
+        }
+    }
+    
+    func removeObserver(_ observer: MeasurePointViewControllerNotification) {
+        if let index = observers.index(where: {$0 === observer}) {
+            observers.remove(at: index)
+        }
     }
 
     @objc func panCursor(sender: UIPanGestureRecognizer) {
@@ -58,9 +82,12 @@ class MeasurePointViewController: UIViewController {
                             y: view.frame.origin.y + move.y,
                             width: view.bounds.width,
                             height: view.bounds.height)
-        let pos = view.convert(point.frame.origin, to: view.superview)
+        var pos = view.convert(point.frame.origin, to: view.superview)
+        let pointRadius = pointWidthConstraint.constant / 2.0
+        pos.x += pointRadius
+        pos.y += pointRadius
         measurePoint.pos = pos
         
-        delegate?.measurePointViewControllerDidMove(self)
+        observers.forEach{ $0.measurePointViewControllerDidMove(self) }
     }
 }
