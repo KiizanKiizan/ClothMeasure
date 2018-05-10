@@ -14,6 +14,7 @@
 		FB4073CE209DDC5E00CC9FDB /* BarcodeReaderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB4073CD209DDC5E00CC9FDB /* BarcodeReaderViewController.swift */; };
 		FB64866C209B56C10011F156 /* SendCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB64866B209B56C10011F156 /* SendCommand.swift */; };
 		FB648672209B60FC0011F156 /* FetchImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB648671209B60FC0011F156 /* FetchImage.swift */; };
+		FB82E01B20A49B210031F809 /* ApplicationSetting.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB82E01A20A49B210031F809 /* ApplicationSetting.swift */; };
 		FBB5BD7C20921417001313E0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBB5BD7B20921417001313E0 /* AppDelegate.swift */; };
 		FBB5BD8320921417001313E0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FBB5BD8220921417001313E0 /* Assets.xcassets */; };
 		FBB5BD8620921417001313E0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FBB5BD8420921417001313E0 /* LaunchScreen.storyboard */; };
@@ -45,6 +46,7 @@
 		FB4073CD209DDC5E00CC9FDB /* BarcodeReaderViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BarcodeReaderViewController.swift; sourceTree = "<group>"; };
 		FB64866B209B56C10011F156 /* SendCommand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendCommand.swift; sourceTree = "<group>"; };
 		FB648671209B60FC0011F156 /* FetchImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchImage.swift; sourceTree = "<group>"; };
+		FB82E01A20A49B210031F809 /* ApplicationSetting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationSetting.swift; sourceTree = "<group>"; };
 		FBB5BD7820921417001313E0 /* ClothMeasure.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ClothMeasure.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FBB5BD7B20921417001313E0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FBB5BD8220921417001313E0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -181,6 +183,7 @@
 		FBFF5509209A185C00475F12 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				FB82E01A20A49B210031F809 /* ApplicationSetting.swift */,
 				FBB78C1D20A09495004CC499 /* Measure */,
 				FBFF550A209A185C00475F12 /* Socket */,
 			);
@@ -345,6 +348,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FBFF5512209A185C00475F12 /* DataKey.swift in Sources */,
+				FB82E01B20A49B210031F809 /* ApplicationSetting.swift in Sources */,
 				FBFF5513209A185C00475F12 /* RecieveCommand.swift in Sources */,
 				FB4073CE209DDC5E00CC9FDB /* BarcodeReaderViewController.swift in Sources */,
 				FBB78C15209E0305004CC499 /* MeasureViewController.swift in Sources */,

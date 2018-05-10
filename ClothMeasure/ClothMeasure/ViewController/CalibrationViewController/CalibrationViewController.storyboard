@@ -29,7 +29,7 @@
                                             <action selector="pushScanButton:" destination="y2a-Rg-C4W" eventType="touchUpInside" id="g0L-vX-SSC"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bb6-f9-7Rn">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bb6-f9-7Rn">
                                         <rect key="frame" x="209" y="407" width="31" height="30"/>
                                         <state key="normal" title="完了"/>
                                         <connections>
@@ -46,24 +46,36 @@
                                     <constraint firstItem="6y6-vY-r5v" firstAttribute="centerX" secondItem="PKp-Ic-l4y" secondAttribute="centerX" id="bqU-1B-jen"/>
                                 </constraints>
                             </view>
-                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mUb-R8-sui">
-                                <rect key="frame" x="0.0" y="-128" width="576" height="1024"/>
+                            <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="y2c-Hr-uMr">
+                                <rect key="frame" x="0.0" y="0.0" width="576" height="768"/>
+                                <subviews>
+                                    <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mUb-R8-sui">
+                                        <rect key="frame" x="0.0" y="-128" width="576" height="1024"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="mUb-R8-sui" secondAttribute="height" multiplier="9:16" id="8iW-lC-gRy"/>
+                                        </constraints>
+                                        <connections>
+                                            <segue destination="bOV-pp-fFc" kind="embed" id="DS4-Bt-N0D"/>
+                                        </connections>
+                                    </containerView>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" secondItem="mUb-R8-sui" secondAttribute="height" multiplier="9:16" id="8iW-lC-gRy"/>
+                                    <constraint firstItem="mUb-R8-sui" firstAttribute="leading" secondItem="y2c-Hr-uMr" secondAttribute="leading" id="QMD-Yb-3nE"/>
+                                    <constraint firstAttribute="trailing" secondItem="mUb-R8-sui" secondAttribute="trailing" id="tDO-fO-F06"/>
+                                    <constraint firstItem="mUb-R8-sui" firstAttribute="centerY" secondItem="y2c-Hr-uMr" secondAttribute="centerY" id="uXu-jB-Ceh"/>
                                 </constraints>
-                                <connections>
-                                    <segue destination="bOV-pp-fFc" kind="embed" id="DS4-Bt-N0D"/>
-                                </connections>
-                            </containerView>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="PKp-Ic-l4y" firstAttribute="leading" secondItem="y2c-Hr-uMr" secondAttribute="trailing" id="HfR-Nb-5PN"/>
                             <constraint firstItem="PKp-Ic-l4y" firstAttribute="trailing" secondItem="zAG-a2-Wxf" secondAttribute="trailing" id="KME-dA-IOd"/>
                             <constraint firstItem="PKp-Ic-l4y" firstAttribute="top" secondItem="BfX-TY-Wsq" secondAttribute="top" id="L2d-79-xEa"/>
+                            <constraint firstItem="y2c-Hr-uMr" firstAttribute="leading" secondItem="zAG-a2-Wxf" secondAttribute="leading" id="Lbl-Tp-qlT"/>
+                            <constraint firstItem="y2c-Hr-uMr" firstAttribute="top" secondItem="BfX-TY-Wsq" secondAttribute="top" id="Lpm-PG-0dQ"/>
                             <constraint firstItem="PKp-Ic-l4y" firstAttribute="bottom" secondItem="zAG-a2-Wxf" secondAttribute="bottom" id="RBH-tQ-DJ7"/>
-                            <constraint firstItem="mUb-R8-sui" firstAttribute="leading" secondItem="zAG-a2-Wxf" secondAttribute="leading" id="Rlq-fd-Trp"/>
-                            <constraint firstItem="mUb-R8-sui" firstAttribute="centerY" secondItem="BfX-TY-Wsq" secondAttribute="centerY" id="a60-MU-Bzj"/>
-                            <constraint firstItem="PKp-Ic-l4y" firstAttribute="leading" secondItem="mUb-R8-sui" secondAttribute="trailing" id="kll-uD-uG0"/>
+                            <constraint firstItem="y2c-Hr-uMr" firstAttribute="bottom" secondItem="zAG-a2-Wxf" secondAttribute="bottom" id="fEr-IM-2Sf"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="zAG-a2-Wxf"/>
                     </view>

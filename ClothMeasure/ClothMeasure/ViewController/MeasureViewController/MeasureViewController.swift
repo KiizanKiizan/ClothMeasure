@@ -39,9 +39,10 @@ class MeasureViewController: UIViewController, UIScrollViewDelegate {
         
         measurePointPairs.forEach {
             let shapeLayer = CAShapeLayer()
-            shapeLayer.strokeColor = UIColor.red.withAlphaComponent(0.3).cgColor
-            shapeLayer.lineWidth = 2.0
-            shapeLayer.fillColor = UIColor.clear.cgColor
+            let color = UIColor.red.withAlphaComponent(0.3).cgColor
+            shapeLayer.strokeColor = color
+            shapeLayer.lineWidth = 4.0
+            shapeLayer.fillColor = color
             contentsView.layer.addSublayer(shapeLayer)
             $0.shapeLayer = shapeLayer
             
@@ -55,6 +56,10 @@ class MeasureViewController: UIViewController, UIScrollViewDelegate {
             }
         }
         didSetup = true
+    }
+    
+    func setImage(_ image: UIImage?) {
+        imageView?.image = image
     }
     
     func viewForZooming(in scrollView: UIScrollView) -> UIView? {

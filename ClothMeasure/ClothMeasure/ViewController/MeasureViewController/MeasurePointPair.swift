@@ -45,6 +45,17 @@ class MeasurePointPair: MeasurePointViewControllerNotification {
         shapeLayer?.path = uiPath.cgPath
     }
     
+    func distance() -> Float {
+        guard let startPoint = startMeasurePointVc?.measurePoint, let endPoint = endMeasurePointVc?.measurePoint else {
+            return 0.0
+        }
+        
+        let diffX = Float(startPoint.pos.x) - Float(endPoint.pos.x)
+        let diffY = Float(startPoint.pos.y) - Float(endPoint.pos.y)
+        
+        return sqrtf(diffX * diffX + diffY * diffY)
+    }
+    
     func measurePointViewControllerDidCreateMeasurePoint(_ vc: MeasurePointViewController) {
         if startMeasurePointVc?.measurePoint != nil && endMeasurePointVc?.measurePoint != nil {
             updateLine()
