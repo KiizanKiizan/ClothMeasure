@@ -64,54 +64,54 @@ class MeasurePointViewController: UIViewController {
         super.viewDidLayoutSubviews()
 
         if measurePoint == nil {
-//            var width = preferredContentSize.width
-//            var height = preferredContentSize.height
-//            var pointFrame = point.frame
-//            var cursorFrame = cursor.frame
-//            
-//            switch cursorPosition {
-//            case .top:
-//                pointFrame = CGRect(x: pointFrame.origin.x,
-//                                    y: height - pointFrame.height - pointFrame.origin.y,
-//                                    width: pointFrame.width,
-//                                    height: pointFrame.height)
-//                cursorFrame = CGRect(x: cursorFrame.origin.x,
-//                                     y: height - cursorFrame.height - cursorFrame.origin.y,
-//                                     width: cursorFrame.width,
-//                                     height: cursorFrame.height)
-//            case .bottom:
-//                break
-//            case .left:
-//                swap(&width, &height)
-//                pointFrame = CGRect(x: width - pointFrame.width - pointFrame.origin.y,
-//                                    y: pointFrame.origin.x,
-//                                    width: pointFrame.width,
-//                                    height: pointFrame.height)
-//                cursorFrame = CGRect(x: width - cursorFrame.width - pointFrame.origin.y,
-//                                     y: cursorFrame.origin.x,
-//                                     width: cursorFrame.width,
-//                                     height: cursorFrame.height)
-//            case .right:
-//                swap(&width, &height)
-//                pointFrame = CGRect(x: pointFrame.origin.y,
-//                                    y: pointFrame.origin.x,
-//                                    width: pointFrame.width,
-//                                    height: pointFrame.height)
-//                cursorFrame = CGRect(x: pointFrame.origin.y,
-//                                     y: cursorFrame.origin.x,
-//                                     width: cursorFrame.width,
-//                                     height: cursorFrame.height)
-//            default:
-//                break
-//            }
-//            
-//            view.frame = CGRect(x: 0.0,
-//                                y: 0.0,
-//                                width: width,
-//                                height: height)
-//            
-//            point.frame = pointFrame
-//            cursor.frame = cursorFrame
+            var width = preferredContentSize.width
+            var height = preferredContentSize.height
+            var pointFrame = point.frame
+            var cursorFrame = cursor.frame
+            
+            switch cursorPosition {
+            case .top:
+                pointFrame = CGRect(x: pointFrame.origin.x,
+                                    y: height - pointFrame.height - pointFrame.origin.y,
+                                    width: pointFrame.width,
+                                    height: pointFrame.height)
+                cursorFrame = CGRect(x: cursorFrame.origin.x,
+                                     y: height - cursorFrame.height - cursorFrame.origin.y,
+                                     width: cursorFrame.width,
+                                     height: cursorFrame.height)
+            case .bottom:
+                break
+            case .left:
+                swap(&width, &height)
+                pointFrame = CGRect(x: width - pointFrame.width - pointFrame.origin.y,
+                                    y: pointFrame.origin.x,
+                                    width: pointFrame.width,
+                                    height: pointFrame.height)
+                cursorFrame = CGRect(x: width - cursorFrame.width - pointFrame.origin.y,
+                                     y: cursorFrame.origin.x,
+                                     width: cursorFrame.width,
+                                     height: cursorFrame.height)
+            case .right:
+                swap(&width, &height)
+                pointFrame = CGRect(x: pointFrame.origin.y,
+                                    y: pointFrame.origin.x,
+                                    width: pointFrame.width,
+                                    height: pointFrame.height)
+                cursorFrame = CGRect(x: pointFrame.origin.y,
+                                     y: cursorFrame.origin.x,
+                                     width: cursorFrame.width,
+                                     height: cursorFrame.height)
+            default:
+                break
+            }
+            
+            view.frame = CGRect(x: 0.0,
+                                y: 0.0,
+                                width: width,
+                                height: height)
+            
+            point.frame = pointFrame
+            cursor.frame = cursorFrame
             
             let superViewBounds = view.superview!.bounds
             measurePoint = MeasurePoint(xUnit: superViewBounds.width / 2.0,
