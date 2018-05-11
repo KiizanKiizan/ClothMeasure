@@ -23,9 +23,8 @@ protocol MeasurePointViewControllerNotification: class {
 
 class MeasurePointViewController: UIViewController {
 
-    @IBOutlet weak var cursor: UIImageView!
+    @IBOutlet weak var cursor: UIView!
     @IBOutlet weak var point: UIView!
-    @IBOutlet weak var pointWidthConstraint: NSLayoutConstraint!
     
     private var observers = [MeasurePointViewControllerNotification]()
     
@@ -33,6 +32,12 @@ class MeasurePointViewController: UIViewController {
     private(set) var measurePoint: MeasurePoint!
     private(set) var panGesture: UIPanGestureRecognizer!
     private var cursorPosition: CursorPosition!
+    
+    private var pointRadius: CGFloat {
+        get {
+            return point.bounds.width / 2.0
+        }
+    }
     
     class func createViewController(initPosRatio: CGPoint, cursorPosition: CursorPosition) -> MeasurePointViewController {
         let vc = UIStoryboard(name: "MeasurePointViewController", bundle: nil).instantiateInitialViewController() as! MeasurePointViewController
@@ -50,7 +55,7 @@ class MeasurePointViewController: UIViewController {
                             width: preferredContentSize.width,
                             height: preferredContentSize.height)
 
-        point.layer.cornerRadius = pointWidthConstraint.constant / 2.0
+        point.layer.cornerRadius = pointRadius
         
         cursor.addGestureRecognizer(panGesture)
     }
@@ -113,7 +118,6 @@ class MeasurePointViewController: UIViewController {
                                         yUnit: superViewBounds.height / 2.0,
                                         initPosRatio: initPosRatio)
             let pos = view.convert(measurePoint.pos, to: point)
-            let pointRadius = pointWidthConstraint.constant / 2.0
             view.frame = CGRect(x: pos.x - pointRadius,
                                 y: pos.y - pointRadius,
                                 width: view.bounds.width,
@@ -142,7 +146,6 @@ class MeasurePointViewController: UIViewController {
                             width: view.bounds.width,
                             height: view.bounds.height)
         var pos = view.convert(point.frame.origin, to: view.superview)
-        let pointRadius = pointWidthConstraint.constant / 2.0
         pos.x += pointRadius
         pos.y += pointRadius
         measurePoint.pos = pos
