@@ -17,7 +17,7 @@ class ScanViewController: UIViewController, BarcodeReaderViewControllerDelegate,
     private var scanImage: ScanImage!
     private var sendImage: SendImage!
     private var barcodeReaderVc: BarcodeReaderViewController!
-    private var imageDatas = [ScanImageData]()
+    private var items = [Item]()
     private var sendSocketHandler: SocketHandler!
     
     class func createViewController(scanSocketHandler: SocketHandler, sendSocketHandler: SocketHandler) -> UINavigationController {
@@ -87,12 +87,12 @@ class ScanViewController: UIViewController, BarcodeReaderViewControllerDelegate,
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return imageDatas.count
+        return items.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "ScanTableViewCell", for: indexPath) as! ScanTableViewCell
-        let data = imageDatas[indexPath.row]
+        let data = items[indexPath.row]
         cell.barcodeNumber = data.barcodeNumber
         cell.setFrontImage(image: data.frontImage)
         cell.setBackImage(image: data.backImage)
@@ -109,10 +109,10 @@ class ScanViewController: UIViewController, BarcodeReaderViewControllerDelegate,
     }
     
     func barcodeReaderViewController(_ vc: BarcodeReaderViewController, DidReadBarcode number: String) {
-        if imageDatas.contains(where: { $0.barcodeNumber == number }) {
+        if items.contains(where: { $0.barcodeNumber == number }) {
             return
         }
-        imageDatas.append(ScanImageData(barcodeNumber: number))
+        items.append(Item(barcodeNumber: number))
         tableView.reloadData()
     }
     

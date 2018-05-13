@@ -18,7 +18,7 @@
 		FB9943422099A0D300996E80 /* SocketHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB99432B2099A0D300996E80 /* SocketHandler.swift */; };
 		FB9943432099A0D300996E80 /* SendCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB99432C2099A0D300996E80 /* SendCommand.swift */; };
 		FB9943442099A0D300996E80 /* Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB99432E2099A0D300996E80 /* Request.swift */; };
-		FB9943452099A0D300996E80 /* ScanImageData.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB99432F2099A0D300996E80 /* ScanImageData.swift */; };
+		FB9943452099A0D300996E80 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB99432F2099A0D300996E80 /* Item.swift */; };
 		FB9943462099A0D300996E80 /* ImageScanRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB9943302099A0D300996E80 /* ImageScanRequest.swift */; };
 		FB9943472099A0D300996E80 /* DataKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB9943312099A0D300996E80 /* DataKey.swift */; };
 		FB9943482099A0D300996E80 /* ScanButtonView.xib in Resources */ = {isa = PBXBuildFile; fileRef = FB9943342099A0D300996E80 /* ScanButtonView.xib */; };
@@ -50,7 +50,7 @@
 		FB99432B2099A0D300996E80 /* SocketHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SocketHandler.swift; sourceTree = "<group>"; };
 		FB99432C2099A0D300996E80 /* SendCommand.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SendCommand.swift; sourceTree = "<group>"; };
 		FB99432E2099A0D300996E80 /* Request.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Request.swift; sourceTree = "<group>"; };
-		FB99432F2099A0D300996E80 /* ScanImageData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScanImageData.swift; sourceTree = "<group>"; };
+		FB99432F2099A0D300996E80 /* Item.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
 		FB9943302099A0D300996E80 /* ImageScanRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageScanRequest.swift; sourceTree = "<group>"; };
 		FB9943312099A0D300996E80 /* DataKey.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataKey.swift; sourceTree = "<group>"; };
 		FB9943342099A0D300996E80 /* ScanButtonView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ScanButtonView.xib; sourceTree = "<group>"; };
@@ -158,7 +158,7 @@
 			isa = PBXGroup;
 			children = (
 				FB99432E2099A0D300996E80 /* Request.swift */,
-				FB99432F2099A0D300996E80 /* ScanImageData.swift */,
+				FB99432F2099A0D300996E80 /* Item.swift */,
 				FB9943302099A0D300996E80 /* ImageScanRequest.swift */,
 				FB64866D209B57870011F156 /* SendImageRequest.swift */,
 			);
@@ -365,7 +365,7 @@
 				FBFF54F7209A15F400475F12 /* ScanImage.swift in Sources */,
 				FB99434A2099A0D300996E80 /* ScanTableViewCell.swift in Sources */,
 				FB9943432099A0D300996E80 /* SendCommand.swift in Sources */,
-				FB9943452099A0D300996E80 /* ScanImageData.swift in Sources */,
+				FB9943452099A0D300996E80 /* Item.swift in Sources */,
 				FB9943592099ABBE00996E80 /* BarcodeReaderViewController.swift in Sources */,
 				FB9943472099A0D300996E80 /* DataKey.swift in Sources */,
 				FB64866E209B57870011F156 /* SendImageRequest.swift in Sources */,

@@ -1,5 +1,5 @@
 //
-//  ScanImageData.swift
+//  Item.swift
 //  ClothScanController
 //
 //  Created by 岩井 宏晃 on 2018/04/30.
@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-class ScanImageData {
+class Item {
     let barcodeNumber: String
     var frontImage: UIImage?
     var backImage: UIImage?
