@@ -17,6 +17,20 @@ class ScanTableViewCell: UITableViewCell, ScanButtonViewDelegate {
     @IBOutlet weak var itemIdLabel: UILabel!
     @IBOutlet weak var frontImage: ScanButtonView!
     @IBOutlet weak var backImage: ScanButtonView!
+    @IBOutlet weak var containerView: UIView!
+    @IBOutlet weak var indicatorView: UIActivityIndicatorView!
+    
+    var itemLoading: Bool = false {
+        didSet {
+            if itemLoading {
+                containerView.isHidden = true
+                indicatorView.startAnimating()
+            } else {
+                containerView.isHidden = false
+                indicatorView.stopAnimating()
+            }
+        }
+    }
     
     var barcodeNumber = "" {
         didSet {
