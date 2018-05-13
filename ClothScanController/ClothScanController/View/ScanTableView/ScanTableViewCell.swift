@@ -15,7 +15,6 @@ protocol ScanTableViewCellDelegate: class {
 
 class ScanTableViewCell: UITableViewCell, ScanButtonViewDelegate {
     @IBOutlet weak var itemIdLabel: UILabel!
-    @IBOutlet weak var itemImage: UIImageView!
     @IBOutlet weak var frontImage: ScanButtonView!
     @IBOutlet weak var backImage: ScanButtonView!
     
