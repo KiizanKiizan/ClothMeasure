@@ -9,5 +9,9 @@
 import Foundation
 
 class GetItemDataResponse {
+    private(set) var items = [Item]()
     
+    init(ids: [String]) {
+        ids.forEach { items.append(Item(id: $0)) }
+    }
 }

@@ -11,6 +11,14 @@ import Foundation
 class GetItemDataRequest: HttpRequest {
     typealias Response = GetItemDataResponse
     
+    let itemIds: [String]
+    
+    private var _response: GetItemDataResponse!
+    
+    init(itemIds: [String]) {
+        self.itemIds = itemIds
+    }
+    
     func url() -> String {
         return ""
     }
@@ -19,7 +27,11 @@ class GetItemDataRequest: HttpRequest {
         return [:]
     }
     
-    func createResponse(apiResponse: [String : Any]) -> GetItemDataRequest.Response {
-        return GetItemDataResponse()
+    func createResponse(apiResponse: [String : Any]) {
+        _response = GetItemDataResponse(ids: itemIds)
+    }
+    
+    func response() -> GetItemDataResponse {
+        return _response
     }
 }

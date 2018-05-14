@@ -12,5 +12,6 @@ protocol HttpRequest {
     associatedtype Response
     func url() -> String
     func parameters() -> [String : Any]
-    func createResponse(apiResponse: [String : Any]) -> Response
+    func createResponse(apiResponse: [String : Any])
+    func response() -> Response
 }

@@ -8,8 +8,18 @@
 
 import Foundation
 
-class HttpClient {
-    func exec(request: HttpRequest, completion: ((Error?) -> Void)?) {
-        
+class HttpClient<T: HttpRequest> {
+    let request: T
+    
+    init(request: T) {
+        self.request = request
+    }
+    
+    func exec(completion: ((T, Error?) -> Void)?) {
+        // TODO: 要実装
+        DispatchQueue.main.async {
+            self.request.createResponse(apiResponse: [:])
+            completion?(self.request, nil)
+        }
     }
 }

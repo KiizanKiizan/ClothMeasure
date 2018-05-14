@@ -31,6 +31,7 @@
 		FBB78C2120A0951C004CC499 /* MeasurePointType.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBB78C2020A0951C004CC499 /* MeasurePointType.swift */; };
 		FBB78C2320A098B4004CC499 /* MeasurePointViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBB78C2220A098B4004CC499 /* MeasurePointViewController.swift */; };
 		FBB78C2520A098C0004CC499 /* MeasurePointViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FBB78C2420A098C0004CC499 /* MeasurePointViewController.storyboard */; };
+		FBBBCDFA20A9CF3500512302 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBBBCDF920A9CF3500512302 /* Item.swift */; };
 		FBFF5512209A185C00475F12 /* DataKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBFF550B209A185C00475F12 /* DataKey.swift */; };
 		FBFF5513209A185C00475F12 /* RecieveCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBFF550C209A185C00475F12 /* RecieveCommand.swift */; };
 		FBFF5514209A185C00475F12 /* Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBFF550E209A185C00475F12 /* Request.swift */; };
@@ -69,6 +70,7 @@
 		FBB78C2020A0951C004CC499 /* MeasurePointType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeasurePointType.swift; sourceTree = "<group>"; };
 		FBB78C2220A098B4004CC499 /* MeasurePointViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeasurePointViewController.swift; sourceTree = "<group>"; };
 		FBB78C2420A098C0004CC499 /* MeasurePointViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MeasurePointViewController.storyboard; sourceTree = "<group>"; };
+		FBBBCDF920A9CF3500512302 /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
 		FBFF550B209A185C00475F12 /* DataKey.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataKey.swift; sourceTree = "<group>"; };
 		FBFF550C209A185C00475F12 /* RecieveCommand.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecieveCommand.swift; sourceTree = "<group>"; };
 		FBFF550E209A185C00475F12 /* Request.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Request.swift; sourceTree = "<group>"; };
@@ -215,10 +217,19 @@
 			path = Measure;
 			sourceTree = "<group>";
 		};
+		FBBBCDF820A9CF1E00512302 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				FBBBCDF920A9CF3500512302 /* Item.swift */,
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
 		FBFF5509209A185C00475F12 /* Model */ = {
 			isa = PBXGroup;
 			children = (
 				FB82E01A20A49B210031F809 /* ApplicationSetting.swift */,
+				FBBBCDF820A9CF1E00512302 /* Data */,
 				FB04CAC520A8850C00D7B466 /* Http */,
 				FBB78C1D20A09495004CC499 /* Measure */,
 				FBFF550A209A185C00475F12 /* Socket */,
@@ -388,6 +399,7 @@
 				FBFF5513209A185C00475F12 /* RecieveCommand.swift in Sources */,
 				FB4073CE209DDC5E00CC9FDB /* BarcodeReaderViewController.swift in Sources */,
 				FB04CAC720A8852000D7B466 /* HttpClient.swift in Sources */,
+				FBBBCDFA20A9CF3500512302 /* Item.swift in Sources */,
 				FBB78C15209E0305004CC499 /* MeasureViewController.swift in Sources */,
 				FB04CAD320A88AA700D7B466 /* GetItemDataResponse.swift in Sources */,
 				FBB78C2320A098B4004CC499 /* MeasurePointViewController.swift in Sources */,
