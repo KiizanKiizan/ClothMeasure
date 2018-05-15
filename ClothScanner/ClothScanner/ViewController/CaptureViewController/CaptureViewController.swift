@@ -20,6 +20,8 @@ class CaptureViewController: UIViewController {
     fileprivate var isSetup = false
     fileprivate weak var capturePreviewLayer: AVCaptureVideoPreviewLayer!
     fileprivate let imageOutput = AVCaptureStillImageOutput()
+    fileprivate var calibrationLeftRect: CGRect?
+    fileprivate var calibrationRightRect: CGRect?
     
     weak var delegate: CaptureViewControllerDelegate?
     
@@ -56,6 +58,21 @@ class CaptureViewController: UIViewController {
                 } else {
                     completion(nil)
                 }
+            }
+        }
+    }
+    
+    func calibrate(completion: @escaping (Float) -> Void) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(3)) {
+            if let leftRect = self.calibrationLeftRect, let rightRect = self.calibrationRightRect {
+                let leftPos = CGPoint(x: leftRect.origin.x + leftRect.width / 2.0, y: leftRect.origin.y + leftRect.height / 2.0)
+                let rightPos = CGPoint(x: rightRect.origin.x + rightRect.width / 2.0, y: rightRect.origin.y + rightRect.height / 2.0)
+                let diffX = Float(leftPos.x) - Float(rightPos.x)
+                let diffY = Float(rightPos.y) - Float(rightPos.y)
+                
+                completion(sqrtf(diffX * diffX + diffY * diffY))
+            } else {
+                self.calibrate(completion: completion)
             }
         }
     }

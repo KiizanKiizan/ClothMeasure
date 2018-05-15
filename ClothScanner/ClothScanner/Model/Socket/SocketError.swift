@@ -16,4 +16,5 @@ enum SocketError: Error {
     case notCreatedRequest
     case invalidCommand
     case notSendImageStatus
+    case notSendCalibrationInfoStatus
 }

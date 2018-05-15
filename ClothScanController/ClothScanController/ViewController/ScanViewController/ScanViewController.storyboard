@@ -155,6 +155,11 @@
                         <viewLayoutGuide key="safeArea" id="KvI-rE-iQa"/>
                     </view>
                     <navigationItem key="navigationItem" id="wHU-kz-5Rg">
+                        <barButtonItem key="leftBarButtonItem" title="Calibration" id="DnC-oD-KSz">
+                            <connections>
+                                <action selector="pushCalibrationButton:" destination="Ydo-9I-rUT" id="sf1-Ft-25C"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="camera" id="kpa-6p-NJR">
                             <connections>
                                 <action selector="pushBarcodeReaderButton:" destination="Ydo-9I-rUT" id="1ES-AJ-xGb"/>

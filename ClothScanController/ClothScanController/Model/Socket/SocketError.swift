@@ -15,4 +15,6 @@ enum SocketError: Error {
     case unknownData
     case notFetchedImageSize
     case notFetchedImage
+    case notFetchedCaribrationInfoSize
+    case notFetchedCaribrationInfo
 }

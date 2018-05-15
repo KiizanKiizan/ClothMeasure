@@ -8,6 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		179AF58ADEB158E798ABC378 /* Pods_ClothScanController.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 69DC1F964087C9594024137D /* Pods_ClothScanController.framework */; };
+		FB06946920AAB99A0061EDB2 /* FetchCalibrationInfoRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB06946820AAB99A0061EDB2 /* FetchCalibrationInfoRequest.swift */; };
+		FB06946B20AAB9A50061EDB2 /* SendCalibrationInfoRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB06946A20AAB9A50061EDB2 /* SendCalibrationInfoRequest.swift */; };
+		FB06946D20AABD390061EDB2 /* FetchCalibrationInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB06946C20AABD390061EDB2 /* FetchCalibrationInfo.swift */; };
+		FB06946F20AABD460061EDB2 /* SendCalibrationInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB06946E20AABD460061EDB2 /* SendCalibrationInfo.swift */; };
 		FB1605062096058A006CBDDE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB1605052096058A006CBDDE /* AppDelegate.swift */; };
 		FB16050D2096058A006CBDDE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FB16050C2096058A006CBDDE /* Assets.xcassets */; };
 		FB1605102096058A006CBDDE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FB16050E2096058A006CBDDE /* LaunchScreen.storyboard */; };
@@ -38,6 +42,10 @@
 		69DC1F964087C9594024137D /* Pods_ClothScanController.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ClothScanController.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B36F40FD1C44A766B29C8529 /* Pods-ClothScanController.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ClothScanController.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ClothScanController/Pods-ClothScanController.debug.xcconfig"; sourceTree = "<group>"; };
 		D0C686350CF2CEDBFCE4B0DA /* Pods-ClothScanController.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ClothScanController.release.xcconfig"; path = "Pods/Target Support Files/Pods-ClothScanController/Pods-ClothScanController.release.xcconfig"; sourceTree = "<group>"; };
+		FB06946820AAB99A0061EDB2 /* FetchCalibrationInfoRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchCalibrationInfoRequest.swift; sourceTree = "<group>"; };
+		FB06946A20AAB9A50061EDB2 /* SendCalibrationInfoRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendCalibrationInfoRequest.swift; sourceTree = "<group>"; };
+		FB06946C20AABD390061EDB2 /* FetchCalibrationInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchCalibrationInfo.swift; sourceTree = "<group>"; };
+		FB06946E20AABD460061EDB2 /* SendCalibrationInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendCalibrationInfo.swift; sourceTree = "<group>"; };
 		FB1605022096058A006CBDDE /* ClothScanController.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ClothScanController.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FB1605052096058A006CBDDE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FB16050C2096058A006CBDDE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -150,6 +158,8 @@
 				FB9943312099A0D300996E80 /* DataKey.swift */,
 				FBFF54F6209A15F400475F12 /* ScanImage.swift */,
 				FB64866F209B59E30011F156 /* SendImage.swift */,
+				FB06946C20AABD390061EDB2 /* FetchCalibrationInfo.swift */,
+				FB06946E20AABD460061EDB2 /* SendCalibrationInfo.swift */,
 			);
 			path = Socket;
 			sourceTree = "<group>";
@@ -161,6 +171,8 @@
 				FB99432F2099A0D300996E80 /* Item.swift */,
 				FB9943302099A0D300996E80 /* ImageScanRequest.swift */,
 				FB64866D209B57870011F156 /* SendImageRequest.swift */,
+				FB06946820AAB99A0061EDB2 /* FetchCalibrationInfoRequest.swift */,
+				FB06946A20AAB9A50061EDB2 /* SendCalibrationInfoRequest.swift */,
 			);
 			path = Request;
 			sourceTree = "<group>";
@@ -362,10 +374,14 @@
 				FB9943492099A0D300996E80 /* ScanButtonView.swift in Sources */,
 				FB9943422099A0D300996E80 /* SocketHandler.swift in Sources */,
 				FB64866A209B55DF0011F156 /* RecieveCommand.swift in Sources */,
+				FB06946D20AABD390061EDB2 /* FetchCalibrationInfo.swift in Sources */,
 				FBFF54F7209A15F400475F12 /* ScanImage.swift in Sources */,
 				FB99434A2099A0D300996E80 /* ScanTableViewCell.swift in Sources */,
+				FB06946B20AAB9A50061EDB2 /* SendCalibrationInfoRequest.swift in Sources */,
+				FB06946920AAB99A0061EDB2 /* FetchCalibrationInfoRequest.swift in Sources */,
 				FB9943432099A0D300996E80 /* SendCommand.swift in Sources */,
 				FB9943452099A0D300996E80 /* Item.swift in Sources */,
+				FB06946F20AABD460061EDB2 /* SendCalibrationInfo.swift in Sources */,
 				FB9943592099ABBE00996E80 /* BarcodeReaderViewController.swift in Sources */,
 				FB9943472099A0D300996E80 /* DataKey.swift in Sources */,
 				FB64866E209B57870011F156 /* SendImageRequest.swift in Sources */,

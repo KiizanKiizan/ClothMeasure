@@ -54,6 +54,14 @@ class ScannerViewController: UIViewController, SocketHandlerDelegate, CaptureVie
         }
     }
     
+    func socketHandlerRecievedCalibrationRequest(_ handler: SocketHandler) {
+        captureVc.calibrate { (calibrateLength) in
+            self.socketHandler.sendCalibrationInfo(calibrateLength, completion: { (error) in
+                print("send calibration info")
+            })
+        }
+    }
+    
     func captureViewController(_ vc: CaptureViewController, DidReadBarcode text: String, frame: CGRect) {
         if !socketHandler.connected {
             if startReadDate == nil {

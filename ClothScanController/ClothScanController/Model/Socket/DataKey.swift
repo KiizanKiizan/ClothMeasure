@@ -13,4 +13,6 @@ enum DataKey: Int {
     case command = 2
     case imageSize
     case image
+    case calibrationInfoSize
+    case calibrationInfo
 }

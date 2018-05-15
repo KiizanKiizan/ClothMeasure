@@ -12,4 +12,6 @@ enum RecieveCommand: Int {
     case fetchImageSize = 2
     case fetchImage
     case scanImage
+    case fetchCalibrationInfoSize
+    case fetchCalibrationInfo
 }

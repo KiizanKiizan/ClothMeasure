@@ -16,6 +16,8 @@ class ScanViewController: UIViewController, BarcodeReaderViewControllerDelegate,
     
     private var scanImage: ScanImage!
     private var sendImage: SendImage!
+    private var fetchCalibrationInfo: FetchCalibrationInfo!
+    private var sendCalibrationInfo: SendCalibrationInfo!
     private var barcodeReaderVc: BarcodeReaderViewController!
     private var items = [Item]()
     private var sendSocketHandler: SocketHandler!
@@ -25,6 +27,8 @@ class ScanViewController: UIViewController, BarcodeReaderViewControllerDelegate,
         let vc = navi.topViewController as! ScanViewController
         vc.scanImage = ScanImage(socketHandler: scanSocketHandler)
         vc.sendImage = SendImage(socketHandler: sendSocketHandler)
+        vc.fetchCalibrationInfo = FetchCalibrationInfo(socketHandler: scanSocketHandler)
+        vc.sendCalibrationInfo = SendCalibrationInfo(socketHandler: sendSocketHandler)
         vc.sendSocketHandler = sendSocketHandler
         
         return navi
@@ -153,6 +157,37 @@ class ScanViewController: UIViewController, BarcodeReaderViewControllerDelegate,
                 self.barcodeReaderContainerView.isHidden = true
                 self.barcodeReaderVc.stop()
                 sender.isEnabled = true
+            })
+        }
+    }
+    
+    @IBAction func pushCalibrationButton(_ sender: UIBarButtonItem) {
+        if !fetchCalibrationInfo.busy {
+            let alert = UIAlertController(title: "キャリブレーション中", message: "", preferredStyle: .alert)
+            present(alert, animated: true, completion: {
+                self.fetchCalibrationInfo.calibration(completion: { (calibrationInfo, error) in
+                    if let _calibrationInfo = calibrationInfo {
+                        self.sendCalibrationInfo.sendCalibrationInfo(calibrationInfo: _calibrationInfo, completion: { (error) in
+                            alert.dismiss(animated: true, completion: {
+                                if error != nil {
+                                    let errorAlert = UIAlertController(title: "キャリブレーション失敗", message: "", preferredStyle: .alert)
+                                    errorAlert.addAction(UIAlertAction(title: "OK", style: .default, handler: { (action) in
+                                        errorAlert.dismiss(animated: true, completion: nil)
+                                    }))
+                                    self.present(errorAlert, animated: true, completion: nil)
+                                }
+                            })
+                        })
+                    } else {
+                        alert.dismiss(animated: true, completion: {
+                            let errorAlert = UIAlertController(title: "キャリブレーション失敗", message: "", preferredStyle: .alert)
+                            errorAlert.addAction(UIAlertAction(title: "OK", style: .default, handler: { (action) in
+                                errorAlert.dismiss(animated: true, completion: nil)
+                            }))
+                            self.present(errorAlert, animated: true, completion: nil)
+                        })
+                    }
+                })
             })
         }
     }

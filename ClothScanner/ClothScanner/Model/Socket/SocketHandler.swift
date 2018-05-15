@@ -12,6 +12,7 @@ import CocoaAsyncSocket
 protocol SocketHandlerDelegate: class {
     func socketHandlerDidConnect(_ handler: SocketHandler)
     func socketHandlerRecievedScanRequest(_ handler: SocketHandler)
+    func socketHandlerRecievedCalibrationRequest(_ handler: SocketHandler)
 }
 
 class SocketHandler: NSObject, GCDAsyncSocketDelegate, RequestDelegate {
@@ -66,6 +67,13 @@ class SocketHandler: NSObject, GCDAsyncSocketDelegate, RequestDelegate {
         }
     }
     
+    func sendCalibrationInfo(_ calibrationInfo: Float, completion: @escaping (SocketError?) -> Void) {
+        let request = SendCalibrationInfoRequest(calibrationInfo: calibrationInfo)
+        send(request: request, completion: { (error) in
+            completion(error)
+        })
+    }
+    
     private func send(request: Request, completion: ((SocketError?) -> Void)?) {
         self.completion = completion
         if toSocket.isConnected {
@@ -109,6 +117,8 @@ class SocketHandler: NSObject, GCDAsyncSocketDelegate, RequestDelegate {
             switch recieveCommand {
             case .scan:
                 delegate?.socketHandlerRecievedScanRequest(self)
+            case .calibration:
+                delegate?.socketHandlerRecievedCalibrationRequest(self)
             default:
                 if request == nil {
                     execCompletion(error: .notCreatedRequest)

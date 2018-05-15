@@ -11,4 +11,8 @@ import Foundation
 enum RecieveCommand: Int {
     case scan = 2
     case fetchImage
+    case sendImage // 未使用
+    case calibration
+    case fetchCalibrationInfo
+    case sendCalibrationInfo // 未使用
 }

@@ -13,4 +13,7 @@ enum SendCommand: Int {
     case scan = 2
     case fetchImage
     case sendImage
+    case calibration
+    case fetchCalibrationInfo
+    case sendCalibrationInfo
 }
