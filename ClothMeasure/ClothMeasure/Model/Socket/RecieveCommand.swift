@@ -10,4 +10,5 @@ import Foundation
 
 enum RecieveCommand: Int {
     case sendImage = 4
+    case sendCalibrationInfo = 7
 }

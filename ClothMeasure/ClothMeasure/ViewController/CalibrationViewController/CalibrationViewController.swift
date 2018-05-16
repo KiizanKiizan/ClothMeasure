@@ -76,6 +76,9 @@ class CalibrationViewController: UIViewController, SocketHandlerDelegate {
         }
     }
     
+    func socketHandlerRecieveCalibrationInfo(_ handler: SocketHandler) {
+    }
+    
     @IBAction func pushScanButton(_ sender: Any) {
         scanSocketHandler.exec(request: ScanImageRequest(), completion: nil)
     }

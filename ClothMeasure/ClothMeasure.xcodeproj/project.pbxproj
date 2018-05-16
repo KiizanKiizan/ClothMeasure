@@ -32,6 +32,8 @@
 		FBB78C2320A098B4004CC499 /* MeasurePointViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBB78C2220A098B4004CC499 /* MeasurePointViewController.swift */; };
 		FBB78C2520A098C0004CC499 /* MeasurePointViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FBB78C2420A098C0004CC499 /* MeasurePointViewController.storyboard */; };
 		FBBBCDFA20A9CF3500512302 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBBBCDF920A9CF3500512302 /* Item.swift */; };
+		FBBEBE6A20AC6FE700C2053D /* FetchCalibrationInfoRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBBEBE6920AC6FE700C2053D /* FetchCalibrationInfoRequest.swift */; };
+		FBBEBE6C20AC72C100C2053D /* FetchCalibrationInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBBEBE6B20AC72C100C2053D /* FetchCalibrationInfo.swift */; };
 		FBFF5512209A185C00475F12 /* DataKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBFF550B209A185C00475F12 /* DataKey.swift */; };
 		FBFF5513209A185C00475F12 /* RecieveCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBFF550C209A185C00475F12 /* RecieveCommand.swift */; };
 		FBFF5514209A185C00475F12 /* Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBFF550E209A185C00475F12 /* Request.swift */; };
@@ -71,6 +73,8 @@
 		FBB78C2220A098B4004CC499 /* MeasurePointViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeasurePointViewController.swift; sourceTree = "<group>"; };
 		FBB78C2420A098C0004CC499 /* MeasurePointViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MeasurePointViewController.storyboard; sourceTree = "<group>"; };
 		FBBBCDF920A9CF3500512302 /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
+		FBBEBE6920AC6FE700C2053D /* FetchCalibrationInfoRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchCalibrationInfoRequest.swift; sourceTree = "<group>"; };
+		FBBEBE6B20AC72C100C2053D /* FetchCalibrationInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchCalibrationInfo.swift; sourceTree = "<group>"; };
 		FBFF550B209A185C00475F12 /* DataKey.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataKey.swift; sourceTree = "<group>"; };
 		FBFF550C209A185C00475F12 /* RecieveCommand.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecieveCommand.swift; sourceTree = "<group>"; };
 		FBFF550E209A185C00475F12 /* Request.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Request.swift; sourceTree = "<group>"; };
@@ -248,6 +252,7 @@
 				FBFF5510209A185C00475F12 /* SocketError.swift */,
 				FBFF5511209A185C00475F12 /* SocketHandler.swift */,
 				FB648671209B60FC0011F156 /* FetchImage.swift */,
+				FBBEBE6B20AC72C100C2053D /* FetchCalibrationInfo.swift */,
 			);
 			path = Socket;
 			sourceTree = "<group>";
@@ -258,6 +263,7 @@
 				FBFF550E209A185C00475F12 /* Request.swift */,
 				FBFF550F209A185C00475F12 /* FetchImageRequest.swift */,
 				FBB78C0C209DEB23004CC499 /* ScanImageRequest.swift */,
+				FBBEBE6920AC6FE700C2053D /* FetchCalibrationInfoRequest.swift */,
 			);
 			path = Request;
 			sourceTree = "<group>";
@@ -399,6 +405,7 @@
 				FBFF5513209A185C00475F12 /* RecieveCommand.swift in Sources */,
 				FB4073CE209DDC5E00CC9FDB /* BarcodeReaderViewController.swift in Sources */,
 				FB04CAC720A8852000D7B466 /* HttpClient.swift in Sources */,
+				FBBEBE6A20AC6FE700C2053D /* FetchCalibrationInfoRequest.swift in Sources */,
 				FBBBCDFA20A9CF3500512302 /* Item.swift in Sources */,
 				FBB78C15209E0305004CC499 /* MeasureViewController.swift in Sources */,
 				FB04CAD320A88AA700D7B466 /* GetItemDataResponse.swift in Sources */,
@@ -407,6 +414,7 @@
 				FBB78C0D209DEB23004CC499 /* ScanImageRequest.swift in Sources */,
 				FB04CAD120A88A9B00D7B466 /* GetItemDataRequest.swift in Sources */,
 				FB64866C209B56C10011F156 /* SendCommand.swift in Sources */,
+				FBBEBE6C20AC72C100C2053D /* FetchCalibrationInfo.swift in Sources */,
 				FBFF5515209A185C00475F12 /* FetchImageRequest.swift in Sources */,
 				FBB78C10209DEC05004CC499 /* CalibrationViewController.swift in Sources */,
 				FBFF5519209A196B00475F12 /* ImageData.swift in Sources */,

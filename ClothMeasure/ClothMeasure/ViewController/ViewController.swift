@@ -21,6 +21,7 @@ class ViewController: UIViewController, SocketHandlerDelegate, BarcodeReaderView
     
     private let socketHandler = SocketHandler()
     private var fetchImage: FetchImage!
+    private var fetchCalibrationInfo: FetchCalibrationInfo!
     private var measurePointPairs = [MeasurePointPair]()
     private var measureViewController: MeasureViewController!
     private var pointPerCentimeter: Float = 1.0
@@ -29,6 +30,7 @@ class ViewController: UIViewController, SocketHandlerDelegate, BarcodeReaderView
         super.viewDidLoad()
         
         fetchImage = FetchImage(socketHandler: socketHandler)
+        fetchCalibrationInfo = FetchCalibrationInfo(socketHandler: socketHandler)
         
         let measurePointVcs = [
             MeasurePointViewController.createViewController(initPosRatio: CGPoint(x: 0.8, y: 0.6), cursorPosition: .top),
@@ -86,8 +88,7 @@ class ViewController: UIViewController, SocketHandlerDelegate, BarcodeReaderView
         
         socketHandler.delegate = self
         
-        pointPerCentimeter = ApplicationSetting().pointPerCentimeter()
-        measurePointPairs.forEach { updateLabel(controller: $0) }
+        updatePointPerCentimeter()
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -103,6 +104,15 @@ class ViewController: UIViewController, SocketHandlerDelegate, BarcodeReaderView
     func socketHandlerRecieveImage(_ handler: SocketHandler) {
         fetchImage.fetch { (image, error) in
             self.measureViewController.setImage(image)
+        }
+    }
+    
+    func socketHandlerRecieveCalibrationInfo(_ handler: SocketHandler) {
+        fetchCalibrationInfo.fetch { (info, error) in
+            if info != nil {
+                ApplicationSetting().savePointPerCentimeter(info!)
+                self.updatePointPerCentimeter()
+            }
         }
     }
     
@@ -140,6 +150,11 @@ class ViewController: UIViewController, SocketHandlerDelegate, BarcodeReaderView
     
     private func roundDistance(_ distane: Float) -> String {
         return String(format: "%d cm", Int(roundf(distane / pointPerCentimeter)))
+    }
+    
+    private func updatePointPerCentimeter() {
+        pointPerCentimeter = ApplicationSetting().pointPerCentimeter()
+        measurePointPairs.forEach { updateLabel(controller: $0) }
     }
     
     @IBAction func pushConnectButton(_ sender: Any) {

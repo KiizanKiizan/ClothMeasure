@@ -12,6 +12,7 @@ import CocoaAsyncSocket
 protocol SocketHandlerDelegate: class {
     func socketHandlerDidConnect(_ handler: SocketHandler)
     func socketHandlerRecieveImage(_ handler: SocketHandler)
+    func socketHandlerRecieveCalibrationInfo(_ handler: SocketHandler)
 }
 
 class SocketHandler: NSObject, GCDAsyncSocketDelegate, RequestDelegate {
@@ -98,6 +99,8 @@ class SocketHandler: NSObject, GCDAsyncSocketDelegate, RequestDelegate {
             switch recieveCommand {
             case .sendImage:
                 delegate?.socketHandlerRecieveImage(self)
+            case .sendCalibrationInfo:
+                delegate?.socketHandlerRecieveCalibrationInfo(self)
             }
         } else {
             request?.didRead(data: data)

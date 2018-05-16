@@ -22,6 +22,7 @@ class CaptureViewController: UIViewController {
     fileprivate let imageOutput = AVCaptureStillImageOutput()
     fileprivate var calibrationLeftRect: CGRect?
     fileprivate var calibrationRightRect: CGRect?
+    private let calibrationDistance: Float = 50.0
     
     weak var delegate: CaptureViewControllerDelegate?
     
@@ -70,7 +71,7 @@ class CaptureViewController: UIViewController {
                 let diffX = Float(leftPos.x) - Float(rightPos.x)
                 let diffY = Float(rightPos.y) - Float(rightPos.y)
                 
-                completion(sqrtf(diffX * diffX + diffY * diffY))
+                completion(sqrtf(diffX * diffX + diffY * diffY) / self.calibrationDistance)
             } else {
                 self.calibrate(completion: completion)
             }
@@ -118,7 +119,14 @@ extension CaptureViewController: AVCaptureMetadataOutputObjectsDelegate {
             let number = barcodeObject.stringValue ?? ""
             if !number.isEmpty {
                 DispatchQueue.main.async {
-                    self.delegate?.captureViewController(self, DidReadBarcode: number, frame: self.capturePreviewLayer.layerRectConverted(fromMetadataOutputRect: barcodeObject.bounds))
+                    switch number {
+                    case "calibrationLeft":
+                        self.calibrationLeftRect = barcodeObject.bounds
+                    case "calibrationRight":
+                        self.calibrationRightRect = barcodeObject.bounds
+                    default:
+                        self.delegate?.captureViewController(self, DidReadBarcode: number, frame: self.capturePreviewLayer.layerRectConverted(fromMetadataOutputRect: barcodeObject.bounds))
+                    }
                 }
             }
         }

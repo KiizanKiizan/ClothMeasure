@@ -19,4 +19,6 @@ enum SocketError: Error {
     case notSendImageStatus
     case notFetchedImageSize
     case notFetchedImage
+    case notFetchedCaribrationInfoSize
+    case notFetchedCaribrationInfo
 }
