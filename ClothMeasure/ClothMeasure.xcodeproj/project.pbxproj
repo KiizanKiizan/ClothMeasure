@@ -14,6 +14,7 @@
 		FB04CAD020A88A9B00D7B466 /* HttpRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB04CACE20A88A9A00D7B466 /* HttpRequest.swift */; };
 		FB04CAD120A88A9B00D7B466 /* GetItemDataRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB04CACF20A88A9A00D7B466 /* GetItemDataRequest.swift */; };
 		FB04CAD320A88AA700D7B466 /* GetItemDataResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB04CAD220A88AA700D7B466 /* GetItemDataResponse.swift */; };
+		FB0CC91120AD7DB000F80821 /* Calibrator.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB0CC91020AD7DB000F80821 /* Calibrator.swift */; };
 		FB2DCB7820A2EDA60065678E /* MeasurePointPair.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB2DCB7720A2EDA60065678E /* MeasurePointPair.swift */; };
 		FB4073CE209DDC5E00CC9FDB /* BarcodeReaderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB4073CD209DDC5E00CC9FDB /* BarcodeReaderViewController.swift */; };
 		FB64866C209B56C10011F156 /* SendCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB64866B209B56C10011F156 /* SendCommand.swift */; };
@@ -53,6 +54,7 @@
 		FB04CACE20A88A9A00D7B466 /* HttpRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HttpRequest.swift; sourceTree = "<group>"; };
 		FB04CACF20A88A9A00D7B466 /* GetItemDataRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetItemDataRequest.swift; sourceTree = "<group>"; };
 		FB04CAD220A88AA700D7B466 /* GetItemDataResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetItemDataResponse.swift; sourceTree = "<group>"; };
+		FB0CC91020AD7DB000F80821 /* Calibrator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Calibrator.swift; sourceTree = "<group>"; };
 		FB2DCB7720A2EDA60065678E /* MeasurePointPair.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeasurePointPair.swift; sourceTree = "<group>"; };
 		FB4073CD209DDC5E00CC9FDB /* BarcodeReaderViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BarcodeReaderViewController.swift; sourceTree = "<group>"; };
 		FB64866B209B56C10011F156 /* SendCommand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendCommand.swift; sourceTree = "<group>"; };
@@ -237,6 +239,7 @@
 				FB04CAC520A8850C00D7B466 /* Http */,
 				FBB78C1D20A09495004CC499 /* Measure */,
 				FBFF550A209A185C00475F12 /* Socket */,
+				FB0CC91020AD7DB000F80821 /* Calibrator.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -418,6 +421,7 @@
 				FBFF5515209A185C00475F12 /* FetchImageRequest.swift in Sources */,
 				FBB78C10209DEC05004CC499 /* CalibrationViewController.swift in Sources */,
 				FBFF5519209A196B00475F12 /* ImageData.swift in Sources */,
+				FB0CC91120AD7DB000F80821 /* Calibrator.swift in Sources */,
 				FB2DCB7820A2EDA60065678E /* MeasurePointPair.swift in Sources */,
 				FBFF5516209A185C00475F12 /* SocketError.swift in Sources */,
 				FBB78C1F20A094F3004CC499 /* MeasurePoint.swift in Sources */,

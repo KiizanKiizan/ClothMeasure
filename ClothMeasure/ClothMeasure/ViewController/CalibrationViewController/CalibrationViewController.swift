@@ -17,8 +17,9 @@ class CalibrationViewController: UIViewController, SocketHandlerDelegate {
     private var scanSocketHandler: SocketHandler!
     private var fetchImage: FetchImage!
     private var measurePointPair: MeasurePointPair!
+    private var calibrator = Calibrator()
     
-    private let calibrationDistance: Float = 30.0
+    private let calibrationDistance: Float = 50.0
     
     class func createViewController(scanSocketHandler: SocketHandler) -> CalibrationViewController {
         let vc = UIStoryboard(name: "CalibrationViewController", bundle: nil).instantiateInitialViewController() as! CalibrationViewController
@@ -72,6 +73,11 @@ class CalibrationViewController: UIViewController, SocketHandlerDelegate {
         fetchImage.fetch { (image, error) in
             if error == nil {
                 self.measureViewController.setImage(image)
+                self.calibrator.calibration(image: image!, completion: { (result) in
+                    if result != nil {
+                        ApplicationSetting().savePointPerCentimeter(result!)
+                    }
+                })
             }
         }
     }
