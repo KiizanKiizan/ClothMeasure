@@ -149,7 +149,7 @@ class ViewController: UIViewController, SocketHandlerDelegate, BarcodeReaderView
     }
     
     private func roundDistance(_ distane: Float) -> String {
-        return String(format: "%d cm", Int(roundf(distane / pointPerCentimeter)))
+        return String(format: "%d cm", Int(roundf(distane * pointPerCentimeter)))
     }
     
     private func updatePointPerCentimeter() {

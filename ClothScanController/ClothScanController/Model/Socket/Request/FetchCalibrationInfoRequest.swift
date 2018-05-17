@@ -29,7 +29,7 @@ class FetchCalibrationInfoRequest: Request {
             delegate?.request(self, readData: Request.commandLength, timeout: 30.0)
         case .waitCaribrationInfoSize:
             if let size = infoSize {
-                print("read image size: \(size)")
+                print("read calibration info size: \(size)")
                 delegate?.request(self, readData: size, timeout: 30.0)
             } else {
                 delegate?.request(self, didError: .notFetchedCaribrationInfoSize)

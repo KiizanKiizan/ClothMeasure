@@ -39,7 +39,7 @@ class SendCalibrationInfoRequest: Request {
         switch command {
         case .fetchCalibrationInfo:
             if state == .sendCalibrationInfo {
-                delegate?.request(self, write: [Request.intToString(integer: DataKey.calibrationInfo.rawValue) : sendCalibrationInfo()], timeout: 30.0)
+                delegate?.request(self, write: sendCalibrationInfo(), timeout: 30.0)
             } else {
                 delegate?.request(self, didError: .notSendCalibrationInfoStatus)
             }

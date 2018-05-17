@@ -64,6 +64,7 @@ class CaptureViewController: UIViewController {
     }
     
     func calibrate(completion: @escaping (Float) -> Void) {
+        readBarcode = true
         DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(3)) {
             if let leftRect = self.calibrationLeftRect, let rightRect = self.calibrationRightRect {
                 let leftPos = CGPoint(x: leftRect.origin.x + leftRect.width / 2.0, y: leftRect.origin.y + leftRect.height / 2.0)
@@ -71,6 +72,7 @@ class CaptureViewController: UIViewController {
                 let diffX = Float(leftPos.x) - Float(rightPos.x)
                 let diffY = Float(rightPos.y) - Float(rightPos.y)
                 
+                self.readBarcode = false
                 completion(sqrtf(diffX * diffX + diffY * diffY) / self.calibrationDistance)
             } else {
                 self.calibrate(completion: completion)
@@ -120,9 +122,9 @@ extension CaptureViewController: AVCaptureMetadataOutputObjectsDelegate {
             if !number.isEmpty {
                 DispatchQueue.main.async {
                     switch number {
-                    case "calibrationLeft":
+                    case "left":
                         self.calibrationLeftRect = barcodeObject.bounds
-                    case "calibrationRight":
+                    case "right":
                         self.calibrationRightRect = barcodeObject.bounds
                     default:
                         self.delegate?.captureViewController(self, DidReadBarcode: number, frame: self.capturePreviewLayer.layerRectConverted(fromMetadataOutputRect: barcodeObject.bounds))
