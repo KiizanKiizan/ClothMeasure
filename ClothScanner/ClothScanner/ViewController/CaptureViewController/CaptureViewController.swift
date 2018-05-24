@@ -22,7 +22,7 @@ class CaptureViewController: UIViewController {
     fileprivate let imageOutput = AVCaptureStillImageOutput()
     fileprivate var calibrationLeftRect: CGRect?
     fileprivate var calibrationRightRect: CGRect?
-    private let calibrationDistance: Float = 50.0
+    private let calibrationDistance: Float = 42.5
     
     weak var delegate: CaptureViewControllerDelegate?
     
@@ -73,7 +73,7 @@ class CaptureViewController: UIViewController {
                 let diffY = Float(rightPos.y) - Float(rightPos.y)
                 
                 self.readBarcode = false
-                completion(sqrtf(diffX * diffX + diffY * diffY) / self.calibrationDistance)
+                completion(self.calibrationDistance / sqrtf(diffX * diffX + diffY * diffY))
             } else {
                 self.calibrate(completion: completion)
             }

@@ -24,7 +24,7 @@ class ViewController: UIViewController, SocketHandlerDelegate, BarcodeReaderView
     private var fetchCalibrationInfo: FetchCalibrationInfo!
     private var measurePointPairs = [MeasurePointPair]()
     private var measureViewController: MeasureViewController!
-    private var pointPerCentimeter: Float = 1.0
+    private var centimeterPerPoint: Float = 1.0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -110,7 +110,7 @@ class ViewController: UIViewController, SocketHandlerDelegate, BarcodeReaderView
     func socketHandlerRecieveCalibrationInfo(_ handler: SocketHandler) {
         fetchCalibrationInfo.fetch { (info, error) in
             if info != nil {
-                ApplicationSetting().savePointPerCentimeter(info!)
+                ApplicationSetting().saveCentimeterPerPoint(info!)
                 self.updatePointPerCentimeter()
             }
         }
@@ -149,11 +149,11 @@ class ViewController: UIViewController, SocketHandlerDelegate, BarcodeReaderView
     }
     
     private func roundDistance(_ distane: Float) -> String {
-        return String(format: "%d cm", Int(roundf(distane / pointPerCentimeter)))
+        return String(format: "%.1f cm", distane * centimeterPerPoint)
     }
     
     private func updatePointPerCentimeter() {
-        pointPerCentimeter = ApplicationSetting().pointPerCentimeter()
+        centimeterPerPoint = ApplicationSetting().centimeterPerPoint()
         measurePointPairs.forEach { updateLabel(controller: $0) }
     }
     

@@ -12,17 +12,17 @@ class ApplicationSetting {
     
     let userDefault = UserDefaults.standard
     
-    private static let keyPointPerCentimeter = "keyPointPerCentimeter"
+    private static let keyCentimeterPerPoint = "keyCentimeterPerPoint"
     
     init() {
-        userDefault.register(defaults: [ApplicationSetting.keyPointPerCentimeter : Float(1.0)])
+        userDefault.register(defaults: [ApplicationSetting.keyCentimeterPerPoint : Float(1.0)])
     }
     
-    func savePointPerCentimeter(_ pointPerCentimeter: Float) {
-        userDefault.set(pointPerCentimeter, forKey: ApplicationSetting.keyPointPerCentimeter)
+    func saveCentimeterPerPoint(_ centimeterPerPoint: Float) {
+        userDefault.set(centimeterPerPoint, forKey: ApplicationSetting.keyCentimeterPerPoint)
     }
     
-    func pointPerCentimeter() -> Float {
-        return userDefault.float(forKey: ApplicationSetting.keyPointPerCentimeter)
+    func centimeterPerPoint() -> Float {
+        return userDefault.float(forKey: ApplicationSetting.keyCentimeterPerPoint)
     }
 }
