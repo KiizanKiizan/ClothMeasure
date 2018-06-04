@@ -17,6 +17,7 @@ class CameraViewController: UIViewController, AVCapturePhotoCaptureDelegate {
     fileprivate weak var capturePreviewLayer: AVCaptureVideoPreviewLayer!
     fileprivate let imageOutput = AVCapturePhotoOutput()
     fileprivate var completion: ((Data?) -> Void)?
+    fileprivate var imageData: ImageData?
     
     class func create() -> UINavigationController {
         return UIStoryboard(name: "Camera", bundle: nil).instantiateInitialViewController() as! UINavigationController
@@ -89,12 +90,29 @@ class CameraViewController: UIViewController, AVCapturePhotoCaptureDelegate {
     }
 
     @IBAction func pushCancelButton(_ sender: Any) {
+        if imageData != nil && imageData?.sideImage == nil {
+            let alert = UIAlertController(title: "データ不足", message:  "横からの画像が取れていません", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { (action) in
+                alert.dismiss(animated: true, completion: nil)
+            }))
+            present(alert, animated: true, completion: nil)
+            return
+        }
+        
         dismiss(animated: true, completion: nil)
     }
     
     @IBAction func pushCaptureButton(_ sender: Any) {
+        if imageData == nil || imageData?.sideImage != nil {
+            imageData = ImageData()
+            imageData?.save()
+        }
         capture { (data) in
-            
+            if self.imageData!.frontImage == nil {
+               self.imageData!.frontImage = data
+            } else if self.imageData!.sideImage == nil {
+                self.imageData!.sideImage = data
+            }
         }
     }
 }
