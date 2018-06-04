@@ -12,6 +12,8 @@
 		FBC8294F20C577DE00F2CA11 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FBC8294D20C577DE00F2CA11 /* Main.storyboard */; };
 		FBC8295120C577DF00F2CA11 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FBC8295020C577DF00F2CA11 /* Assets.xcassets */; };
 		FBC8295420C577DF00F2CA11 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FBC8295220C577DF00F2CA11 /* LaunchScreen.storyboard */; };
+		FBC8295C20C5795400F2CA11 /* Camera.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FBC8295B20C5795400F2CA11 /* Camera.storyboard */; };
+		FBC8295E20C5795F00F2CA11 /* CameraViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBC8295D20C5795F00F2CA11 /* CameraViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +24,8 @@
 		FBC8295020C577DF00F2CA11 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FBC8295320C577DF00F2CA11 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		FBC8295520C577DF00F2CA11 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FBC8295B20C5795400F2CA11 /* Camera.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Camera.storyboard; sourceTree = "<group>"; };
+		FBC8295D20C5795F00F2CA11 /* CameraViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +64,8 @@
 				FBC8295020C577DF00F2CA11 /* Assets.xcassets */,
 				FBC8295220C577DF00F2CA11 /* LaunchScreen.storyboard */,
 				FBC8295520C577DF00F2CA11 /* Info.plist */,
+				FBC8295B20C5795400F2CA11 /* Camera.storyboard */,
+				FBC8295D20C5795F00F2CA11 /* CameraViewController.swift */,
 			);
 			path = BodyMeasure;
 			sourceTree = "<group>";
@@ -123,6 +129,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FBC8295420C577DF00F2CA11 /* LaunchScreen.storyboard in Resources */,
+				FBC8295C20C5795400F2CA11 /* Camera.storyboard in Resources */,
 				FBC8295120C577DF00F2CA11 /* Assets.xcassets in Resources */,
 				FBC8294F20C577DE00F2CA11 /* Main.storyboard in Resources */,
 			);
@@ -137,6 +144,7 @@
 			files = (
 				FBC8294C20C577DE00F2CA11 /* ViewController.swift in Sources */,
 				FBC8294A20C577DE00F2CA11 /* AppDelegate.swift in Sources */,
+				FBC8295E20C5795F00F2CA11 /* CameraViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
