@@ -18,5 +18,9 @@ class ViewController: UIViewController {
     @IBAction func pushCameraButton(_ sender: Any) {
         present(CameraViewController.create(), animated: true, completion: nil)
     }
+    
+    @IBAction func pushListButton(_ sender: Any) {
+        present(ListViewController.create(), animated: true, completion: nil)
+    }
 }
 

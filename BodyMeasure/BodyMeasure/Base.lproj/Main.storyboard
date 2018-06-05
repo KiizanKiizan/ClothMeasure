@@ -42,7 +42,11 @@
                                 <action selector="pushCameraButton:" destination="BYZ-38-t0r" id="M0T-u5-PCg"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" title="一覧" id="SUz-Fv-j7J"/>
+                        <barButtonItem key="rightBarButtonItem" title="一覧" id="SUz-Fv-j7J">
+                            <connections>
+                                <action selector="pushListButton:" destination="BYZ-38-t0r" id="LXF-zi-5VW"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

@@ -13,16 +13,22 @@ class ImageData: Object {
     
     @objc dynamic var id = UUID().uuidString
     var frontImage: Data? {
-        didSet {
+        get {
+            return frontImageData
+        }
+        set {
             let realm = try! Realm()
-            try! realm.write{ frontImageData = frontImage }
+            try! realm.write{ frontImageData = newValue }
         }
     }
     @objc private dynamic var frontImageData: Data?
     var sideImage: Data? {
-        didSet {
+        get {
+            return sideImageData
+        }
+        set {
             let realm = try! Realm()
-            try! realm.write{ sideImageData = sideImage }
+            try! realm.write{ sideImageData = newValue }
         }
     }
     @objc private dynamic var sideImageData: Data?
@@ -34,5 +40,10 @@ class ImageData: Object {
     func save() {
         let realm = try! Realm()
         try! realm.write{ realm.add(self) }
+    }
+    
+    class func all() -> [ImageData] {
+        let realm = try! Realm()
+        return realm.objects(ImageData.self).map { $0 }
     }
 }
