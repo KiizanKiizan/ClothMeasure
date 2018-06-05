@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, ListViewControllerDelegate {
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,7 +20,11 @@ class ViewController: UIViewController {
     }
     
     @IBAction func pushListButton(_ sender: Any) {
-        present(ListViewController.create(), animated: true, completion: nil)
+        present(ListViewController.create(delegate: self), animated: true, completion: nil)
+    }
+    
+    func listViewController(_ vc: ListViewController, didSelect frontImage: UIImage?, sideImage: UIImage?) {
+        
     }
 }
 
