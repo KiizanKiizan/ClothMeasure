@@ -71,6 +71,10 @@
                                     <constraint firstAttribute="height" constant="50" id="tdy-Bk-p4d"/>
                                 </constraints>
                             </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hiQ-c2-qIL">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
@@ -79,7 +83,11 @@
                             <constraint firstItem="fBt-A9-3jP" firstAttribute="bottom" secondItem="VTc-NM-mMi" secondAttribute="bottom" constant="50" id="DJj-u2-Nyb"/>
                             <constraint firstItem="OM8-OZ-G1R" firstAttribute="top" secondItem="P2f-Bd-osf" secondAttribute="top" id="JYq-WY-Hyz"/>
                             <constraint firstItem="fBt-A9-3jP" firstAttribute="trailing" secondItem="VTc-NM-mMi" secondAttribute="trailing" id="LPF-dB-zAT"/>
+                            <constraint firstItem="hiQ-c2-qIL" firstAttribute="trailing" secondItem="OM8-OZ-G1R" secondAttribute="trailing" id="hck-7G-6cL"/>
+                            <constraint firstItem="hiQ-c2-qIL" firstAttribute="bottom" secondItem="OM8-OZ-G1R" secondAttribute="bottom" id="k36-pJ-ce9"/>
+                            <constraint firstItem="hiQ-c2-qIL" firstAttribute="leading" secondItem="OM8-OZ-G1R" secondAttribute="leading" id="mGt-lF-acn"/>
                             <constraint firstItem="fBt-A9-3jP" firstAttribute="leading" secondItem="VTc-NM-mMi" secondAttribute="leading" id="rCg-en-ZtV"/>
+                            <constraint firstItem="hiQ-c2-qIL" firstAttribute="top" secondItem="OM8-OZ-G1R" secondAttribute="top" id="tEY-sV-m5B"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="VTc-NM-mMi"/>
                     </view>
