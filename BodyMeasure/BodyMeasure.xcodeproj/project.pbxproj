@@ -11,6 +11,8 @@
 		FB425BD920C8188300B85E1C /* MeasureViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB425BD820C8188300B85E1C /* MeasureViewController.swift */; };
 		FB425BDB20C8262600B85E1C /* MeasurePointView.xib in Resources */ = {isa = PBXBuildFile; fileRef = FB425BDA20C8262600B85E1C /* MeasurePointView.xib */; };
 		FB425BDD20C8263700B85E1C /* MeasurePointView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB425BDC20C8263700B85E1C /* MeasurePointView.swift */; };
+		FB425BDF20C82AEC00B85E1C /* MeasurePointPair.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB425BDE20C82AEC00B85E1C /* MeasurePointPair.swift */; };
+		FB425BE120C82C0600B85E1C /* MeasurePointType.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB425BE020C82C0600B85E1C /* MeasurePointType.swift */; };
 		FB6BCC5620C586FE002FB080 /* RealmSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FB6BCC5420C586FE002FB080 /* RealmSwift.framework */; };
 		FB6BCC5720C586FE002FB080 /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FB6BCC5520C586FE002FB080 /* Realm.framework */; };
 		FB6BCC5920C587E2002FB080 /* ImageData.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB6BCC5820C587E2002FB080 /* ImageData.swift */; };
@@ -31,6 +33,8 @@
 		FB425BD820C8188300B85E1C /* MeasureViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeasureViewController.swift; sourceTree = "<group>"; };
 		FB425BDA20C8262600B85E1C /* MeasurePointView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MeasurePointView.xib; sourceTree = "<group>"; };
 		FB425BDC20C8263700B85E1C /* MeasurePointView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeasurePointView.swift; sourceTree = "<group>"; };
+		FB425BDE20C82AEC00B85E1C /* MeasurePointPair.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeasurePointPair.swift; sourceTree = "<group>"; };
+		FB425BE020C82C0600B85E1C /* MeasurePointType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeasurePointType.swift; sourceTree = "<group>"; };
 		FB6BCC5420C586FE002FB080 /* RealmSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RealmSwift.framework; path = Carthage/Build/iOS/RealmSwift.framework; sourceTree = "<group>"; };
 		FB6BCC5520C586FE002FB080 /* Realm.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Realm.framework; path = Carthage/Build/iOS/Realm.framework; sourceTree = "<group>"; };
 		FB6BCC5820C587E2002FB080 /* ImageData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageData.swift; sourceTree = "<group>"; };
@@ -106,6 +110,8 @@
 				FB425BD820C8188300B85E1C /* MeasureViewController.swift */,
 				FB425BDA20C8262600B85E1C /* MeasurePointView.xib */,
 				FB425BDC20C8263700B85E1C /* MeasurePointView.swift */,
+				FB425BDE20C82AEC00B85E1C /* MeasurePointPair.swift */,
+				FB425BE020C82C0600B85E1C /* MeasurePointType.swift */,
 			);
 			path = BodyMeasure;
 			sourceTree = "<group>";
@@ -204,6 +210,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FB425BDF20C82AEC00B85E1C /* MeasurePointPair.swift in Sources */,
+				FB425BE120C82C0600B85E1C /* MeasurePointType.swift in Sources */,
 				FB425BDD20C8263700B85E1C /* MeasurePointView.swift in Sources */,
 				FB425BD920C8188300B85E1C /* MeasureViewController.swift in Sources */,
 				FBC8294C20C577DE00F2CA11 /* ViewController.swift in Sources */,

@@ -13,17 +13,27 @@ class MeasureViewController: UIViewController {
     @IBOutlet weak var menuBottomConstraint: NSLayoutConstraint!
     @IBOutlet weak var menuHeightConstraint: NSLayoutConstraint!
     @IBOutlet weak var menuView: UIView!
+    @IBOutlet weak var pointContainer: UIView!
     
     private var imageRatioConstraint: NSLayoutConstraint?
     
     private var frontImage: UIImage?
     private var sideImage: UIImage?
     
+    private var pointPairs = [MeasurePointPair]()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         let gesture = UITapGestureRecognizer(target: self, action: #selector(tapView(gesture:)))
         view.addGestureRecognizer(gesture)
+        
+        pointPairs.append(MeasurePointPair(type: .chest, points: [CGPoint(x: 100.0, y: 300.0), CGPoint(x: 200.0, y: 300.0)]))
+        pointPairs.forEach {
+            $0.pointViews.forEach {
+                self.pointContainer.addSubview($0)
+            }
+        }
     }
     
     func updateImage(frontImage: UIImage?, sideImage: UIImage?) {

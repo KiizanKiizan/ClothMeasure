@@ -96,6 +96,7 @@
                         <outlet property="menuBottomConstraint" destination="DJj-u2-Nyb" id="Mmz-Me-42t"/>
                         <outlet property="menuHeightConstraint" destination="tdy-Bk-p4d" id="Ssd-WT-rLE"/>
                         <outlet property="menuView" destination="fBt-A9-3jP" id="TgB-y0-Rt2"/>
+                        <outlet property="pointContainer" destination="hiQ-c2-qIL" id="OEA-DK-6DG"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="H9C-cY-M15" userLabel="First Responder" sceneMemberID="firstResponder"/>
