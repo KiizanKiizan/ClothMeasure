@@ -33,7 +33,21 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IPA-gT-w7n">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
+                                <connections>
+                                    <segue destination="duw-sh-X7T" kind="embed" id="Zfd-LY-tUa"/>
+                                </connections>
+                            </containerView>
+                        </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="IPA-gT-w7n" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="CCF-VW-eed"/>
+                            <constraint firstItem="IPA-gT-w7n" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="Qm6-KZ-lvj"/>
+                            <constraint firstItem="IPA-gT-w7n" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="dhT-eS-CQ1"/>
+                            <constraint firstItem="IPA-gT-w7n" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="ueS-g4-8Yf"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <navigationItem key="navigationItem" title="計測" id="sX5-49-xpM">
@@ -51,6 +65,15 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="669.60000000000002" y="46.326836581709152"/>
+        </scene>
+        <!--Measure-->
+        <scene sceneID="VEU-Bc-4YZ">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Measure" id="duw-sh-X7T" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Suh-Ow-oxn" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1338" y="46"/>
         </scene>
     </scenes>
 </document>
