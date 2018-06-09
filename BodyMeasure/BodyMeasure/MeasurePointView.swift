@@ -18,6 +18,7 @@ class MeasurePointView: UIView {
 
     private(set) var color = UIColor.red
     
+    @IBOutlet weak var touchView: UIView!
     @IBOutlet weak var circleView: UIView!
     @IBOutlet weak var centerLineHorizontal: UIView!
     @IBOutlet weak var centerLineVertial: UIView!
@@ -58,14 +59,14 @@ class MeasurePointView: UIView {
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        if event?.touches(for: circleView) != nil {
+        if event?.touches(for: touchView) != nil {
             delegate?.measurePointViewDidSelectPointView(self)
         }
     }
     
     override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
         
-        if let touchEvent = event?.touches(for: circleView)?.first {
+        if let touchEvent = event?.touches(for: touchView)?.first {
             let preDx = touchEvent.previousLocation(in: self).x
             let preDy = touchEvent.previousLocation(in: self).y
             
@@ -82,13 +83,13 @@ class MeasurePointView: UIView {
     }
     
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
-        if event?.touches(for: circleView) != nil {
+        if event?.touches(for: touchView) != nil {
             delegate?.measurePointViewDidDeselectPointView(self)
         }
     }
     
     override func touchesCancelled(_ touches: Set<UITouch>, with event: UIEvent?) {
-        if event?.touches(for: circleView) != nil {
+        if event?.touches(for: touchView) != nil {
             delegate?.measurePointViewDidDeselectPointView(self)
         }
     }

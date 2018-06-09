@@ -14,18 +14,23 @@
                 <outlet property="centerLineHorizontal" destination="fdI-Bc-FAO" id="iQ1-gE-eXk"/>
                 <outlet property="centerLineVertial" destination="97b-eJ-YTn" id="FlJ-6O-RFd"/>
                 <outlet property="circleView" destination="rY6-p8-yQO" id="1BP-1g-CFu"/>
+                <outlet property="touchView" destination="GNk-Ys-DrD" id="lZP-VZ-TH9"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view contentMode="scaleToFill" id="iN0-l3-epB">
-            <rect key="frame" x="0.0" y="0.0" width="44" height="44"/>
+            <rect key="frame" x="0.0" y="0.0" width="66" height="66"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rY6-p8-yQO">
-                    <rect key="frame" x="0.0" y="0.0" width="44" height="44"/>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GNk-Ys-DrD">
+                    <rect key="frame" x="0.0" y="0.0" width="66" height="66"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                </view>
+                <view userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rY6-p8-yQO">
+                    <rect key="frame" x="11" y="11" width="44" height="44"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fdI-Bc-FAO">
-                            <rect key="frame" x="14" y="21" width="16" height="3"/>
+                            <rect key="frame" x="14" y="20.5" width="16" height="3"/>
                             <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="3" id="Jvt-2S-cnC"/>
@@ -46,16 +51,20 @@
                         <constraint firstItem="97b-eJ-YTn" firstAttribute="centerY" secondItem="rY6-p8-yQO" secondAttribute="centerY" id="13W-nN-6yb"/>
                         <constraint firstItem="fdI-Bc-FAO" firstAttribute="centerY" secondItem="rY6-p8-yQO" secondAttribute="centerY" id="IJX-n7-cXK"/>
                         <constraint firstItem="97b-eJ-YTn" firstAttribute="centerX" secondItem="rY6-p8-yQO" secondAttribute="centerX" id="Uw2-9f-3Yv"/>
+                        <constraint firstAttribute="width" constant="44" id="cXz-kq-Duw"/>
+                        <constraint firstAttribute="height" constant="44" id="gIH-A6-Pqd"/>
                         <constraint firstItem="fdI-Bc-FAO" firstAttribute="centerX" secondItem="rY6-p8-yQO" secondAttribute="centerX" id="iH5-BI-gvK"/>
                     </constraints>
                 </view>
             </subviews>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
-                <constraint firstItem="rY6-p8-yQO" firstAttribute="trailing" secondItem="vUN-kp-3ea" secondAttribute="trailing" id="0VU-6O-QV5"/>
-                <constraint firstItem="rY6-p8-yQO" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="4dh-14-C4I"/>
-                <constraint firstItem="rY6-p8-yQO" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" id="gIQ-0z-h0d"/>
-                <constraint firstItem="rY6-p8-yQO" firstAttribute="bottom" secondItem="vUN-kp-3ea" secondAttribute="bottom" id="ofm-ww-GW8"/>
+                <constraint firstItem="GNk-Ys-DrD" firstAttribute="trailing" secondItem="vUN-kp-3ea" secondAttribute="trailing" id="CkR-Bb-ndd"/>
+                <constraint firstItem="GNk-Ys-DrD" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="HyW-vh-gYj"/>
+                <constraint firstItem="rY6-p8-yQO" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="d3z-ha-sfG"/>
+                <constraint firstItem="rY6-p8-yQO" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="jaA-iE-hZ7"/>
+                <constraint firstItem="GNk-Ys-DrD" firstAttribute="bottom" secondItem="vUN-kp-3ea" secondAttribute="bottom" id="uUV-oS-06e"/>
+                <constraint firstItem="GNk-Ys-DrD" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" id="zG4-EP-JJW"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>

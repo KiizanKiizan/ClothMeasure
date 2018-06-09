@@ -22,7 +22,7 @@ class MeasurePointPair: MeasurePointViewDelegate {
     
     init(type: MeasurePointType, points: [CGPoint]) {
         self.type = type
-        let pointSize: CGFloat = 44.0
+        let pointSize: CGFloat = 66.0
         points.forEach {
             let pointView = MeasurePointView(frame: CGRect(x: $0.x - pointSize / 2.0,
                                                            y: $0.y - pointSize / 2.0,
