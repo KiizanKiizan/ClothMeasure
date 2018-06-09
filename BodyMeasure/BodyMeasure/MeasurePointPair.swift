@@ -9,9 +9,16 @@
 import Foundation
 import UIKit
 
-class MeasurePointPair {
+protocol MeasurePointPairDelegate: class {
+    func measurePointPair(_ controller: MeasurePointPair, DidSelectPointView selectedView: MeasurePointView)
+    func measurePointPair(_ controller: MeasurePointPair, DidDeselectPointView deselectedView: MeasurePointView)
+    func measurePointPair(_ controller: MeasurePointPair, SelectedViewDidMove pos: CGPoint)
+}
+
+class MeasurePointPair: MeasurePointViewDelegate {
     let type: MeasurePointType
     private(set) var pointViews = [MeasurePointView]()
+    weak var delegate: MeasurePointPairDelegate?
     
     init(type: MeasurePointType, points: [CGPoint]) {
         self.type = type
@@ -21,21 +28,21 @@ class MeasurePointPair {
                                                            y: $0.y - pointSize / 2.0,
                                                            width: pointSize,
                                                            height: pointSize))
-            let panGesture = UIPanGestureRecognizer(target: self, action: #selector(pan(gesture:)))
-            pointView.addGestureRecognizer(panGesture)
             pointView.setColor(type.color())
+            pointView.delegate = self
             self.pointViews.append(pointView)
         }
     }
     
-    @objc func pan(gesture: UIPanGestureRecognizer) {
-        guard let view = gesture.view,
-            let superView = view.superview else {
-            return
-        }
-        let move = gesture.translation(in: superView)
-        gesture.setTranslation(.zero, in: superView)
-        view.center = CGPoint(x: view.center.x + move.x,
-                              y: view.center.y + move.y)
+    func measurePointViewDidSelectPointView(_ view: MeasurePointView) {
+        delegate?.measurePointPair(self, DidSelectPointView: view)
+    }
+    
+    func measurePointViewDidDeselectPointView(_ view: MeasurePointView) {
+        delegate?.measurePointPair(self, DidDeselectPointView: view)
+    }
+    
+    func measurePointView(_ view: MeasurePointView, DidMove pos: CGPoint) {
+        delegate?.measurePointPair(self, SelectedViewDidMove: pos)
     }
 }

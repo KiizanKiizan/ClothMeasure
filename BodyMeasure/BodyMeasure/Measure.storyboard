@@ -73,7 +73,21 @@
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hiQ-c2-qIL">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="X5m-lh-iAJ" customClass="MeasureZoomView" customModule="BodyMeasure" customModuleProvider="target">
+                                        <rect key="frame" x="23" y="30" width="140" height="100"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="140" id="SRR-je-DOe"/>
+                                            <constraint firstAttribute="height" constant="100" id="fuA-sg-MBe"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="X5m-lh-iAJ" firstAttribute="top" secondItem="hiQ-c2-qIL" secondAttribute="top" constant="30" id="RKR-WY-tiq"/>
+                                    <constraint firstItem="X5m-lh-iAJ" firstAttribute="leading" secondItem="hiQ-c2-qIL" secondAttribute="leading" constant="23" id="rX1-Eh-lxC"/>
+                                </constraints>
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -93,6 +107,7 @@
                     </view>
                     <connections>
                         <outlet property="imageView" destination="OM8-OZ-G1R" id="uoL-7q-JNk"/>
+                        <outlet property="leftZoomView" destination="X5m-lh-iAJ" id="vxU-L2-jKf"/>
                         <outlet property="menuBottomConstraint" destination="DJj-u2-Nyb" id="Mmz-Me-42t"/>
                         <outlet property="menuHeightConstraint" destination="tdy-Bk-p4d" id="Ssd-WT-rLE"/>
                         <outlet property="menuView" destination="fBt-A9-3jP" id="TgB-y0-Rt2"/>
