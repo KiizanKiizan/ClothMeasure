@@ -18,6 +18,7 @@ protocol MeasurePointPairDelegate: class {
 class MeasurePointPair: MeasurePointViewDelegate {
     let type: MeasurePointType
     private(set) var pointViews = [MeasurePointView]()
+    let shapeLayer = CAShapeLayer()
     weak var delegate: MeasurePointPairDelegate?
     
     init(type: MeasurePointType, points: [CGPoint]) {
@@ -28,21 +29,45 @@ class MeasurePointPair: MeasurePointViewDelegate {
                                                            y: $0.y - pointSize / 2.0,
                                                            width: pointSize,
                                                            height: pointSize))
-            pointView.setColor(type.color())
+            let color = type.color()
+            pointView.setColor(color)
             pointView.delegate = self
             self.pointViews.append(pointView)
+            
+            shapeLayer.strokeColor = color.cgColor
+            shapeLayer.lineWidth = 2.0
+            shapeLayer.fillColor = color.cgColor
         }
+    }
+    
+    private func updateLine() {
+        let uiPath = UIBezierPath()
+        for (index, view) in pointViews.enumerated() {
+            if index == 0 {
+                uiPath.move(to: view.center)
+            } else {
+                uiPath.addLine(to: view.center)
+            }
+        }
+        shapeLayer.path = uiPath.cgPath
+    }
+    
+    private func clearLine() {
+        shapeLayer.path = nil
     }
     
     func measurePointViewDidSelectPointView(_ view: MeasurePointView) {
         delegate?.measurePointPair(self, DidSelectPointView: view)
+        updateLine()
     }
     
     func measurePointViewDidDeselectPointView(_ view: MeasurePointView) {
         delegate?.measurePointPair(self, DidDeselectPointView: view)
+        clearLine()
     }
     
     func measurePointView(_ view: MeasurePointView, DidMove pos: CGPoint) {
         delegate?.measurePointPair(self, SelectedViewDidMove: pos)
+        updateLine()
     }
 }

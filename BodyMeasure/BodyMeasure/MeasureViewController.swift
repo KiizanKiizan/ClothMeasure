@@ -36,6 +36,7 @@ class MeasureViewController: UIViewController, MeasurePointPairDelegate {
             $0.pointViews.forEach {
                 self.pointContainer.addSubview($0)
             }
+            self.pointContainer.layer.addSublayer($0.shapeLayer)
         }
         
         leftZoomView.isHidden = true
