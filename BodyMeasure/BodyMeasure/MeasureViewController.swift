@@ -15,6 +15,7 @@ class MeasureViewController: UIViewController, MeasurePointPairDelegate {
     @IBOutlet weak var menuView: UIView!
     @IBOutlet weak var pointContainer: UIView!
     @IBOutlet weak var leftZoomView: MeasureZoomView!
+    @IBOutlet weak var calibrationSelectControl: UISegmentedControl!
     
     private var imageRatioConstraint: NSLayoutConstraint?
     
@@ -22,6 +23,10 @@ class MeasureViewController: UIViewController, MeasurePointPairDelegate {
     private var sideImage: UIImage?
     
     private var pointPairs = [MeasurePointPair]()
+    
+    private var calibratorQr: CalibratorQR?
+    
+    private var updateImage = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -45,7 +50,18 @@ class MeasureViewController: UIViewController, MeasurePointPairDelegate {
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         
-        leftZoomView.setImageSize(pointContainer.bounds.size)
+        if updateImage {
+            updateImage = false
+            leftZoomView.setImageSize(pointContainer.bounds.size)
+            if calibrationSelectControl.selectedSegmentIndex == 0 {
+                let calibrator = CalibratorQR(image: imageView.image, imageViewSize: imageView.bounds.size)
+                pointContainer.layer.addSublayer(calibrator.shapeLayer)
+                calibrator.calibration()
+                calibratorQr = calibrator
+            } else {
+                
+            }
+        }
     }
     
     func updateImage(frontImage: UIImage?, sideImage: UIImage?) {
@@ -58,8 +74,12 @@ class MeasureViewController: UIViewController, MeasurePointPairDelegate {
     private func showImage(_ image: UIImage?) {
         if imageRatioConstraint != nil {
             imageView.removeConstraint(imageRatioConstraint!)
+            imageView.layoutIfNeeded()
         }
+        
+        calibratorQr = nil
         if image != nil {
+            updateImage = true
             imageRatioConstraint = NSLayoutConstraint(
                 item: imageView,
                 attribute:NSLayoutAttribute.height,
@@ -113,5 +133,6 @@ class MeasureViewController: UIViewController, MeasurePointPairDelegate {
     }
     
     @IBAction func pushShowSize(_ sender: Any) {
+        
     }
 }
