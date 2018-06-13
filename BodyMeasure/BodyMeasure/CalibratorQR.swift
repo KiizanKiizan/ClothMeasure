@@ -18,10 +18,12 @@ struct QRRect {
 }
 
 class CalibratorQR {
-    private let qrSize: CGFloat = 20.0
+    private let qrSize: Float = 15.2
     
     private let imageViewSize: CGSize
     private var image: UIImage?
+    
+    private(set) var centimeterPerPoint: Float = 0.0
     
     let shapeLayer = CAShapeLayer()
     
@@ -73,6 +75,7 @@ class CalibratorQR {
                                     bottomLeft: bottomLeft,
                                     bottomRight: bottomRight)
                 drawRect(rect: qrRect)
+                updateCentimeterPerPoint(rect: qrRect)
                 return
             }
         }
@@ -87,5 +90,11 @@ class CalibratorQR {
         uiPath.addLine(to: rect.topLeft)
         
         shapeLayer.path = uiPath.cgPath
+    }
+    
+    private func updateCentimeterPerPoint(rect: QRRect) {
+        let diffX = Float(rect.bottomLeft.x) - Float(rect.bottomRight.x)
+        let diffY = Float(rect.bottomLeft.y) - Float(rect.bottomRight.y)
+        centimeterPerPoint = qrSize / sqrtf(diffX * diffX + diffY * diffY)
     }
 }
