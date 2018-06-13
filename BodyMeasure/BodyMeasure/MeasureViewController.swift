@@ -22,7 +22,8 @@ class MeasureViewController: UIViewController, MeasurePointPairDelegate {
     private var frontImage: UIImage?
     private var sideImage: UIImage?
     
-    private var pointPairs = [MeasurePointPair]()
+    private var frontPointPairs = [MeasurePointPair]()
+    private var sidePointPairs = [MeasurePointPair]()
     
     private var calibratorQr: CalibratorQR?
     
@@ -35,11 +36,22 @@ class MeasureViewController: UIViewController, MeasurePointPairDelegate {
         gesture.numberOfTapsRequired = 2
         view.addGestureRecognizer(gesture)
         
-        pointPairs.append(MeasurePointPair(type: .chest, points: [CGPoint(x: 100.0, y: 300.0), CGPoint(x: 200.0, y: 300.0)]))
-        pointPairs.forEach {
+        frontPointPairs.append(MeasurePointPair(type: .chest, points: [CGPoint(x: 100.0, y: 300.0), CGPoint(x: 200.0, y: 300.0)]))
+        frontPointPairs.forEach {
             $0.delegate = self
             $0.pointViews.forEach {
                 self.pointContainer.addSubview($0)
+                $0.isHidden = true
+            }
+            self.pointContainer.layer.addSublayer($0.shapeLayer)
+        }
+        
+        sidePointPairs.append(MeasurePointPair(type: .chest, points: [CGPoint(x: 100.0, y: 300.0), CGPoint(x: 200.0, y: 300.0)]))
+        sidePointPairs.forEach {
+            $0.delegate = self
+            $0.pointViews.forEach {
+                self.pointContainer.addSubview($0)
+                $0.isHidden = true
             }
             self.pointContainer.layer.addSublayer($0.shapeLayer)
         }
@@ -126,10 +138,14 @@ class MeasureViewController: UIViewController, MeasurePointPairDelegate {
     
     @IBAction func pushShowFrontImage(_ sender: Any) {
         showImage(frontImage)
+        frontPointPairs.forEach { $0.pointViews.forEach { $0.isHidden = false } }
+        sidePointPairs.forEach { $0.pointViews.forEach { $0.isHidden = true } }
     }
     
     @IBAction func pushShowSideImage(_ sender: Any) {
         showImage(sideImage)
+        frontPointPairs.forEach { $0.pointViews.forEach { $0.isHidden = true } }
+        sidePointPairs.forEach { $0.pointViews.forEach { $0.isHidden = false } }
     }
     
     @IBAction func pushShowSize(_ sender: Any) {
