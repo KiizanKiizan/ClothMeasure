@@ -37,7 +37,7 @@ class MeasureViewController: UIViewController, MeasurePointPairDelegate {
         gesture.numberOfTapsRequired = 2
         view.addGestureRecognizer(gesture)
         
-        frontPointPairs.append(MeasurePointPair(type: .chest, points: [CGPoint(x: 100.0, y: 300.0), CGPoint(x: 200.0, y: 300.0)]))
+        frontPointPairs.append(MeasurePointPair(type: .chest, points: [CGPoint(x: 100.0, y: 300.0), CGPoint(x: 200.0, y: 300.0)], isFixY: false))
         frontPointPairs.forEach {
             $0.delegate = self
             $0.pointViews.forEach {
@@ -47,7 +47,7 @@ class MeasureViewController: UIViewController, MeasurePointPairDelegate {
             self.pointContainer.layer.addSublayer($0.shapeLayer)
         }
         
-        sidePointPairs.append(MeasurePointPair(type: .chest, points: [CGPoint(x: 100.0, y: 300.0), CGPoint(x: 200.0, y: 300.0)]))
+        sidePointPairs.append(MeasurePointPair(type: .chest, points: [CGPoint(x: 100.0, y: 300.0), CGPoint(x: 200.0, y: 300.0)], isFixY: true))
         sidePointPairs.forEach {
             $0.delegate = self
             $0.pointViews.forEach {

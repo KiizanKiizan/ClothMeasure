@@ -25,6 +25,8 @@ class MeasurePointView: UIView {
     
     weak var delegate: MeasurePointViewDelegate?
     
+    var isFixY = false
+    
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         
@@ -76,8 +78,9 @@ class MeasurePointView: UIView {
             let move = CGPoint(x: newDx - preDx,
                                y: newDy - preDy)
             
+            let y = isFixY ? center.y : center.y + move.y
             center = CGPoint(x: center.x + move.x,
-                             y: center.y + move.y)
+                             y: y)
             delegate?.measurePointView(self, DidMove: center)
         }
     }
