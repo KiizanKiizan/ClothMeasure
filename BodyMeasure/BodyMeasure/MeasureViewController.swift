@@ -28,6 +28,7 @@ class MeasureViewController: UIViewController, MeasurePointPairDelegate {
     private var calibratorQr: CalibratorQR?
     
     private var updateImage = false
+    private var isFront = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -130,6 +131,18 @@ class MeasureViewController: UIViewController, MeasurePointPairDelegate {
     
     func measurePointPair(_ controller: MeasurePointPair, DidDeselectPointView deselectedView: MeasurePointView) {
         leftZoomView.isHidden = true
+        
+        if isFront, let y = controller.y() {
+            let type = controller.type
+            sidePointPairs.forEach {
+                if type == $0.type {
+                    $0.pointViews.forEach {
+                        $0.frame.origin.y = y
+                    }
+                    return
+                }
+            }
+        }
     }
     
     func measurePointPair(_ controller: MeasurePointPair, SelectedViewDidMove pos: CGPoint) {
@@ -138,12 +151,14 @@ class MeasureViewController: UIViewController, MeasurePointPairDelegate {
     
     @IBAction func pushShowFrontImage(_ sender: Any) {
         showImage(frontImage)
+        isFront = true
         frontPointPairs.forEach { $0.pointViews.forEach { $0.isHidden = false } }
         sidePointPairs.forEach { $0.pointViews.forEach { $0.isHidden = true } }
     }
     
     @IBAction func pushShowSideImage(_ sender: Any) {
         showImage(sideImage)
+        isFront = false
         frontPointPairs.forEach { $0.pointViews.forEach { $0.isHidden = true } }
         sidePointPairs.forEach { $0.pointViews.forEach { $0.isHidden = false } }
     }

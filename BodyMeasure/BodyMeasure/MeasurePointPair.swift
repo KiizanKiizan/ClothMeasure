@@ -56,6 +56,13 @@ class MeasurePointPair: MeasurePointViewDelegate {
         shapeLayer.path = nil
     }
     
+    func y() -> CGFloat? {
+        guard let first = pointViews.first, let last = pointViews.last else {
+            return nil
+        }
+        return (last.frame.origin.y + first.frame.origin.y) / 2.0
+    }
+    
     func measurePointViewDidSelectPointView(_ view: MeasurePointView) {
         delegate?.measurePointPair(self, DidSelectPointView: view)
         updateLine()
