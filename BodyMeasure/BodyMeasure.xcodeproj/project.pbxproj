@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		FB2E613820D167E7008992CF /* HeadPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB2E613720D167E7008992CF /* HeadPoint.swift */; };
 		FB425BD720C8187300B85E1C /* Measure.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FB425BD620C8187300B85E1C /* Measure.storyboard */; };
 		FB425BD920C8188300B85E1C /* MeasureViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB425BD820C8188300B85E1C /* MeasureViewController.swift */; };
 		FB425BDB20C8262600B85E1C /* MeasurePointView.xib in Resources */ = {isa = PBXBuildFile; fileRef = FB425BDA20C8262600B85E1C /* MeasurePointView.xib */; };
@@ -32,6 +33,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		FB2E613720D167E7008992CF /* HeadPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeadPoint.swift; sourceTree = "<group>"; };
 		FB425BD620C8187300B85E1C /* Measure.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Measure.storyboard; sourceTree = "<group>"; };
 		FB425BD820C8188300B85E1C /* MeasureViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeasureViewController.swift; sourceTree = "<group>"; };
 		FB425BDA20C8262600B85E1C /* MeasurePointView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MeasurePointView.xib; sourceTree = "<group>"; };
@@ -118,6 +120,7 @@
 				FB425BDC20C8263700B85E1C /* MeasurePointView.swift */,
 				FB425BDE20C82AEC00B85E1C /* MeasurePointPair.swift */,
 				FB425BE020C82C0600B85E1C /* MeasurePointType.swift */,
+				FB2E613720D167E7008992CF /* HeadPoint.swift */,
 				FBA6A4A620CC10C600EE7225 /* MeasureZoomView.xib */,
 				FBA6A4A420CC10BC00EE7225 /* MeasureZoomView.swift */,
 				FBE8FA5520CEBEBC00C0B51B /* CalibratorQR.swift */,
@@ -230,6 +233,7 @@
 				FBC8295E20C5795F00F2CA11 /* CameraViewController.swift in Sources */,
 				FBDC93FC20C6C780000045C6 /* ListViewController.swift in Sources */,
 				FBA6A4A520CC10BC00EE7225 /* MeasureZoomView.swift in Sources */,
+				FB2E613820D167E7008992CF /* HeadPoint.swift in Sources */,
 				FB6BCC5920C587E2002FB080 /* ImageData.swift in Sources */,
 				FBDC93FE20C6C845000045C6 /* ListTableViewCell.swift in Sources */,
 			);

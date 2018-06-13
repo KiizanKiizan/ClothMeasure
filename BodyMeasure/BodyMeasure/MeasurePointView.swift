@@ -16,6 +16,8 @@ protocol MeasurePointViewDelegate: class {
 
 class MeasurePointView: UIView {
 
+    private static let pointSize: CGFloat = 66.0
+    
     private(set) var color = UIColor.red
     
     @IBOutlet weak var touchView: UIView!
@@ -26,6 +28,13 @@ class MeasurePointView: UIView {
     weak var delegate: MeasurePointViewDelegate?
     
     var isFixY = false
+    
+    class func create(pos: CGPoint) -> MeasurePointView {
+        return MeasurePointView(frame: CGRect(x: pos.x - pointSize / 2.0,
+                                              y: pos.y - pointSize / 2.0,
+                                              width: pointSize,
+                                              height: pointSize))
+    }
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)

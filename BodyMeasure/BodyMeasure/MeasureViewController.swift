@@ -24,11 +24,15 @@ class MeasureViewController: UIViewController, MeasurePointPairDelegate {
     
     private var frontPointPairs = [MeasurePointPair]()
     private var sidePointPairs = [MeasurePointPair]()
+    private var headPoint: HeadPoint!
     
     private var calibratorQr: CalibratorQR?
     
     private var updateImage = false
     private var isFront = false
+    
+    private(set) var frontCentimeterPerPoint: CGFloat = 0.0
+    private(set) var sideCentimeterPerPoint: CGFloat = 0.0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -57,6 +61,12 @@ class MeasureViewController: UIViewController, MeasurePointPairDelegate {
             self.pointContainer.layer.addSublayer($0.shapeLayer)
         }
         
+        headPoint = HeadPoint(frontHeadInitialPos: CGPoint(x: 100, y: 100), sideHeadInitialPos: CGPoint(x: 100, y: 100))
+        pointContainer.addSubview(headPoint.frontHeadPointView)
+        pointContainer.addSubview(headPoint.sideHeadPointView)
+        headPoint.frontHeadPointView.isHidden = true
+        headPoint.sideHeadPointView.isHidden = true
+        
         leftZoomView.isHidden = true
     }
     
@@ -71,6 +81,11 @@ class MeasureViewController: UIViewController, MeasurePointPairDelegate {
                 pointContainer.layer.addSublayer(calibrator.shapeLayer)
                 calibrator.calibration()
                 calibratorQr = calibrator
+                if isFront {
+                    frontCentimeterPerPoint = CGFloat(calibrator.centimeterPerPoint)
+                } else {
+                    sideCentimeterPerPoint = CGFloat(calibrator.centimeterPerPoint)
+                }
             } else {
                 
             }
@@ -133,11 +148,17 @@ class MeasureViewController: UIViewController, MeasurePointPairDelegate {
         leftZoomView.isHidden = true
         
         if isFront, let y = controller.y() {
+            let headY = headPoint.frontHeadPointView.frame.origin.y
+            let diffY = y - headY
+            let centimeter = frontCentimeterPerPoint * diffY
+            let sideDiffPoint = centimeter / sideCentimeterPerPoint
+            
+            let sideHeadY = headPoint.sideHeadPointView.frame.origin.y
             let type = controller.type
             sidePointPairs.forEach {
                 if type == $0.type {
                     $0.pointViews.forEach {
-                        $0.frame.origin.y = y
+                        $0.frame.origin.y = sideHeadY + sideDiffPoint
                     }
                     return
                 }
@@ -154,6 +175,8 @@ class MeasureViewController: UIViewController, MeasurePointPairDelegate {
         isFront = true
         frontPointPairs.forEach { $0.pointViews.forEach { $0.isHidden = false } }
         sidePointPairs.forEach { $0.pointViews.forEach { $0.isHidden = true } }
+        headPoint.frontHeadPointView.isHidden = false
+        headPoint.sideHeadPointView.isHidden = true
     }
     
     @IBAction func pushShowSideImage(_ sender: Any) {
@@ -161,6 +184,8 @@ class MeasureViewController: UIViewController, MeasurePointPairDelegate {
         isFront = false
         frontPointPairs.forEach { $0.pointViews.forEach { $0.isHidden = true } }
         sidePointPairs.forEach { $0.pointViews.forEach { $0.isHidden = false } }
+        headPoint.frontHeadPointView.isHidden = true
+        headPoint.sideHeadPointView.isHidden = false
     }
     
     @IBAction func pushShowSize(_ sender: Any) {

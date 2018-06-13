@@ -25,12 +25,8 @@ class MeasurePointPair: MeasurePointViewDelegate {
     init(type: MeasurePointType, points: [CGPoint], isFixY: Bool) {
         self.type = type
         self.isFixY = isFixY
-        let pointSize: CGFloat = 66.0
         points.forEach {
-            let pointView = MeasurePointView(frame: CGRect(x: $0.x - pointSize / 2.0,
-                                                           y: $0.y - pointSize / 2.0,
-                                                           width: pointSize,
-                                                           height: pointSize))
+            let pointView = MeasurePointView.create(pos: $0)
             pointView.isFixY = isFixY
             let color = type.color()
             pointView.setColor(color)
