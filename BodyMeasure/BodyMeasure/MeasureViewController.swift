@@ -16,6 +16,9 @@ class MeasureViewController: UIViewController, MeasurePointPairDelegate {
     @IBOutlet weak var pointContainer: UIView!
     @IBOutlet weak var leftZoomView: MeasureZoomView!
     @IBOutlet weak var calibrationSelectControl: UISegmentedControl!
+    @IBOutlet weak var sizeVcContainer: UIView!
+    
+    private var sizeVc: SizeViewController!
     
     private var imageRatioConstraint: NSLayoutConstraint?
     
@@ -31,8 +34,11 @@ class MeasureViewController: UIViewController, MeasurePointPairDelegate {
     private var updateImage = false
     private var isFront = false
     
-    private(set) var frontCentimeterPerPoint: CGFloat = 0.0
-    private(set) var sideCentimeterPerPoint: CGFloat = 0.0
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let vc = segue.destination as? SizeViewController {
+            sizeVc = vc
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -51,7 +57,7 @@ class MeasureViewController: UIViewController, MeasurePointPairDelegate {
             self.pointContainer.layer.addSublayer($0.shapeLayer)
         }
         
-        sidePointPairs.append(MeasurePointPair(type: .chest, points: [CGPoint(x: 100.0, y: 300.0), CGPoint(x: 200.0, y: 300.0)], isFixY: true))
+        sidePointPairs.append(MeasurePointPair(type: .chest, points: [CGPoint(x: 100.0, y: 300.0), CGPoint(x: 200.0, y: 300.0), CGPoint(x: 300.0, y: 300.0)], isFixY: true))
         sidePointPairs.forEach {
             $0.delegate = self
             $0.pointViews.forEach {
@@ -68,6 +74,10 @@ class MeasureViewController: UIViewController, MeasurePointPairDelegate {
         headPoint.sideHeadPointView.isHidden = true
         
         leftZoomView.isHidden = true
+        
+        sizeVc.frontPointPairs = frontPointPairs
+        sizeVc.sidePointPairs = sidePointPairs
+        sizeVcContainer.isHidden = true
     }
     
     override func viewDidLayoutSubviews() {
@@ -82,9 +92,9 @@ class MeasureViewController: UIViewController, MeasurePointPairDelegate {
                 calibrator.calibration()
                 calibratorQr = calibrator
                 if isFront {
-                    frontCentimeterPerPoint = CGFloat(calibrator.centimeterPerPoint)
+                    sizeVc.frontCentimeterPerPoint = CGFloat(calibrator.centimeterPerPoint)
                 } else {
-                    sideCentimeterPerPoint = CGFloat(calibrator.centimeterPerPoint)
+                    sizeVc.sideCentimeterPerPoint = CGFloat(calibrator.centimeterPerPoint)
                 }
             } else {
                 
@@ -150,8 +160,8 @@ class MeasureViewController: UIViewController, MeasurePointPairDelegate {
         if isFront, let y = controller.y() {
             let headY = headPoint.frontHeadPointView.frame.origin.y
             let diffY = y - headY
-            let centimeter = frontCentimeterPerPoint * diffY
-            let sideDiffPoint = centimeter / sideCentimeterPerPoint
+            let centimeter = sizeVc.frontCentimeterPerPoint * diffY
+            let sideDiffPoint = centimeter / sizeVc.sideCentimeterPerPoint
             
             let sideHeadY = headPoint.sideHeadPointView.frame.origin.y
             let type = controller.type
@@ -189,6 +199,10 @@ class MeasureViewController: UIViewController, MeasurePointPairDelegate {
     }
     
     @IBAction func pushShowSize(_ sender: Any) {
+        sizeVcContainer.isHidden = !sizeVcContainer.isHidden
         
+        if !sizeVcContainer.isHidden {
+            sizeVc.update()
+        }
     }
 }
