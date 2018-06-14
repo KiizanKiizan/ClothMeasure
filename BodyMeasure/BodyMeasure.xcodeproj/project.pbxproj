@@ -16,6 +16,7 @@
 		FB425BE120C82C0600B85E1C /* MeasurePointType.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB425BE020C82C0600B85E1C /* MeasurePointType.swift */; };
 		FB6B845820D299A800B7E7ED /* Size.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FB6B845720D299A800B7E7ED /* Size.storyboard */; };
 		FB6B845A20D299B600B7E7ED /* SizeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB6B845920D299B600B7E7ED /* SizeViewController.swift */; };
+		FB6B846020D2B0AA00B7E7ED /* UIBezierPath+Superpowers.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB6B845F20D2B0AA00B7E7ED /* UIBezierPath+Superpowers.swift */; };
 		FB6BCC5620C586FE002FB080 /* RealmSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FB6BCC5420C586FE002FB080 /* RealmSwift.framework */; };
 		FB6BCC5720C586FE002FB080 /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FB6BCC5520C586FE002FB080 /* Realm.framework */; };
 		FB6BCC5920C587E2002FB080 /* ImageData.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB6BCC5820C587E2002FB080 /* ImageData.swift */; };
@@ -44,6 +45,7 @@
 		FB425BE020C82C0600B85E1C /* MeasurePointType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeasurePointType.swift; sourceTree = "<group>"; };
 		FB6B845720D299A800B7E7ED /* Size.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Size.storyboard; sourceTree = "<group>"; };
 		FB6B845920D299B600B7E7ED /* SizeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SizeViewController.swift; sourceTree = "<group>"; };
+		FB6B845F20D2B0AA00B7E7ED /* UIBezierPath+Superpowers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIBezierPath+Superpowers.swift"; sourceTree = "<group>"; };
 		FB6BCC5420C586FE002FB080 /* RealmSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RealmSwift.framework; path = Carthage/Build/iOS/RealmSwift.framework; sourceTree = "<group>"; };
 		FB6BCC5520C586FE002FB080 /* Realm.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Realm.framework; path = Carthage/Build/iOS/Realm.framework; sourceTree = "<group>"; };
 		FB6BCC5820C587E2002FB080 /* ImageData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageData.swift; sourceTree = "<group>"; };
@@ -130,6 +132,7 @@
 				FBE8FA5520CEBEBC00C0B51B /* CalibratorQR.swift */,
 				FB6B845720D299A800B7E7ED /* Size.storyboard */,
 				FB6B845920D299B600B7E7ED /* SizeViewController.swift */,
+				FB6B845F20D2B0AA00B7E7ED /* UIBezierPath+Superpowers.swift */,
 			);
 			path = BodyMeasure;
 			sourceTree = "<group>";
@@ -236,6 +239,7 @@
 				FB425BDD20C8263700B85E1C /* MeasurePointView.swift in Sources */,
 				FBE8FA5620CEBEBC00C0B51B /* CalibratorQR.swift in Sources */,
 				FB425BD920C8188300B85E1C /* MeasureViewController.swift in Sources */,
+				FB6B846020D2B0AA00B7E7ED /* UIBezierPath+Superpowers.swift in Sources */,
 				FBC8294C20C577DE00F2CA11 /* ViewController.swift in Sources */,
 				FBC8294A20C577DE00F2CA11 /* AppDelegate.swift in Sources */,
 				FBC8295E20C5795F00F2CA11 /* CameraViewController.swift in Sources */,

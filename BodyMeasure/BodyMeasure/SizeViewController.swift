@@ -62,5 +62,7 @@ class SizeViewController: UIViewController {
         path.addQuadCurve(to: topPos, controlPoint: rightTop)
         
         shapeLayer.path = path.cgPath
+        
+        lengthLabel.text = String(format: "%.1f cm", path.mx_length * sideCentimeterPerPoint)
     }
 }
