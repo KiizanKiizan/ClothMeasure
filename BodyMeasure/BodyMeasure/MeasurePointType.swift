@@ -10,10 +10,13 @@ import Foundation
 import UIKit
 
 enum MeasurePointType {
+    case calibration
     case chest
     
     func color() -> UIColor {
         switch self {
+        case .calibration:
+            return UIColor.blue
         case .chest:
             return UIColor.red
         }

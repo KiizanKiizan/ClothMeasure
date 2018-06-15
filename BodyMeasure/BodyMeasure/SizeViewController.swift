@@ -33,7 +33,7 @@ class SizeViewController: UIViewController {
     }
     
     func update() {
-        guard let front = frontPointPairs.first, let side = sidePointPairs.first else {
+        guard let front = frontPointPairs.filter({ $0.type == .chest }).first, let side = sidePointPairs.filter({ $0.type == .chest }).first else {
             return
         }
         

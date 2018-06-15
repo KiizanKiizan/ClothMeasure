@@ -62,6 +62,19 @@ class MeasurePointPair: MeasurePointViewDelegate {
         return (last.frame.origin.y + first.frame.origin.y) / 2.0
     }
     
+    func length() -> CGFloat {
+        var length: CGFloat = 0.0
+        for i in 0..<pointViews.count - 1 {
+            let pos1 = pointViews[i].frame.origin
+            let pos2 = pointViews[i + 1].frame.origin
+            let diffX = Float(pos1.x) - Float(pos2.x)
+            let diffY = Float(pos1.y) - Float(pos2.y)
+            length += CGFloat(sqrtf(diffX * diffX + diffY * diffY))
+        }
+        
+        return length
+    }
+    
     func measurePointViewDidSelectPointView(_ view: MeasurePointView) {
         delegate?.measurePointPair(self, DidSelectPointView: view)
         updateLine()

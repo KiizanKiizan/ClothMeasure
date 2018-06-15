@@ -95,11 +95,21 @@
                                             <segment title="手動"/>
                                         </segments>
                                     </segmentedControl>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wKQ-ZN-7VD">
+                                        <rect key="frame" x="269" y="57" width="50" height="30"/>
+                                        <state key="normal" title="身長"/>
+                                        <connections>
+                                            <action selector="pushBodyHeight:" destination="u5r-wQ-Axe" eventType="touchUpInside" id="vJj-ES-nnM"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstItem="EeN-tG-Rgh" firstAttribute="top" secondItem="pXR-vY-44G" secondAttribute="top" id="5Xy-nV-R4V"/>
                                     <constraint firstItem="2Qb-Rk-Tvx" firstAttribute="top" secondItem="X5s-hl-EjX" secondAttribute="bottom" constant="8" id="CTj-pL-vJ0"/>
+                                    <constraint firstItem="wKQ-ZN-7VD" firstAttribute="top" secondItem="VuE-3R-VEY" secondAttribute="bottom" constant="18" id="Cph-QR-cVq"/>
+                                    <constraint firstItem="wKQ-ZN-7VD" firstAttribute="leading" secondItem="VuE-3R-VEY" secondAttribute="leading" id="FAP-rW-V3r"/>
+                                    <constraint firstItem="wKQ-ZN-7VD" firstAttribute="trailing" secondItem="VuE-3R-VEY" secondAttribute="trailing" id="GRi-V8-MFW"/>
                                     <constraint firstItem="pXR-vY-44G" firstAttribute="centerX" secondItem="fBt-A9-3jP" secondAttribute="centerX" id="M2V-oH-6e9"/>
                                     <constraint firstAttribute="bottom" secondItem="2Qb-Rk-Tvx" secondAttribute="bottom" constant="13" id="PbB-Ng-1lK"/>
                                     <constraint firstItem="EeN-tG-Rgh" firstAttribute="bottom" secondItem="pXR-vY-44G" secondAttribute="bottom" id="QYh-es-ngt"/>

@@ -27,12 +27,13 @@ class MeasureViewController: UIViewController, MeasurePointPairDelegate {
     
     private var frontPointPairs = [MeasurePointPair]()
     private var sidePointPairs = [MeasurePointPair]()
-    private var headPoint: HeadPoint!
     
     private var calibratorQr: CalibratorQR?
     
     private var updateImage = false
     private var isFront = false
+    
+    private var bodyHeight: CGFloat = 1.0
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let vc = segue.destination as? SizeViewController {
@@ -47,6 +48,7 @@ class MeasureViewController: UIViewController, MeasurePointPairDelegate {
         gesture.numberOfTapsRequired = 2
         view.addGestureRecognizer(gesture)
         
+        frontPointPairs.append(MeasurePointPair(type: .calibration, points: [CGPoint(x: 100.0, y: 100.0), CGPoint(x: 200.0, y: 100.0)], isFixY: false))
         frontPointPairs.append(MeasurePointPair(type: .chest, points: [CGPoint(x: 100.0, y: 300.0), CGPoint(x: 200.0, y: 300.0)], isFixY: false))
         frontPointPairs.forEach {
             $0.delegate = self
@@ -57,6 +59,7 @@ class MeasureViewController: UIViewController, MeasurePointPairDelegate {
             self.pointContainer.layer.addSublayer($0.shapeLayer)
         }
         
+        sidePointPairs.append(MeasurePointPair(type: .calibration, points: [CGPoint(x: 100.0, y: 100.0), CGPoint(x: 200.0, y: 100.0)], isFixY: false))
         sidePointPairs.append(MeasurePointPair(type: .chest, points: [CGPoint(x: 100.0, y: 300.0), CGPoint(x: 200.0, y: 300.0), CGPoint(x: 300.0, y: 300.0)], isFixY: true))
         sidePointPairs.forEach {
             $0.delegate = self
@@ -66,12 +69,6 @@ class MeasureViewController: UIViewController, MeasurePointPairDelegate {
             }
             self.pointContainer.layer.addSublayer($0.shapeLayer)
         }
-        
-        headPoint = HeadPoint(frontHeadInitialPos: CGPoint(x: 100, y: 100), sideHeadInitialPos: CGPoint(x: 100, y: 100))
-        pointContainer.addSubview(headPoint.frontHeadPointView)
-        pointContainer.addSubview(headPoint.sideHeadPointView)
-        headPoint.frontHeadPointView.isHidden = true
-        headPoint.sideHeadPointView.isHidden = true
         
         leftZoomView.isHidden = true
         
@@ -157,20 +154,33 @@ class MeasureViewController: UIViewController, MeasurePointPairDelegate {
     func measurePointPair(_ controller: MeasurePointPair, DidDeselectPointView deselectedView: MeasurePointView) {
         leftZoomView.isHidden = true
         
-        if isFront, let y = controller.y() {
-            let headY = headPoint.frontHeadPointView.frame.origin.y
-            let diffY = y - headY
-            let centimeter = sizeVc.frontCentimeterPerPoint * diffY
-            let sideDiffPoint = centimeter / sizeVc.sideCentimeterPerPoint
-            
-            let sideHeadY = headPoint.sideHeadPointView.frame.origin.y
-            let type = controller.type
-            sidePointPairs.forEach {
-                if type == $0.type {
-                    $0.pointViews.forEach {
-                        $0.frame.origin.y = sideHeadY + sideDiffPoint
+        switch controller.type {
+        case .calibration:
+            if calibrationSelectControl.selectedSegmentIndex == 1 {
+                if isFront {
+                    sizeVc.frontCentimeterPerPoint = bodyHeight / controller.length()
+                } else {
+                    sizeVc.sideCentimeterPerPoint = bodyHeight / controller.length()
+                }
+            }
+        case .chest:
+            if isFront, let y = controller.y() {
+                let headFront = frontPointPairs.filter { $0.type == .calibration }.first!
+                let headY = headFront.pointViews[0].frame.origin.y
+                let diffY = y - headY
+                let centimeter = sizeVc.frontCentimeterPerPoint * diffY
+                let sideDiffPoint = centimeter / sizeVc.sideCentimeterPerPoint
+                
+                let headSide = sidePointPairs.filter { $0.type == .calibration }.first!
+                let sideHeadY = headSide.pointViews[0].frame.origin.y
+                let type = controller.type
+                sidePointPairs.forEach {
+                    if type == $0.type {
+                        $0.pointViews.forEach {
+                            $0.frame.origin.y = sideHeadY + sideDiffPoint
+                        }
+                        return
                     }
-                    return
                 }
             }
         }
@@ -185,8 +195,6 @@ class MeasureViewController: UIViewController, MeasurePointPairDelegate {
         isFront = true
         frontPointPairs.forEach { $0.pointViews.forEach { $0.isHidden = false } }
         sidePointPairs.forEach { $0.pointViews.forEach { $0.isHidden = true } }
-        headPoint.frontHeadPointView.isHidden = false
-        headPoint.sideHeadPointView.isHidden = true
     }
     
     @IBAction func pushShowSideImage(_ sender: Any) {
@@ -194,8 +202,6 @@ class MeasureViewController: UIViewController, MeasurePointPairDelegate {
         isFront = false
         frontPointPairs.forEach { $0.pointViews.forEach { $0.isHidden = true } }
         sidePointPairs.forEach { $0.pointViews.forEach { $0.isHidden = false } }
-        headPoint.frontHeadPointView.isHidden = true
-        headPoint.sideHeadPointView.isHidden = false
     }
     
     @IBAction func pushShowSize(_ sender: Any) {
@@ -204,5 +210,19 @@ class MeasureViewController: UIViewController, MeasurePointPairDelegate {
         if !sizeVcContainer.isHidden {
             sizeVc.update()
         }
+    }
+    
+    @IBAction func pushBodyHeight(_ sender: Any) {
+        let alert = UIAlertController(title: "身長", message: "入力してください", preferredStyle: .alert)
+        alert.addAction(UIAlertAction.init(title: "キャンセル", style: .cancel, handler: nil))
+        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { (action) in
+            if let field = alert.textFields?.first {
+                if let height = Float(field.text ?? "") {
+                    self.bodyHeight = CGFloat(height)
+                }
+            }
+        }))
+        alert.addTextField(configurationHandler: nil)
+        present(alert, animated: true, completion: nil)
     }
 }
