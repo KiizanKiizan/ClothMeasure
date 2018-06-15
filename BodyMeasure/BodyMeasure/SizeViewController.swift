@@ -38,8 +38,8 @@ class SizeViewController: UIViewController {
         }
         
         let coef = (frontCentimeterPerPoint / sideCentimeterPerPoint)
-        let frontPositions = front.pointViews.map { CGPoint(x: $0.frame.origin.x * coef, y: $0.frame.origin.y * coef) }
-        let sidePositions = side.pointViews.map { CGPoint(x: $0.frame.origin.x, y: $0.frame.origin.y) }
+        let frontPositions = front.pointViews.map { CGPoint(x: $0.center.x * coef, y: $0.center.y * coef) }
+        let sidePositions = side.pointViews.map { CGPoint(x: $0.center.x, y: $0.center.y) }
         let frontLength = frontPositions[1].x - frontPositions[0].x
         let sideTopToCenterLength = sidePositions[1].x - sidePositions[0].x
         let sideTopToBottomLength = sidePositions[2].x - sidePositions[0].x

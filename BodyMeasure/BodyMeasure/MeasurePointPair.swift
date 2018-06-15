@@ -65,8 +65,8 @@ class MeasurePointPair: MeasurePointViewDelegate {
     func length() -> CGFloat {
         var length: CGFloat = 0.0
         for i in 0..<pointViews.count - 1 {
-            let pos1 = pointViews[i].frame.origin
-            let pos2 = pointViews[i + 1].frame.origin
+            let pos1 = pointViews[i].center
+            let pos2 = pointViews[i + 1].center
             let diffX = Float(pos1.x) - Float(pos2.x)
             let diffY = Float(pos1.y) - Float(pos2.y)
             length += CGFloat(sqrtf(diffX * diffX + diffY * diffY))
