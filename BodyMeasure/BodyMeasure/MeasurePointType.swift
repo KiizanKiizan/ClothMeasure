@@ -12,6 +12,7 @@ import UIKit
 enum MeasurePointType {
     case calibration
     case chest
+    case height
     
     func color() -> UIColor {
         switch self {
@@ -19,6 +20,8 @@ enum MeasurePointType {
             return UIColor.blue
         case .chest:
             return UIColor.red
+        case .height:
+            return UIColor.green
         }
     }
 }

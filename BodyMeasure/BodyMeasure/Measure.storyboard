@@ -41,6 +41,13 @@
                                     <constraint firstItem="X5m-lh-iAJ" firstAttribute="leading" secondItem="hiQ-c2-qIL" secondAttribute="leading" constant="23" id="rX1-Eh-lxC"/>
                                 </constraints>
                             </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a4N-0m-9DL">
+                                <rect key="frame" x="16" y="20" width="0.0" height="0.0"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Yva-Nz-RMK">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <connections>
@@ -131,11 +138,13 @@
                         <constraints>
                             <constraint firstItem="OM8-OZ-G1R" firstAttribute="centerX" secondItem="P2f-Bd-osf" secondAttribute="centerX" id="134-Ai-OyY"/>
                             <constraint firstItem="Yva-Nz-RMK" firstAttribute="top" secondItem="P2f-Bd-osf" secondAttribute="top" id="6MI-dJ-IPX"/>
+                            <constraint firstItem="a4N-0m-9DL" firstAttribute="top" secondItem="VTc-NM-mMi" secondAttribute="top" id="8eV-as-ewr"/>
                             <constraint firstItem="OM8-OZ-G1R" firstAttribute="bottom" secondItem="P2f-Bd-osf" secondAttribute="bottom" id="AIS-av-G5c"/>
                             <constraint firstItem="fBt-A9-3jP" firstAttribute="bottom" secondItem="VTc-NM-mMi" secondAttribute="bottom" constant="100" id="DJj-u2-Nyb"/>
                             <constraint firstItem="OM8-OZ-G1R" firstAttribute="top" secondItem="P2f-Bd-osf" secondAttribute="top" id="JYq-WY-Hyz"/>
                             <constraint firstItem="fBt-A9-3jP" firstAttribute="trailing" secondItem="VTc-NM-mMi" secondAttribute="trailing" id="LPF-dB-zAT"/>
                             <constraint firstItem="Yva-Nz-RMK" firstAttribute="trailing" secondItem="VTc-NM-mMi" secondAttribute="trailing" id="MRc-4O-dsN"/>
+                            <constraint firstItem="a4N-0m-9DL" firstAttribute="leading" secondItem="VTc-NM-mMi" secondAttribute="leading" constant="16" id="O2L-GV-G99"/>
                             <constraint firstItem="hiQ-c2-qIL" firstAttribute="trailing" secondItem="OM8-OZ-G1R" secondAttribute="trailing" id="hck-7G-6cL"/>
                             <constraint firstItem="hiQ-c2-qIL" firstAttribute="bottom" secondItem="OM8-OZ-G1R" secondAttribute="bottom" id="k36-pJ-ce9"/>
                             <constraint firstItem="hiQ-c2-qIL" firstAttribute="leading" secondItem="OM8-OZ-G1R" secondAttribute="leading" id="mGt-lF-acn"/>
@@ -148,6 +157,7 @@
                     </view>
                     <connections>
                         <outlet property="calibrationSelectControl" destination="2Qb-Rk-Tvx" id="og8-ua-4Vu"/>
+                        <outlet property="heightLabel" destination="a4N-0m-9DL" id="XxO-nz-MR0"/>
                         <outlet property="imageView" destination="OM8-OZ-G1R" id="uoL-7q-JNk"/>
                         <outlet property="leftZoomView" destination="X5m-lh-iAJ" id="vxU-L2-jKf"/>
                         <outlet property="menuBottomConstraint" destination="DJj-u2-Nyb" id="Mmz-Me-42t"/>

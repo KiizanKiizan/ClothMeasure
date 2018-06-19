@@ -17,6 +17,7 @@ class MeasureViewController: UIViewController, MeasurePointPairDelegate {
     @IBOutlet weak var leftZoomView: MeasureZoomView!
     @IBOutlet weak var calibrationSelectControl: UISegmentedControl!
     @IBOutlet weak var sizeVcContainer: UIView!
+    @IBOutlet weak var heightLabel: UILabel!
     
     private var sizeVc: SizeViewController!
     
@@ -50,6 +51,7 @@ class MeasureViewController: UIViewController, MeasurePointPairDelegate {
         
         frontPointPairs.append(MeasurePointPair(type: .calibration, points: [CGPoint(x: 100.0, y: 100.0), CGPoint(x: 200.0, y: 100.0)], isFixY: false))
         frontPointPairs.append(MeasurePointPair(type: .chest, points: [CGPoint(x: 100.0, y: 300.0), CGPoint(x: 200.0, y: 300.0)], isFixY: false))
+        frontPointPairs.append(MeasurePointPair(type: .height, points: [CGPoint(x: 200.0, y: 50.0), CGPoint(x: 300.0, y: 50.0)], isFixY: false))
         frontPointPairs.forEach {
             $0.delegate = self
             $0.pointViews.forEach {
@@ -61,6 +63,7 @@ class MeasureViewController: UIViewController, MeasurePointPairDelegate {
         
         sidePointPairs.append(MeasurePointPair(type: .calibration, points: [CGPoint(x: 100.0, y: 100.0), CGPoint(x: 200.0, y: 100.0)], isFixY: false))
         sidePointPairs.append(MeasurePointPair(type: .chest, points: [CGPoint(x: 100.0, y: 300.0), CGPoint(x: 200.0, y: 300.0), CGPoint(x: 300.0, y: 300.0)], isFixY: true))
+        sidePointPairs.append(MeasurePointPair(type: .height, points: [CGPoint(x: 200.0, y: 50.0), CGPoint(x: 300.0, y: 50.0)], isFixY: false))
         sidePointPairs.forEach {
             $0.delegate = self
             $0.pointViews.forEach {
@@ -182,6 +185,13 @@ class MeasureViewController: UIViewController, MeasurePointPairDelegate {
                         return
                     }
                 }
+            }
+        case .height:
+            let format = "%.1f cm"
+            if isFront {
+                heightLabel.text = String(format: format, controller.length() * sizeVc.frontCentimeterPerPoint)
+            } else {
+                heightLabel.text = String(format: format, controller.length() * sizeVc.sideCentimeterPerPoint)
             }
         }
     }
