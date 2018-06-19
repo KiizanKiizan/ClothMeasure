@@ -84,6 +84,20 @@ class CameraViewController: UIViewController, AVCapturePhotoCaptureDelegate {
         }
     }
     
+    private func exec_capture() {
+        if imageData == nil || imageData?.sideImage != nil {
+            imageData = ImageData()
+            imageData?.save()
+        }
+        capture { (data) in
+            if self.imageData!.frontImage == nil {
+                self.imageData!.frontImage = data
+            } else if self.imageData!.sideImage == nil {
+                self.imageData!.sideImage = data
+            }
+        }
+    }
+    
     func photoOutput(_ output: AVCapturePhotoOutput, didFinishProcessingPhoto photo: AVCapturePhoto, error: Error?) {
         completion?(photo.fileDataRepresentation())
         completion = nil
@@ -103,16 +117,12 @@ class CameraViewController: UIViewController, AVCapturePhotoCaptureDelegate {
     }
     
     @IBAction func pushCaptureButton(_ sender: Any) {
-        if imageData == nil || imageData?.sideImage != nil {
-            imageData = ImageData()
-            imageData?.save()
-        }
-        capture { (data) in
-            if self.imageData!.frontImage == nil {
-               self.imageData!.frontImage = data
-            } else if self.imageData!.sideImage == nil {
-                self.imageData!.sideImage = data
-            }
+        exec_capture()
+    }
+    
+    @IBAction func pushTimerButton(_ sender: Any) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(8)) {
+            self.exec_capture()
         }
     }
 }

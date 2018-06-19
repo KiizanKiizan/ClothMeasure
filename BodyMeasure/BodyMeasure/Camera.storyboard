@@ -38,8 +38,19 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kbm-CI-YGb">
+                                <rect key="frame" x="216.5" y="499" width="62" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="iXL-Q1-SM0"/>
+                                    <constraint firstAttribute="width" constant="62" id="o7Z-Nt-c95"/>
+                                </constraints>
+                                <state key="normal" title="タイマー"/>
+                                <connections>
+                                    <action selector="pushTimerButton:" destination="b3g-7U-rfx" eventType="touchUpInside" id="f6a-gi-HCf"/>
+                                </connections>
+                            </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mtT-eM-gxK">
-                                <rect key="frame" x="165" y="499" width="44" height="44"/>
+                                <rect key="frame" x="105.5" y="499" width="44" height="44"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="44" id="583-tD-1WX"/>
                                     <constraint firstAttribute="height" constant="44" id="SnQ-ut-Nat"/>
@@ -53,11 +64,13 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="R67-jD-c9r" firstAttribute="top" secondItem="u6U-pG-dd9" secondAttribute="top" id="A2a-ub-CiH"/>
+                            <constraint firstItem="kbm-CI-YGb" firstAttribute="bottom" secondItem="mtT-eM-gxK" secondAttribute="bottom" id="ARo-ey-wcs"/>
                             <constraint firstItem="u6U-pG-dd9" firstAttribute="bottom" secondItem="mtT-eM-gxK" secondAttribute="bottom" constant="60" id="AxT-Xr-NP9"/>
                             <constraint firstItem="R67-jD-c9r" firstAttribute="leading" secondItem="u6U-pG-dd9" secondAttribute="leading" id="Da1-Rh-mCp"/>
-                            <constraint firstItem="mtT-eM-gxK" firstAttribute="centerX" secondItem="5gx-z4-GcJ" secondAttribute="centerX" id="MLF-7j-Fwq"/>
+                            <constraint firstItem="mtT-eM-gxK" firstAttribute="centerX" secondItem="5gx-z4-GcJ" secondAttribute="centerX" constant="-60" id="MLF-7j-Fwq"/>
                             <constraint firstItem="R67-jD-c9r" firstAttribute="bottom" secondItem="u6U-pG-dd9" secondAttribute="bottom" id="aFN-kf-NOh"/>
                             <constraint firstItem="R67-jD-c9r" firstAttribute="trailing" secondItem="u6U-pG-dd9" secondAttribute="trailing" id="bAR-HE-Ha4"/>
+                            <constraint firstItem="kbm-CI-YGb" firstAttribute="centerX" secondItem="5gx-z4-GcJ" secondAttribute="centerX" constant="60" id="eMR-St-Jgf"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="u6U-pG-dd9"/>
                     </view>
