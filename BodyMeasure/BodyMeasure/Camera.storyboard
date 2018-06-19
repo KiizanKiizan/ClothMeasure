@@ -38,6 +38,13 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CKD-Wo-jfg">
+                                <rect key="frame" x="187" y="20" width="0.0" height="0.0"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kbm-CI-YGb">
                                 <rect key="frame" x="216.5" y="499" width="62" height="44"/>
                                 <constraints>
@@ -63,6 +70,8 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="CKD-Wo-jfg" firstAttribute="centerX" secondItem="5gx-z4-GcJ" secondAttribute="centerX" id="7Sp-eB-oCC"/>
+                            <constraint firstItem="CKD-Wo-jfg" firstAttribute="top" secondItem="u6U-pG-dd9" secondAttribute="top" constant="20" id="8Fs-Di-iin"/>
                             <constraint firstItem="R67-jD-c9r" firstAttribute="top" secondItem="u6U-pG-dd9" secondAttribute="top" id="A2a-ub-CiH"/>
                             <constraint firstItem="kbm-CI-YGb" firstAttribute="bottom" secondItem="mtT-eM-gxK" secondAttribute="bottom" id="ARo-ey-wcs"/>
                             <constraint firstItem="u6U-pG-dd9" firstAttribute="bottom" secondItem="mtT-eM-gxK" secondAttribute="bottom" constant="60" id="AxT-Xr-NP9"/>
@@ -82,6 +91,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="pitchLabel" destination="CKD-Wo-jfg" id="tgX-ik-LOs"/>
                         <outlet property="preview" destination="R67-jD-c9r" id="I4c-Wc-LQF"/>
                     </connections>
                 </viewController>

@@ -8,9 +8,11 @@
 
 import UIKit
 import AVFoundation
+import CoreMotion
 
-class CameraViewController: UIViewController, AVCapturePhotoCaptureDelegate {
+class CameraViewController: UIViewController, AVCapturePhotoCaptureDelegate, MotionManagerDelegate {
     @IBOutlet weak var preview: UIView!
+    @IBOutlet weak var pitchLabel: UILabel!
     
     private let captureSession = AVCaptureSession()
     fileprivate var isSetup = false
@@ -19,6 +21,8 @@ class CameraViewController: UIViewController, AVCapturePhotoCaptureDelegate {
     fileprivate var completion: ((Data?) -> Void)?
     fileprivate var imageData: ImageData?
     
+    private let motionManager = MotionManager()
+    
     class func create() -> UINavigationController {
         return UIStoryboard(name: "Camera", bundle: nil).instantiateInitialViewController() as! UINavigationController
     }
@@ -26,19 +30,21 @@ class CameraViewController: UIViewController, AVCapturePhotoCaptureDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        motionManager.delegate = self
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
         captureSession.startRunning()
+        motionManager.start()
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         
         captureSession.stopRunning()
+        motionManager.stop()
     }
     
     override func viewDidLayoutSubviews() {
@@ -101,6 +107,16 @@ class CameraViewController: UIViewController, AVCapturePhotoCaptureDelegate {
     func photoOutput(_ output: AVCapturePhotoOutput, didFinishProcessingPhoto photo: AVCapturePhoto, error: Error?) {
         completion?(photo.fileDataRepresentation())
         completion = nil
+    }
+    
+    func motionManager(_ motionManager: MotionManager, attitude: CMAttitude) {
+        let pitchAngle = attitude.pitch * 180.0 / .pi
+        pitchLabel.text = String(format: "%.1f", pitchAngle)
+        if pitchAngle < 83.0 {
+            pitchLabel.textColor = UIColor.red
+        } else {
+            pitchLabel.textColor = UIColor.blue
+        }
     }
 
     @IBAction func pushCancelButton(_ sender: Any) {

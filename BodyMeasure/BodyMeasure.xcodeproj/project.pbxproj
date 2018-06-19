@@ -13,6 +13,7 @@
 		FB425BDD20C8263700B85E1C /* MeasurePointView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB425BDC20C8263700B85E1C /* MeasurePointView.swift */; };
 		FB425BDF20C82AEC00B85E1C /* MeasurePointPair.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB425BDE20C82AEC00B85E1C /* MeasurePointPair.swift */; };
 		FB425BE120C82C0600B85E1C /* MeasurePointType.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB425BE020C82C0600B85E1C /* MeasurePointType.swift */; };
+		FB4FD6B720D94BC200DA6FE0 /* MotionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB4FD6B620D94BC200DA6FE0 /* MotionManager.swift */; };
 		FB6B845820D299A800B7E7ED /* Size.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FB6B845720D299A800B7E7ED /* Size.storyboard */; };
 		FB6B845A20D299B600B7E7ED /* SizeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB6B845920D299B600B7E7ED /* SizeViewController.swift */; };
 		FB6B846020D2B0AA00B7E7ED /* UIBezierPath+Superpowers.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB6B845F20D2B0AA00B7E7ED /* UIBezierPath+Superpowers.swift */; };
@@ -41,6 +42,7 @@
 		FB425BDC20C8263700B85E1C /* MeasurePointView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeasurePointView.swift; sourceTree = "<group>"; };
 		FB425BDE20C82AEC00B85E1C /* MeasurePointPair.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeasurePointPair.swift; sourceTree = "<group>"; };
 		FB425BE020C82C0600B85E1C /* MeasurePointType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeasurePointType.swift; sourceTree = "<group>"; };
+		FB4FD6B620D94BC200DA6FE0 /* MotionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MotionManager.swift; sourceTree = "<group>"; };
 		FB6B845720D299A800B7E7ED /* Size.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Size.storyboard; sourceTree = "<group>"; };
 		FB6B845920D299B600B7E7ED /* SizeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SizeViewController.swift; sourceTree = "<group>"; };
 		FB6B845F20D2B0AA00B7E7ED /* UIBezierPath+Superpowers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIBezierPath+Superpowers.swift"; sourceTree = "<group>"; };
@@ -130,6 +132,7 @@
 				FB6B845720D299A800B7E7ED /* Size.storyboard */,
 				FB6B845920D299B600B7E7ED /* SizeViewController.swift */,
 				FB6B845F20D2B0AA00B7E7ED /* UIBezierPath+Superpowers.swift */,
+				FB4FD6B620D94BC200DA6FE0 /* MotionManager.swift */,
 			);
 			path = BodyMeasure;
 			sourceTree = "<group>";
@@ -210,7 +213,7 @@
 /* Begin PBXShellScriptBuildPhase section */
 		FB6BCC5220C586B1002FB080 /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 12;
+			buildActionMask = 8;
 			files = (
 			);
 			inputPaths = (
@@ -219,7 +222,7 @@
 			);
 			outputPaths = (
 			);
-			runOnlyForDeploymentPostprocessing = 0;
+			runOnlyForDeploymentPostprocessing = 1;
 			shellPath = /bin/sh;
 			shellScript = "/usr/local/bin/carthage copy-frameworks";
 		};
@@ -231,6 +234,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FB425BDF20C82AEC00B85E1C /* MeasurePointPair.swift in Sources */,
+				FB4FD6B720D94BC200DA6FE0 /* MotionManager.swift in Sources */,
 				FB6B845A20D299B600B7E7ED /* SizeViewController.swift in Sources */,
 				FB425BE120C82C0600B85E1C /* MeasurePointType.swift in Sources */,
 				FB425BDD20C8263700B85E1C /* MeasurePointView.swift in Sources */,
