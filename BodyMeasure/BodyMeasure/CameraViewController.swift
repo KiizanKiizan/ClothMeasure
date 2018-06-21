@@ -10,9 +10,10 @@ import UIKit
 import AVFoundation
 import CoreMotion
 
-class CameraViewController: UIViewController, AVCapturePhotoCaptureDelegate, MotionManagerDelegate {
+class CameraViewController: UIViewController, AVCapturePhotoCaptureDelegate, MotionManagerDelegate, AVCaptureVideoDataOutputSampleBufferDelegate {
     @IBOutlet weak var preview: UIView!
     @IBOutlet weak var pitchLabel: UILabel!
+    @IBOutlet weak var faceLectView: UIView!
     
     private let captureSession = AVCaptureSession()
     fileprivate var isSetup = false
@@ -20,6 +21,9 @@ class CameraViewController: UIViewController, AVCapturePhotoCaptureDelegate, Mot
     fileprivate let imageOutput = AVCapturePhotoOutput()
     fileprivate var completion: ((Data?) -> Void)?
     fileprivate var imageData: ImageData?
+    
+    fileprivate let detectFrameNum = 8
+    fileprivate var currentFrameCount = 0
     
     private let motionManager = MotionManager()
     
@@ -73,7 +77,10 @@ class CameraViewController: UIViewController, AVCapturePhotoCaptureDelegate, Mot
             let captureDevice = AVCaptureDevice.default(for: .video)!
             
             let captureInput = try AVCaptureDeviceInput(device: captureDevice)
-            let captureOutput = AVCaptureMetadataOutput()
+            let captureOutput = AVCaptureVideoDataOutput()
+            let dctPixelFormatType  = [kCVPixelBufferPixelFormatTypeKey : kCVPixelFormatType_32BGRA]
+            captureOutput.videoSettings = dctPixelFormatType as [String : Any]
+            captureOutput.setSampleBufferDelegate(self, queue: DispatchQueue.global())
             
             imageOutput.isHighResolutionCaptureEnabled = true
             captureSession.addInput(captureInput)
@@ -116,6 +123,65 @@ class CameraViewController: UIViewController, AVCapturePhotoCaptureDelegate, Mot
             pitchLabel.textColor = UIColor.red
         } else {
             pitchLabel.textColor = UIColor.blue
+        }
+    }
+    
+    func imageFromSampleBuffer(sampleBuffer: CMSampleBuffer) -> UIImage {
+        //バッファーをUIImageに変換
+        let imageBuffer = CMSampleBufferGetImageBuffer(sampleBuffer)!
+        CVPixelBufferLockBaseAddress(imageBuffer, CVPixelBufferLockFlags(rawValue: 0))
+        let baseAddress = CVPixelBufferGetBaseAddressOfPlane(imageBuffer, 0)
+        let bytesPerRow = CVPixelBufferGetBytesPerRow(imageBuffer)
+        let width = CVPixelBufferGetWidth(imageBuffer)
+        let height = CVPixelBufferGetHeight(imageBuffer)
+        
+        let colorSpace = CGColorSpaceCreateDeviceRGB()
+        let bitmapInfo = (CGBitmapInfo.byteOrder32Little.rawValue | CGImageAlphaInfo.premultipliedFirst.rawValue)
+        let context = CGContext(data: baseAddress, width: width, height: height, bitsPerComponent: 8, bytesPerRow: bytesPerRow, space: colorSpace, bitmapInfo: bitmapInfo)
+        let imageRef = context!.makeImage()
+        
+        CVPixelBufferUnlockBaseAddress(imageBuffer, CVPixelBufferLockFlags(rawValue: 0))
+        let resultImage = UIImage(cgImage: imageRef!)
+        return resultImage
+    }
+    
+    func captureOutput(_ output: AVCaptureOutput, didOutput sampleBuffer: CMSampleBuffer, from connection: AVCaptureConnection)
+    {
+        if (currentFrameCount + 1) % detectFrameNum != 0 {
+            currentFrameCount += 1
+            return
+        }
+        currentFrameCount = 0
+        
+        connection.videoOrientation = .portrait
+        
+        //バッファーをUIImageに変換
+        let image = self.imageFromSampleBuffer(sampleBuffer: sampleBuffer)
+        let ciimage = CIImage(image: image)!
+        
+        //CIDetectorAccuracyHighだと高精度（使った感じは遠距離による判定の精度）だが処理が遅くなる
+        let detector = CIDetector(ofType: CIDetectorTypeFace, context: nil, options:[CIDetectorAccuracy: CIDetectorAccuracyHigh] )!
+        let faces = detector.features(in: ciimage)
+        
+        DispatchQueue.main.async {
+            if let feature = faces.first {
+                // 座標変換
+                var faceRect = feature.bounds
+                let widthPer = (self.preview.bounds.width / image.size.width)
+                let heightPer = (self.preview.bounds.height / image.size.height)
+                
+                // UIKitは左上に原点があるが、CoreImageは左下に原点があるので揃える
+                faceRect.origin.y = image.size.height - faceRect.origin.y - faceRect.size.height
+                
+                //倍率変換
+                faceRect.origin.x = faceRect.origin.x * widthPer
+                faceRect.origin.y = faceRect.origin.y * heightPer
+                faceRect.size.width = faceRect.size.width * widthPer
+                faceRect.size.height = faceRect.size.height * heightPer
+                self.faceLectView.frame = faceRect
+            } else {
+                self.faceLectView.frame = .zero
+            }
         }
     }
 

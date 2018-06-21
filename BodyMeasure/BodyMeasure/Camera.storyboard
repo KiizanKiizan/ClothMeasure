@@ -45,6 +45,10 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="eUC-JW-mrE">
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="0.29999999999999999" colorSpace="calibratedRGB"/>
+                            </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kbm-CI-YGb">
                                 <rect key="frame" x="216.5" y="499" width="62" height="44"/>
                                 <constraints>
@@ -91,6 +95,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="faceLectView" destination="eUC-JW-mrE" id="PjR-fo-hli"/>
                         <outlet property="pitchLabel" destination="CKD-Wo-jfg" id="tgX-ik-LOs"/>
                         <outlet property="preview" destination="R67-jD-c9r" id="I4c-Wc-LQF"/>
                     </connections>
